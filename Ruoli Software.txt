@@ -1,0 +1,12 @@
+Architettura:
+
+Client-Server
+
+Client è suddiviso in:
+
+	interfacce grafiche<->controller<->entità<->DBMS
+----------------------------------------------------------
+
+
+Casi d'uso:
+
