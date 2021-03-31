@@ -7,6 +7,27 @@ Client è suddiviso in:
 	interfacce grafiche<->controller<->entità<->DBMS
 ----------------------------------------------------------
 
-
 Casi d'uso:
+[Tutti gli ordini al singolare, quindi ordine]
+[Verbi al presente, non infinito]
+
+Utente:
+Visulizza Ristoranti D
+Effettua ordine D
+
+Ristorante:
+Visulizza rider S
+Invia menu S
+Invia richiesta rider S
+ 
+Rider:
+Conferma ordine S
+
+---
+
+Server (Non è un attore):
+Collegarsi al DB X
+Inoltra ordine D
+Notifica D
+
 
