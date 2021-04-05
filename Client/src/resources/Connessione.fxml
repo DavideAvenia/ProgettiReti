@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="190.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ConnessioneView">
+   <children>
+      <Pane layoutX="4.0" layoutY="14.0" prefHeight="172.0" prefWidth="300.0">
+         <children>
+            <Label layoutX="77.0" layoutY="28.0" text="Inserisci il tuo id cliente">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="apriConnessione" layoutX="102.0" layoutY="125.0" mnemonicParsing="false" text="Effettua il login" />
+            <TextField fx:id="textFieldIdCliente" layoutX="76.0" layoutY="55.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -69,6 +69,15 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -100,7 +109,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Studio/Parthenope Studio/Prog3/IngSw/Repository Git/INGSW1920_15/Applicazione_Desktop" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
@@ -226,30 +235,30 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1617118212461">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1617640667074">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1617118212461" />
-    <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1617119260847">
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1617640667074" />
+    <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1617641721579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617119260847" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1617119133626">
+    <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617641721579" />
+    <state width="1877" height="153" key="GridCell.Tab.0.bottom" timestamp="1617642335192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617119133626" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1617119133626">
+    <state width="1877" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617642335192" />
+    <state width="1877" height="153" key="GridCell.Tab.0.center" timestamp="1617642335192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617119133626" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1617119133626">
+    <state width="1877" height="153" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617642335192" />
+    <state width="1877" height="153" key="GridCell.Tab.0.left" timestamp="1617642335192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617119133626" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1617119133626">
+    <state width="1877" height="153" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617642335192" />
+    <state width="1877" height="153" key="GridCell.Tab.0.right" timestamp="1617642335192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617119133626" />
+    <state width="1877" height="153" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617642335192" />
     <state x="348" y="123" key="SettingsEditor" timestamp="1617118054657">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
