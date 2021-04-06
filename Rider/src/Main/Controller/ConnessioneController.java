@@ -2,7 +2,9 @@ package Controller;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class ConnessioneController {
     private String ip = "localhost";

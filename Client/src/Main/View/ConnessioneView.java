@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ConnessioneController;
+import Controller.VisualizzaRistorantiController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -37,7 +38,11 @@ public class ConnessioneView extends Application {
             Node node = (Node) actionEvent.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
+            VisualizzaRistorantiController visualizzaRistorantiController = VisualizzaRistorantiController.getInstanza();
+            visualizzaRistorantiController.mostra();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
