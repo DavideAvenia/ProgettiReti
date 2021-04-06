@@ -1,9 +1,8 @@
 package View;
 
 import Controller.ConnessioneController;
-import Controller.VisualizzaRistorantiController;
+import Controller.VisualizzaRistoranteController;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -34,11 +33,18 @@ public class ConnessioneView extends Application {
     public void apriConnessione(javafx.event.ActionEvent actionEvent) {
         try {
             ConnessioneController connessioneController = ConnessioneController.getInstanza();
-            System.out.println("L'ho cliccato");
+
+            //String id = textFieldIdCliente.getText();
+            //Chiamo il metodo per vedere se l'id è presente
+            //Il server andrà a dare o true o false in caso di presenza del'id
+            //Se non c'è, messaggio di errore, altrimenti va avanti
+
+            //Chiude la finestra
             Node node = (Node) actionEvent.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
-            VisualizzaRistorantiController visualizzaRistorantiController = VisualizzaRistorantiController.getInstanza();
+
+            VisualizzaRistoranteController visualizzaRistorantiController = VisualizzaRistoranteController.getInstanza();
             visualizzaRistorantiController.mostra();
         } catch (IOException e) {
             e.printStackTrace();
