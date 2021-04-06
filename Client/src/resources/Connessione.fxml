@@ -13,7 +13,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="apriConnessione" layoutX="102.0" layoutY="125.0" mnemonicParsing="false" text="Effettua il login" />
+            <Button fx:id="apriConnessione" layoutX="102.0" layoutY="125.0" mnemonicParsing="false" onAction="#apriConnessione" text="Effettua il login" />
             <TextField fx:id="textFieldIdCliente" layoutX="76.0" layoutY="55.0" />
          </children>
       </Pane>

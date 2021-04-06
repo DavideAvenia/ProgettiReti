@@ -2,6 +2,7 @@ package View;
 
 import Controller.ConnessioneController;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,9 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class ConnessioneView extends Application {
@@ -32,8 +30,15 @@ public class ConnessioneView extends Application {
         primaryStage.show();
     }
 
-    public void apriConnessione(ActionEvent event) throws IOException {
-        //boolean islogged;
-        ConnessioneController connessioneController = ConnessioneController.getInstanza();
+    public void apriConnessione(javafx.event.ActionEvent actionEvent) {
+        try {
+            ConnessioneController connessioneController = ConnessioneController.getInstanza();
+            System.out.println("L'ho cliccato");
+            Node node = (Node) actionEvent.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

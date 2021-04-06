@@ -13,6 +13,18 @@ public class Ristorante {
         this.bevande = bevande;
     }
 
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public void setCibo(ArrayList<String> cibo){
+        this.cibo = cibo;
+    }
+
+    public void setBevande(ArrayList<String> bevande){
+        this.bevande = bevande;
+    }
+
     public ArrayList<String> getBevande() {
         return bevande;
     }

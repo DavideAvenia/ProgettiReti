@@ -5,14 +5,12 @@ import java.net.Socket;
 public class ConnessioneServer {
     private int port = 30000;
     private Socket socket;
+    private ServerSocket ss = null;
 
     private static ConnessioneServer instanza = null;
 
     private ConnessioneServer() throws IOException {
-        ServerSocket serverSocket = new ServerSocket(port);
-        Socket s = serverSocket.accept();
-
-        System.out.println("Connessione al server avvenuta");
+        ss = new ServerSocket(port);
     }
 
     public static ConnessioneServer getInstanza() throws IOException {
@@ -20,5 +18,13 @@ public class ConnessioneServer {
             instanza = new ConnessioneServer();
         }
         return instanza;
+    }
+
+    public boolean accettaConnessioni() throws IOException {
+        while (true) {
+            Socket s = ss.accept();
+
+            System.out.println("Connessione al server avvenuta");
+        }
     }
 }
