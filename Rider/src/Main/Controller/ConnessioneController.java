@@ -26,24 +26,11 @@ public class ConnessioneController {
         return instanza;
     }
 
-    public void inviaRichiesta() throws IOException{
+    public void accetta() throws IOException{
         for (Iterator<Integer> iter = clients.keySet().iterator(); iter.hasNext(); ) {
             int key = iter.next();
 
             Socket client = clients.get(key);
-
-// Sending the response back to the client.
-            try {
-                OutputStream os = client.getOutputStream();
-                OutputStreamWriter osw = new OutputStreamWriter(os);
-                BufferedWriter bw = new BufferedWriter(osw);
-
-
-                bw.write("Richiesta rider");
-                bw.flush();
-            } catch (IOException er) {
-                System.err.println("errore");
-            }
 
             InputStreamReader isr = new InputStreamReader(client.getInputStream());
             BufferedReader br = new BufferedReader(isr);
