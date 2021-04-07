@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ConnessioneController;
+import Controller.VisualizzaRiderController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +12,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginView extends Application {
-
+public class ConnessioneView extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginView.fxml"));
-        primaryStage.setTitle("LOGIN rider");
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ConnessioneView.fxml"));
+        primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+
+
     }
+
 
     public void AccediPremuto(ActionEvent actionEvent) {
         try {
@@ -35,7 +38,8 @@ public class LoginView extends Application {
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
 
-            //finestra attesa di ordine
+            VisualizzaRiderController visualizzaRistorantiController = VisualizzaRiderController.getInstanza();
+            visualizzaRistorantiController.mostra();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

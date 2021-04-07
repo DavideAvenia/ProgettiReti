@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ConnessioneView">
+   <children>
+      <Pane layoutX="183.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="TextFieldIdRider" layoutX="26.0" layoutY="88.0" />
+            <Label layoutX="71.0" layoutY="24.0" text="Inserisci ID" />
+            <Button fx:id="BottoneAccediRider" layoutX="74.0" layoutY="146.0" mnemonicParsing="false" onAction="#AccediPremuto" text="Accedi" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

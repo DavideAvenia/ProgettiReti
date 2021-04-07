@@ -3,7 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LoginView">
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="View.LoginView">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -14,7 +15,7 @@
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
             <Button fx:id="BottoneAccediRider" layoutX="74.0" layoutY="138.0" mnemonicParsing="false" onAction="#AccediPremuto" text="Accedi" />
-            <Label layoutX="56.0" layoutY="30.0" text="Inserisci ID Rider" />
+            <Label layoutX="71.0" layoutY="30.0" text="Inserisci ID" />
             <TextField fx:id="TextfieldAccessoRider" layoutX="26.0" layoutY="88.0" />
          </children>
       </Pane>

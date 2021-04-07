@@ -1,5 +1,8 @@
 package Controller;
 
+//rimozione rider dalla lista quando si scollegano
+
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -9,9 +12,9 @@ public class ConnessioneController {
     private int port = 30000;
     private Socket socket;
     private ServerSocket serversocket;
-    Socket client;
+    private Socket client;
 
-    private Map<Integer, Socket> clients = new HashMap<Integer, Socket>();
+    private ArrayList<String> idRider;
     private static ConnessioneController instanza = null;
 
     private ConnessioneController() throws IOException {
@@ -26,21 +29,29 @@ public class ConnessioneController {
         return instanza;
     }
 
-    public boolean accettaConnessioni() throws IOException {
+    public boolean accettaConnessioni(String id) {
 
+        try {
             Socket s = serversocket.accept();
-            clients.put(socket.getPort(), socket);
+
+            idRider.add(id);
 
             System.out.println("Connessione al server avvenuta");
+            return true;
+        }catch (IOException err){
+            System.err.println("errore");
+            return false;
+        }
+    }
 
+    public ArrayList<String> getRider(){
+        return idRider;
     }
 
     public void inviaRichiesta() throws IOException{
-        for (Iterator<Integer> iter = clients.keySet().iterator(); iter.hasNext(); ) {
-            int key = iter.next();
+        for ( String iter:idRider) {
 
-            client = clients.get(key);
-
+                client = new Socket(iter, port);
                 OutputStream os = client.getOutputStream();
                 OutputStreamWriter osw = new OutputStreamWriter(os);
                 BufferedWriter bw = new BufferedWriter(osw);
@@ -52,22 +63,5 @@ public class ConnessioneController {
 
     }
 
-    public void conferma() throws IOException{
-        InputStreamReader isr = new InputStreamReader(client.getInputStream());
-        BufferedReader br = new BufferedReader(isr);
-        String line;
-        while ((line = br.readLine()) != null) {
-            System.out.println(line);
-        }
-
-    }
-
-    public void v(){
-        for (Iterator<Integer> iter = clients.keySet().iterator(); iter.hasNext(); ) {
-            int key = iter.next();
-            System.out.println(clients.get(key));
-        }
-
-    }
 
 }

@@ -23,16 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845e8354-c086-4159-a7db-bf98a769a7ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Rider/.idea/libraries/lib1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ristorante/.idea/libraries/lib1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/VisualizzaRiderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/resources/ConnessioneView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/Rider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/Rider.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/resources/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/resources/LoginView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/Ristorante.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/Ristorante.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRiderView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/resources/VisualizzaRider.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/resources/VisualizzaRider.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
