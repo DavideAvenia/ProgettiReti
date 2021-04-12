@@ -4,10 +4,12 @@ import Controller.ConfermaOrdineController;
 import Controller.ConnessioneController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,7 +38,8 @@ public class LoginView extends Application {
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
 
-            //finestra attesa di ordine
+
+
             ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
             confermaOrdine.mostra();
 
@@ -46,4 +49,5 @@ public class LoginView extends Application {
             e.printStackTrace();
         }
     }
+
 }

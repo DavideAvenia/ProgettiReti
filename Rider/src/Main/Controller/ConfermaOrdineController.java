@@ -33,36 +33,25 @@ public class ConfermaOrdineController {
 
 
     @FXML
-    private ListView listOrdini;
+    private ListView<String> listOrdini;
+
     private Set<String> stringSet;
     ObservableList observableList = FXCollections.observableArrayList();
 
-    public void setListView() {
-
-        stringSet.add("String 1");
-        stringSet.add("String 2");
-        stringSet.add("String 3");
-        stringSet.add("String 4");
-        observableList.setAll(stringSet);
-        listOrdini.setItems(observableList);
-        listOrdini.setCellFactory(new Callback<ListView, ListCell>() {
-            @Override
-            public ListCell<String> call(ListView listOrdini) {
-                return null;
-            }
-        });
-    }
-        @FXML
-        void initialize() {
-        assert listOrdini != null : "fx:id=\"listOrdini\" was not injected: check your FXML file 'CustomList.fxml'.";
-
-        setListView();
+    public void setListOrdini() {
+        listOrdini.getItems().add("uno");
+        listOrdini.getItems().add("due");
+        listOrdini.getItems().add("tre");
     }
 
 
-    public void mostra() throws Exception{
+    public void mostra() throws Exception {
+        setListOrdini();
         ConfermaOrdine confermaordine = new ConfermaOrdine();
         confermaordine.start(new Stage());
-        initialize();
+
     }
 }
+
+
+
