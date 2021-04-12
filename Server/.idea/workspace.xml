@@ -23,18 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845e8354-c086-4159-a7db-bf98a769a7ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/VisualizzaRiderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ristorante/src/resources/ConnessioneView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/resources/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/resources/LoginView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRiderView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/src/resources/VisualizzaRider.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/resources/VisualizzaRider.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +61,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ristorante" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
@@ -108,35 +102,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1617205846204">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1617205846204" />
-    <state x="1106" y="261" key="FileChooserDialogImpl" timestamp="1617719016105">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1106" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617719016105" />
-    <state width="914" height="249" key="GridCell.Tab.0.bottom" timestamp="1617726222357">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="249" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617726222357" />
-    <state width="914" height="249" key="GridCell.Tab.0.center" timestamp="1617726222357">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="249" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617726222357" />
-    <state width="914" height="249" key="GridCell.Tab.0.left" timestamp="1617726222357">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="249" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617726222357" />
-    <state width="914" height="249" key="GridCell.Tab.0.right" timestamp="1617726222357">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="249" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617726222357" />
-    <state x="880" y="94" key="SettingsEditor" timestamp="1617208339940">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="880" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617208339940" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ConfermaOrdineController;
 import Controller.ConnessioneController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -36,6 +37,9 @@ public class LoginView extends Application {
             stage.close();
 
             //finestra attesa di ordine
+            ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
+            confermaOrdine.mostra();
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

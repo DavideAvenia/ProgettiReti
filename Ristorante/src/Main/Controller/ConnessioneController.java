@@ -1,8 +1,5 @@
 package Controller;
 
-//rimozione rider dalla lista quando si scollegano
-
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -50,15 +47,20 @@ public class ConnessioneController {
 
     public void inviaRichiesta() throws IOException{
         for ( String iter:idRider) {
-
+        //rimozione rider dalla lista quando non sono più collegati
                 client = new Socket(iter, port);
-                OutputStream os = client.getOutputStream();
-                OutputStreamWriter osw = new OutputStreamWriter(os);
-                BufferedWriter bw = new BufferedWriter(osw);
+                if(client.isConnected()){
+                    OutputStream os = client.getOutputStream();
+                    OutputStreamWriter osw = new OutputStreamWriter(os);
+                    BufferedWriter bw = new BufferedWriter(osw);
 
+                    bw.write("Richiesta rider");
+                    bw.flush();
+                } else {
+                    client.close();
+                    idRider.remove(iter);
+                }
 
-                bw.write("Richiesta rider");
-                bw.flush();
         }
 
     }

@@ -25,12 +25,5 @@ public class ConnessioneController {
         return instanza;
     }
 
-    public void conferma() throws IOException{
 
-        OutputStream os = socket.getOutputStream();
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
-
-
-    }
 }
