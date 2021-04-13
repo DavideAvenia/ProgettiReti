@@ -6,10 +6,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.util.Set;
 
@@ -33,23 +34,46 @@ public class ConfermaOrdineController {
 
 
     @FXML
-    private ListView<String> listOrdini;
+    private ListView<String> listOrdini = new ListView<String>();
 
     private Set<String> stringSet;
-    ObservableList observableList = FXCollections.observableArrayList();
 
     public void setListOrdini() {
-        listOrdini.getItems().add("uno");
-        listOrdini.getItems().add("due");
-        listOrdini.getItems().add("tre");
+        //observableList.add("uno");
+        //observableList.add("due");
+        //observableList.add("tre");
+        ObservableList observableList = FXCollections.observableArrayList("uno","due","tre");
+
+        listOrdini.setItems(observableList);
+
+
     }
 
 
     public void mostra() throws Exception {
-        setListOrdini();
+
         ConfermaOrdine confermaordine = new ConfermaOrdine();
         confermaordine.start(new Stage());
 
+
+    }
+
+    public void conferma() throws IOException{
+        OutputStream os = socket.getOutputStream();
+        OutputStreamWriter osw = new OutputStreamWriter(os);
+        BufferedWriter bw = new BufferedWriter(osw);
+
+        bw.write("conferma");
+        bw.flush();
+    }
+
+    public void annulla() throws IOException{
+        OutputStream os = socket.getOutputStream();
+        OutputStreamWriter osw = new OutputStreamWriter(os);
+        BufferedWriter bw = new BufferedWriter(osw);
+
+        bw.write("annulla");
+        bw.flush();
     }
 }
 

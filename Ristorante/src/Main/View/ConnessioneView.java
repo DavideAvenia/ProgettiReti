@@ -4,6 +4,7 @@ import Controller.ConnessioneController;
 import Controller.VisualizzaRiderController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -46,4 +47,6 @@ public class ConnessioneView extends Application {
             e.printStackTrace();
         }
     }
+
+
 }
