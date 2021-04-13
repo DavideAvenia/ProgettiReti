@@ -23,7 +23,6 @@ public class ConnessioneServer {
     public boolean accettaConnessioni() throws IOException {
         while (true) {
             Socket s = ss.accept();
-
             System.out.println("Connessione al server avvenuta");
         }
     }
