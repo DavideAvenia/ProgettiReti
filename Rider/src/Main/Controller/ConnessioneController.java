@@ -25,5 +25,25 @@ public class ConnessioneController {
         return instanza;
     }
 
+    public boolean checkRichiesta() throws IOException{
+        if(socket.isConnected()){
+            System.out.println("controllo richieste");
+            InputStream is = socket.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+            int stringa = br.read();
+            if(stringa==1){
+                return true;
+            } else return false;
+        } else {
+            System.out.println("non connesso");
+            return false;
+        }
+
+    }
+
+    public Socket getSocket(){
+        return socket;
+    }
 
 }

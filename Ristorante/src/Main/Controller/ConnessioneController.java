@@ -7,9 +7,8 @@ import java.net.*;
 import java.util.*;
 
 public class ConnessioneController {
-    private String ip = "localhost";
     private int port = 30000;
-    private Socket socket;
+    private Socket s;
     private ServerSocket serversocket;
     private Socket client;
 
@@ -30,14 +29,12 @@ public class ConnessioneController {
         return instanza;
     }
 
-    public boolean accettaConnessioni(String id) {
+    public boolean accettaConnessioni() {
 
         try {
-            Socket s = serversocket.accept();
-
-            idRider.add(id);
-
-            System.out.println("Connessione al server avvenuta");
+            s = serversocket.accept();
+            System.out.println("connesso");
+            //idRider.add(id);
             return true;
         }catch (IOException err){
             System.err.println("errore");
@@ -50,45 +47,45 @@ public class ConnessioneController {
     }
 
     public void inviaRichiesta() throws IOException{
-        for ( String r:idRider) {
+        //for ( String r:idRider) {
         //rimozione rider dalla lista quando non sono più collegati
-                client = new Socket(r, port);
-                if(client.isConnected()){
-                    OutputStream os = client.getOutputStream();
+
+                if(s.isConnected()){
+                    OutputStream os = s.getOutputStream();
                     OutputStreamWriter osw = new OutputStreamWriter(os);
                     BufferedWriter bw = new BufferedWriter(osw);
-
-                    bw.write("Richiesta rider");
+                    bw.write(1);
                     bw.flush();
-
-
+                    System.out.println("richiesta inviata");
 
                 } else {
                     client.close();
-                    idRider.remove(r);
+                    //idRider.remove(r);
                 }
 
-        }
+        //}
 
     }
 
     public void inviaIDOrdine() throws IOException{
-
-        String r = idRider.pollFirst();
-        client = new Socket(r, port);
-        InputStream is = client.getInputStream();
+        System.out.println("attendo risposta di conferma");
+     //   String r = idRider.pollFirst();
+     //   client = new Socket(r, port);
+        InputStream is = s.getInputStream();
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
-        String stringa = new String();
-        stringa = br.readLine();
+        int stringa = br.read();
 
-        if(stringa.equals("conferma")){
-            riderOccupati.add(r);
-            VisualizzaRiderView visualizzaRider = new VisualizzaRiderView();
-            visualizzaRider.cambiaLabel("arrivato");
+        System.out.println(stringa);
+        if(stringa==1){
+            //riderOccupati.add(r);
+           // VisualizzaRiderView visualizzaRider = new VisualizzaRiderView();
+           // visualizzaRider.cambiaLabel("arrivato");
+            System.out.println("ordine confermato");
 
-        } else if (stringa.equals("annulla")){
-            idRider.add(r);
+        } else if (stringa==0){
+            //idRider.add(r);
+            System.out.println("ordine annullato");
         }
     }
 

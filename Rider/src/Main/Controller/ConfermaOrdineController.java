@@ -20,50 +20,40 @@ public class ConfermaOrdineController {
     private Socket socket;
     private static ConfermaOrdineController instanza = null;
 
-    private ConfermaOrdineController() throws IOException {
-        socket = new Socket(ip, port);
+
+    private ConfermaOrdineController(Socket s) throws IOException {
+        socket = s;
 
     }
 
     public static ConfermaOrdineController getInstanza() throws IOException {
         if (instanza == null) {
-            instanza = new ConfermaOrdineController();
+            System.out.println("istanza non esiste");
+        }
+        return instanza;
+    }
+
+    public static ConfermaOrdineController getInstanza(Socket s) throws IOException {
+        if (instanza == null) {
+            instanza = new ConfermaOrdineController(s);
         }
         return instanza;
     }
 
 
-    @FXML
-    private ListView<String> listOrdini = new ListView<String>();
-
-    private Set<String> stringSet;
-
-    public void setListOrdini() {
-        //observableList.add("uno");
-        //observableList.add("due");
-        //observableList.add("tre");
-        ObservableList observableList = FXCollections.observableArrayList("uno","due","tre");
-
-        listOrdini.setItems(observableList);
-
-
-    }
-
-
     public void mostra() throws Exception {
-
         ConfermaOrdine confermaordine = new ConfermaOrdine();
         confermaordine.start(new Stage());
-
-
     }
 
+
     public void conferma() throws IOException{
+
         OutputStream os = socket.getOutputStream();
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
 
-        bw.write("conferma");
+        bw.write(1);
         bw.flush();
     }
 
@@ -72,7 +62,7 @@ public class ConfermaOrdineController {
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
 
-        bw.write("annulla");
+        bw.write(0);
         bw.flush();
     }
 }

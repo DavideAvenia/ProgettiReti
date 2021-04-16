@@ -35,12 +35,16 @@ public class ConnessioneView extends Application {
             //Se non c'è, messaggio di errore, altrimenti va avanti
 
             //Chiude la finestra
-            Node node = (Node) actionEvent.getSource();
+            /*Node node = (Node) actionEvent.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
-            stage.close();
+            stage.close();*/
 
-            VisualizzaRiderController visualizzaRistorantiController = VisualizzaRiderController.getInstanza();
-            visualizzaRistorantiController.mostra();
+            connessioneController.accettaConnessioni();
+            connessioneController.inviaRichiesta();
+            connessioneController.inviaIDOrdine();
+
+            /*VisualizzaRiderController visualizzaRistorantiController = VisualizzaRiderController.getInstanza();
+            visualizzaRistorantiController.mostra();*/
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

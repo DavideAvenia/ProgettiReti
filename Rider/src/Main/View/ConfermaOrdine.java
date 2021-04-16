@@ -25,6 +25,7 @@ public class ConfermaOrdine extends Application {
         try {
             ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
             confermaOrdine.conferma();
+            System.out.println("conferma premuto");
         }catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -36,6 +37,7 @@ public class ConfermaOrdine extends Application {
         try {
             ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
             confermaOrdine.annulla();
+            System.out.println("annulla premuto");
         }catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.Socket;
 
 public class LoginView extends Application {
 
@@ -34,14 +35,18 @@ public class LoginView extends Application {
             //Se non c'è, messaggio di errore, altrimenti va avanti
 
             //Chiude la finestra
+
             Node node = (Node) actionEvent.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
 
+            Socket s = connessioneController.getSocket();
+            if(connessioneController.checkRichiesta()) {
+                System.out.println("accetti l'ordine?");
+                ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s);
+                confermaOrdine.mostra();
 
-
-            ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
-            confermaOrdine.mostra();
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
