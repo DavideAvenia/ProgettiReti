@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.InetAddress;
 
 public class ConnessioneView extends Application {
 
@@ -32,8 +33,9 @@ public class ConnessioneView extends Application {
 
     public void apriConnessione(javafx.event.ActionEvent actionEvent) {
         try {
-            //ConnessioneController connessioneController = ConnessioneController.getInstanza();
+            ConnessioneController connessioneController = new ConnessioneController();
             String id = textFieldIdCliente.getText();
+
             //connessioneController.inviaIdCliente(id);
             //Chiamo il metodo per vedere se l'id è presente
             //Il server andrà a dare o true o false in caso di presenza del'id
