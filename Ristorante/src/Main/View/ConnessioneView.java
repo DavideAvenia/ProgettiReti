@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class ConnessioneView extends Application {
     @Override
@@ -25,9 +27,12 @@ public class ConnessioneView extends Application {
     }
 
 
-    public void AccediPremuto(ActionEvent actionEvent) {
+    public void AccediPremuto(ActionEvent actionEvent) throws IOException {
+
+        ServerSocket serverSocket = new ServerSocket(30000);
+        System.out.println("EchoMultiServer: started");
+        System.out.println("Server Socket: " + serverSocket);
         try {
-            ConnessioneController connessioneController = ConnessioneController.getInstanza();
 
             //String id = textFieldIdCliente.getText();
             //Chiamo il metodo per vedere se l'id è presente
@@ -35,22 +40,28 @@ public class ConnessioneView extends Application {
             //Se non c'è, messaggio di errore, altrimenti va avanti
 
             //Chiude la finestra
-            /*Node node = (Node) actionEvent.getSource();
+            Node node = (Node) actionEvent.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
-            stage.close();*/
-
-            connessioneController.accettaConnessioni();
-            connessioneController.inviaRichiesta();
-            connessioneController.inviaIDOrdine();
-
+            stage.close();
+            
             /*VisualizzaRiderController visualizzaRistorantiController = VisualizzaRiderController.getInstanza();
             visualizzaRistorantiController.mostra();*/
+
+            while (true) {// bloccante finchè non avviene una connessione:
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("Connection accepted: " + clientSocket);
+                try {
+                    new ConnessioneController(clientSocket);
+                } catch (IOException e) {
+                    clientSocket.close();
+                }
+            }
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Accept failed");
+            System.exit(1);
         }
+        System.out.println("EchoMultiServer: closing...");
+        serverSocket.close();
     }
-
-
 }
+
