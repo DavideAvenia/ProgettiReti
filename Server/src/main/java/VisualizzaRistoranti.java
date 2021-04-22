@@ -3,7 +3,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class VisualizzaRistoranti {
     public List<String> VisualizzaRistorantiQuery() throws SQLException {
         DatabaseConnection dbconn = new DatabaseConnection();

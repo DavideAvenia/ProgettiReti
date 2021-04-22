@@ -117,7 +117,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ristorante" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
@@ -242,5 +242,27 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1220" y="286" key="FileChooserDialogImpl" timestamp="1619086109544">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1220" y="286" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1619086109544" />
+    <state width="914" height="274" key="GridCell.Tab.0.bottom" timestamp="1619113030584">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619113030584" />
+    <state width="914" height="274" key="GridCell.Tab.0.center" timestamp="1619113030584">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619113030584" />
+    <state width="914" height="274" key="GridCell.Tab.0.left" timestamp="1619113030584">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619113030584" />
+    <state width="914" height="274" key="GridCell.Tab.0.right" timestamp="1619113030584">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619113030584" />
   </component>
 </project>
