@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Cliente;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -10,6 +12,7 @@ public class ConnessioneController {
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;
+    private ObjectInputStream ois;
     private InetAddress addr = InetAddress.getByName("localhost");
 
     public ConnessioneController() throws IOException {
@@ -25,6 +28,8 @@ public class ConnessioneController {
             OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
             out = new PrintWriter(new BufferedWriter(osw), true);
 
+            ois = new ObjectInputStream(socket.getInputStream());
+
         } catch(IOException e1) {
             // in seguito ad ogni fallimento la socket deve essere chiusa, altrimenti
             // verrà chiusa dal metodo run() del thread
@@ -39,5 +44,11 @@ public class ConnessioneController {
         //Qui deve inviare l'id al server tramite la socket
         out.println(idCliente);
         return true;
+    }
+
+    public Cliente prendiOggettoCliente() throws IOException, ClassNotFoundException {
+        //Da controllare questa
+        Cliente c = (Cliente)ois.readObject();
+        return c;
     }
 }

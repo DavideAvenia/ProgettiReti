@@ -2,6 +2,7 @@ package View;
 
 import Controller.ConnessioneController;
 import Controller.VisualizzaRistoranteController;
+import Model.Cliente;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,14 +34,15 @@ public class ConnessioneView extends Application {
 
     public void apriConnessione(javafx.event.ActionEvent actionEvent) {
         try {
+            //Chiamo il metodo per vedere se l'id è presente
+            //Il server andrà a dare o true o false in caso di presenza del'id
+            //Se non c'è, messaggio di errore al lato del server, altrimenti va avanti
+
             String id = textFieldIdCliente.getText();
             ConnessioneController connessioneController = new ConnessioneController();
             connessioneController.inviaIdCliente(id);
+            Cliente c = connessioneController.prendiOggettoCliente();
 
-
-            //Chiamo il metodo per vedere se l'id è presente
-            //Il server andrà a dare o true o false in caso di presenza del'id
-            //Se non c'è, messaggio di errore, altrimenti va avanti
 
             //Chiude la finestra
             Node node = (Node) actionEvent.getSource();

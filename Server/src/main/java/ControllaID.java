@@ -2,19 +2,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ControllaID {
-    public boolean controllaIDQuery(String id) throws SQLException {
+    public Cliente controllaIDQuery(String id) throws SQLException {
         DatabaseConnection dbconn = new DatabaseConnection();
-        String query = "SELECT * FROM `cliente` WHERE `IDCliente` =  ";
+        String query = "SELECT * FROM `cliente` WHERE `IDCliente` =  \"" + id + "\" ";
 
         ResultSet rs = dbconn.eseguiQuery(query);
-        rs.wasNull()
-
-        while(rs.next()){
-            String nome = rs.getString("IDCliente");
-            L1.add(nome);
+        if (rs.next() == false) {
+            System.out.println("Non ci sono id compatibili");
+            return null;
+        } else {
+            //Prende la prima riga e crea il cliente
+            String idc = rs.getString("IDCliente");
+            String nome = rs.getString("NomeCliente");
+            String cognome = rs.getString("CognomeCliente");
+            Cliente c = new Cliente(idc, nome, cognome);
+            return c;
         }
-
-        System.out.println(L1);
-        return L1;
     }
 }

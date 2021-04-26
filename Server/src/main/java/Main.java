@@ -23,10 +23,16 @@ public class Main {
                     String str = bf.readLine();
 
                     ControllaID check = new ControllaID();
-                    Boolean b = check.controllaIDQuery(str);
+                    Cliente c = check.controllaIDQuery(str);
 
                     PrintWriter pr = new PrintWriter(clientSocket.getOutputStream());
-                    pr.println(b.toString());
+                    if(c == null) {
+                        pr.println("Non ci sono clienti con questo ID");
+                    }else{
+                        ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
+                        //Manda l'oggetto cliente creato
+                        oos.writeObject(c);
+                    }
                 } catch(IOException e) {
                     clientSocket.close();
                 } catch (SQLException throwables) {
