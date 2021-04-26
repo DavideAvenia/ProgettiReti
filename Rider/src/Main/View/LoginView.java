@@ -10,12 +10,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.Socket;
 
+
 public class LoginView extends Application {
+
+    @FXML
+    private TextField TextfieldAccessoRider;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -27,9 +32,10 @@ public class LoginView extends Application {
 
     public void AccediPremuto(ActionEvent actionEvent) {
         try {
-            ConnessioneController connessioneController = ConnessioneController.getInstanza();
 
-            //String id = textFieldIdCliente.getText();
+            String id = TextfieldAccessoRider.getText();
+            ConnessioneController connessioneController = new ConnessioneController();
+
             //Chiamo il metodo per vedere se l'id è presente
             //Il server andrà a dare o true o false in caso di presenza del'id
             //Se non c'è, messaggio di errore, altrimenti va avanti

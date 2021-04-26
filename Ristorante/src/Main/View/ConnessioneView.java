@@ -19,7 +19,7 @@ public class ConnessioneView extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ConnessioneView.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("LOGIN");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 

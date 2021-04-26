@@ -23,8 +23,8 @@ public class ConnessioneController extends Thread{
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
         out = new PrintWriter(new BufferedWriter(osw), true);
-        start();
-        System.out.println("ServerThread "+id+": started");
+        System.out.println("ServerThread " + id + ": started");
+        run();
     }
 
    /* private ConnessioneController() throws IOException {
@@ -41,11 +41,11 @@ public class ConnessioneController extends Thread{
 */
    public void run() {
        try {
-           while (true) {
-               String str = in.readLine();
-               if (str.equals("END")) break;
-               System.out.println("ServerThread "+id+": echoing -> " + str);
-               out.println(str);
+
+               //String str = in.readLine();
+               //if (str.equals("END")) break;
+               System.out.println("ServerThread "+id+": echoing -> ");
+               //out.println(str);
 
                //INVIO RICHIESTA AL RIDER
                if(socket.isConnected()){
@@ -54,28 +54,24 @@ public class ConnessioneController extends Thread{
                    System.out.println("richiesta inviata");
 
                    System.out.println("attendo risposta di conferma");
-                   // leggo solo il primo che accetta e bast
-                   // se leggo che ha rifiutato continuo a leggere
+                   // se leggo che ha rifiutato mi disconnetto e amen
                    int stringa = in.read();
-                   while(stringa==0){
-                       stringa = in.read();
+                   if(stringa==1) {
+                       // nel controllo se ha accettato o meno è meglio metterci
+                       // id del rider (perchè il rider confermerà inviando il suo id)
+
+                       //Se il rider conferma l'ordine il ristorante invia
+                       //l'id dell'ordine corrispondente
+                       System.out.println("ordine confermato");
+                       out.write("1234\n");
+                       out.flush();
+                       System.out.println("id ordine inviato");
+
                    }
-
-                   // nel controllo se ha accettato o meno è meglio metterci
-                   // id del rider (perchè il rider confermerà inviando il suo id)
-
-                   System.out.println("rider: " + stringa);
-                   //Se il rider conferma l'ordine il ristorante invia
-                   //l'id dell'ordine corrispondente
-                   System.out.println("ordine confermato");
-                   out.write("1234\n");
-                   out.flush();
-                   System.out.println("id ordine inviato");
-               } else {
+               }else {
                    System.out.println("connection problem");
                }
-           }
-           System.out.println("ServerThread "+id+": closing...");
+          // System.out.println("ServerThread "+id+": closing...");
        } catch (IOException e) {}
 
        try {

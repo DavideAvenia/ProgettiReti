@@ -19,18 +19,15 @@ public class ConnessioneController {
 
     public ConnessioneController() throws IOException {
         try{
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
-            out = new PrintWriter(new BufferedWriter(osw), true);
-
             socket = new Socket(this.addr, 30000);
             System.out.println("Client Socket: "+ socket); //Qui dovrebbe stabilire la connessione
         } catch(IOException e) {}
         try {
-            //Sta roba deve scomparire forse
 
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+            out = new PrintWriter(new BufferedWriter(osw), true);
 
-            start();
         } catch(IOException e1) {
             // in seguito ad ogni fallimento la socket deve essere chiusa, altrimenti
             // verrà chiusa dal metodo run() del thread
@@ -40,14 +37,16 @@ public class ConnessioneController {
         }
     }
 
-    public void start() {
-        if(socket.isConnected()){
-            System.out.println("controllo richieste");
-            InputStream is = socket.getInputStream();
-            InputStreamReader isr = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader(isr);
-            int stringa = br.read();
-            if(stringa==1){
+    public Socket getSocket(){
+        return socket;
+    }
+
+
+    public boolean checkRichiesta() throws IOException {
+
+        if (socket.isConnected()) {
+            int stringa = in.read();
+            if (stringa == 1) {
                 return true;
             } else return false;
         } else {
@@ -55,7 +54,6 @@ public class ConnessioneController {
             return false;
         }
     }
-
 
     /*
     private ConnessioneController() throws IOException {
@@ -70,25 +68,7 @@ public class ConnessioneController {
         return instanza;
     }
 
-    public boolean checkRichiesta() throws IOException{
-        if(socket.isConnected()){
-            System.out.println("controllo richieste");
-            InputStream is = socket.getInputStream();
-            InputStreamReader isr = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader(isr);
-            int stringa = br.read();
-            if(stringa==1){
-                return true;
-            } else return false;
-        } else {
-            System.out.println("non connesso");
-            return false;
-        }
 
-    }
-
-    public Socket getSocket(){
-        return socket;
-    } */
+     */
 
 }
