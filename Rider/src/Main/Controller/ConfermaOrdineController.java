@@ -19,11 +19,17 @@ public class ConfermaOrdineController {
     private int port = 30000;
     private Socket socket;
     private static ConfermaOrdineController instanza = null;
+    private BufferedReader in;
+    private PrintWriter out;
+    private String idRider;
+    private String idOrdine;
 
-
-    private ConfermaOrdineController(Socket s) throws IOException {
+    private ConfermaOrdineController(Socket s, String i) throws IOException {
         socket = s;
-
+        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+        out = new PrintWriter(new BufferedWriter(osw), true);
+        idRider = i;
     }
 
     public static ConfermaOrdineController getInstanza() throws IOException {
@@ -33,9 +39,9 @@ public class ConfermaOrdineController {
         return instanza;
     }
 
-    public static ConfermaOrdineController getInstanza(Socket s) throws IOException {
+    public static ConfermaOrdineController getInstanza(Socket s,String i) throws IOException {
         if (instanza == null) {
-            instanza = new ConfermaOrdineController(s);
+            instanza = new ConfermaOrdineController(s,i);
         }
         return instanza;
     }
@@ -47,23 +53,18 @@ public class ConfermaOrdineController {
     }
 
 
-    public void conferma() throws IOException{
+    public String conferma() throws IOException{
+        out.write(idRider + "\n");
+        out.flush();
 
-        OutputStream os = socket.getOutputStream();
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
-
-        bw.write(1);
-        bw.flush();
+        idOrdine = in.readLine();
+        System.out.println("id ordine: " + idOrdine);
+        return idOrdine;
     }
 
     public void annulla() throws IOException{
-        OutputStream os = socket.getOutputStream();
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
-
-        bw.write(0);
-        bw.flush();
+        out.write("annulla\n");
+        out.flush();
     }
 }
 

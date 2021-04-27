@@ -33,7 +33,7 @@ public class LoginView extends Application {
     public void AccediPremuto(ActionEvent actionEvent) {
         try {
 
-            String id = TextfieldAccessoRider.getText();
+            String idRider = TextfieldAccessoRider.getText();
             ConnessioneController connessioneController = new ConnessioneController();
 
             //Chiamo il metodo per vedere se l'id è presente
@@ -49,8 +49,9 @@ public class LoginView extends Application {
             Socket s = connessioneController.getSocket();
             if(connessioneController.checkRichiesta()) {
                 System.out.println("accetti l'ordine?");
-                ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s);
+                ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s,idRider);
                 confermaOrdine.mostra();
+
 
             }
 

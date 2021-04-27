@@ -9,7 +9,7 @@
          <children>
             <Button fx:id="BottoneConferma" layoutX="46.0" layoutY="188.0" mnemonicParsing="false" onAction="#ConfermaPremuto" text="Conferma" />
             <Button fx:id="BottoneAnnulla" layoutX="185.0" layoutY="188.0" mnemonicParsing="false" onAction="#AnnullaPremuto" text="Annulla" />
-            <Label layoutX="105.0" layoutY="60.0" text="Confermi l'ordine?" />
+            <Label fx:id="Text" layoutX="105.0" layoutY="60.0" text="Confermi l'ordine?" />
          </children></Pane>
    </children>
 </AnchorPane>

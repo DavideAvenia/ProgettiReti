@@ -1,7 +1,6 @@
 package Main;
 
 import View.ConnessioneView;
-import View.VisualizzaRiderView;
 import javafx.application.Application;
 
 public class Main {
