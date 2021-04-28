@@ -12,7 +12,7 @@ Casi d'uso:
 [Verbi al presente, non infinito]
 
 Utente:
-Visulizza Ristoranti D
+Visulizza Ristorante D
 Effettua ordine D
 
 Ristorante:

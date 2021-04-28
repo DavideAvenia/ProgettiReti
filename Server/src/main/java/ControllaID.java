@@ -9,7 +9,8 @@ public class ControllaID {
         ResultSet rs = dbconn.eseguiQuery(query);
         if (rs.next() == false) {
             System.out.println("Non ci sono id compatibili");
-            return null;
+            Cliente c = new Cliente("null","null","null");
+            return c;
         } else {
             //Prende la prima riga e crea il cliente
             String idc = rs.getString("IDCliente");

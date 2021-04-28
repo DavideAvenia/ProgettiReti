@@ -28,8 +28,6 @@ public class ConnessioneController {
             OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
             out = new PrintWriter(new BufferedWriter(osw), true);
 
-            ois = new ObjectInputStream(socket.getInputStream());
-
         } catch(IOException e1) {
             // in seguito ad ogni fallimento la socket deve essere chiusa, altrimenti
             // verrà chiusa dal metodo run() del thread
@@ -40,15 +38,11 @@ public class ConnessioneController {
     }
 
     //Qui prendo l'id del cliente e vedo s'è giusto
-    public boolean inviaIdCliente(String idCliente) throws IOException,InterruptedException {
+    public Cliente inviaIdCliente(String idCliente) throws IOException, ClassNotFoundException {
         //Qui deve inviare l'id al server tramite la socket
         out.println(idCliente);
-        return true;
-    }
-
-    public Cliente prendiOggettoCliente() throws IOException, ClassNotFoundException {
-        //Da controllare questa
-        Cliente c = (Cliente)ois.readObject();
+        ois = new ObjectInputStream(socket.getInputStream());
+        Cliente c = (Cliente) ois.readObject();
         return c;
     }
 }

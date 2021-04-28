@@ -40,17 +40,20 @@ public class ConnessioneView extends Application {
 
             String id = textFieldIdCliente.getText();
             ConnessioneController connessioneController = new ConnessioneController();
-            connessioneController.inviaIdCliente(id);
-            Cliente c = connessioneController.prendiOggettoCliente();
+            Cliente c = connessioneController.inviaIdCliente(id);
 
+            if(c.getIdCliente()== "null"){
+                //mostra messaggio di errore
+                Messaggio m = new Messaggio("Errore","Non c'è il tuo ID nel database");
+            }else {
+                //Chiude la finestra
+                Node node = (Node) actionEvent.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.close();
+                VisualizzaRistoranteController visualizzaRistorantiController = VisualizzaRistoranteController.getInstanza();
+                visualizzaRistorantiController.mostra();
+            }
 
-            //Chiude la finestra
-            Node node = (Node) actionEvent.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            stage.close();
-
-            VisualizzaRistoranteController visualizzaRistorantiController = VisualizzaRistoranteController.getInstanza();
-            visualizzaRistorantiController.mostra();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
