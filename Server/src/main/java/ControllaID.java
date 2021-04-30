@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ControllaID {
+public class ControllaID implements Serializable {
     public Cliente controllaIDQuery(String id) throws SQLException {
         DatabaseConnection dbconn = new DatabaseConnection();
         String query = "SELECT * FROM `cliente` WHERE `IDCliente` =  \"" + id + "\" ";
@@ -9,8 +10,8 @@ public class ControllaID {
         ResultSet rs = dbconn.eseguiQuery(query);
         if (rs.next() == false) {
             System.out.println("Non ci sono id compatibili");
-            Cliente c = new Cliente("null","null","null");
-            return c;
+            //Cliente c = new Cliente("null","null","null");
+            return null;
         } else {
             //Prende la prima riga e crea il cliente
             String idc = rs.getString("IDCliente");

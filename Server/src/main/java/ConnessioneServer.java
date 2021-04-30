@@ -25,17 +25,22 @@ public class ConnessioneServer extends Thread{
         try {
             in = new InputStreamReader(socket.getInputStream());
             BufferedReader bf = new BufferedReader(in);
+            System.out.println("CRASHO QUAAAAAAAAAAAA 1 SERVER");
             String str = bf.readLine();
             ControllaID check = new ControllaID();
             Cliente c = check.controllaIDQuery(str);
 
             PrintWriter pr = new PrintWriter(socket.getOutputStream());
+            ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             if(c == null) {
-                pr.println("Non ci sono clienti con questo ID");
+                //Manda l'oggetto cliente null
+                oos.writeObject(null);
+                System.out.println("Non ci sono clienti con questo ID");
             }else{
-                ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
                 //Manda l'oggetto cliente creato
                 oos.writeObject(c);
+                System.out.println("Inviato");
+                //Mandagli i ristoranti attivi
             }
         } catch (IOException | SQLException e) {
             e.printStackTrace();

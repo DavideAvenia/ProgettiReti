@@ -40,12 +40,14 @@ public class ConnessioneView extends Application {
 
             String id = textFieldIdCliente.getText();
             ConnessioneController connessioneController = new ConnessioneController();
-            Cliente c = connessioneController.inviaIdCliente(id);
+            System.out.println("CRASHO QUAAAAAAAAAAAA 0");
 
-            if(c.getIdCliente()== "null"){
-                //mostra messaggio di errore
+            if(!connessioneController.inviaIdCliente(id)){
+                System.out.println("CRASHO QUAAAAAAAAAAAA 1");
                 Messaggio m = new Messaggio("Errore","Non c'è il tuo ID nel database");
+                m.start(new Stage());
             }else {
+                System.out.println("CRASHO QUAAAAAAAAAAAA 2");
                 //Chiude la finestra
                 Node node = (Node) actionEvent.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();

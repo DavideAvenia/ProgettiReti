@@ -35,7 +35,7 @@ public class Messaggio extends Application implements Initializable {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/Messaggio.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Messaggio.fxml"));
         stage.setTitle(title);
         stage.setScene(new Scene(root, 348, 188));
         stage.show();
