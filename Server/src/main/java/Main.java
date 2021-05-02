@@ -6,7 +6,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(30000);
-        System.out.println("Server Socket: " + serverSocket);
+        System.out.println(">Server Socket: " + serverSocket);
+        System.out.println(">Server: started");
         try {
             while(true) {
                 // bloccante finchè non avviene una connessione:

@@ -118,7 +118,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Main/Model" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
@@ -126,14 +126,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Client\src\Main\View" />
-      <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Client\.idea" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Client\src\Main\Model" />
       <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Client\src\resources" />
       <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Client\src\Main\View" />
       <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Client\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Client\src\Main\View" />
+      <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Client\.idea" />
     </key>
   </component>
   <component name="RunManager">
@@ -252,21 +253,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1220" y="286" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1619086109544" />
-    <state width="914" height="274" key="GridCell.Tab.0.bottom" timestamp="1619629246553">
+    <state width="914" height="271" key="GridCell.Tab.0.bottom" timestamp="1619964393924">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619629246553" />
-    <state width="914" height="274" key="GridCell.Tab.0.center" timestamp="1619629246553">
+    <state width="914" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619964393924" />
+    <state width="914" height="271" key="GridCell.Tab.0.center" timestamp="1619964393923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619629246553" />
-    <state width="914" height="274" key="GridCell.Tab.0.left" timestamp="1619629246553">
+    <state width="914" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619964393923" />
+    <state width="914" height="271" key="GridCell.Tab.0.left" timestamp="1619964393923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619629246553" />
-    <state width="914" height="274" key="GridCell.Tab.0.right" timestamp="1619629246553">
+    <state width="914" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619964393923" />
+    <state width="914" height="271" key="GridCell.Tab.0.right" timestamp="1619964393924">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619629246553" />
+    <state width="914" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619964393924" />
   </component>
 </project>

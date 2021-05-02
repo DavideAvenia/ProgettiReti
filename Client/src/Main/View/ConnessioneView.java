@@ -2,7 +2,6 @@ package View;
 
 import Controller.ConnessioneController;
 import Controller.VisualizzaRistoranteController;
-import Model.Cliente;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +41,9 @@ public class ConnessioneView extends Application {
             ConnessioneController connessioneController = new ConnessioneController();
             System.out.println("CRASHO QUAAAAAAAAAAAA 0");
 
-            if(!connessioneController.inviaIdCliente(id)){
+
+            connessioneController.inviaIdCliente(id);
+            /*if(!connessioneController.inviaIdCliente(id)){
                 System.out.println("CRASHO QUAAAAAAAAAAAA 1");
                 Messaggio m = new Messaggio("Errore","Non c'è il tuo ID nel database");
                 m.start(new Stage());
@@ -54,7 +55,7 @@ public class ConnessioneView extends Application {
                 stage.close();
                 VisualizzaRistoranteController visualizzaRistorantiController = VisualizzaRistoranteController.getInstanza();
                 visualizzaRistorantiController.mostra();
-            }
+            }*/
 
         } catch (IOException e) {
             e.printStackTrace();

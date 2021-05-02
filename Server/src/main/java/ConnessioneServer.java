@@ -1,7 +1,8 @@
+import Model.Cliente;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.SQLException;
 
 public class ConnessioneServer extends Thread{
     private int port = 30000;
@@ -17,7 +18,6 @@ public class ConnessioneServer extends Thread{
         OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
         out = new PrintWriter(new BufferedWriter(osw), true);
         start();
-        System.out.println("Server: started");
     }
 
     public void run(){
@@ -25,24 +25,25 @@ public class ConnessioneServer extends Thread{
         try {
             in = new InputStreamReader(socket.getInputStream());
             BufferedReader bf = new BufferedReader(in);
-            System.out.println("CRASHO QUAAAAAAAAAAAA 1 SERVER");
-            String str = bf.readLine();
+            ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
+            Cliente c = (Cliente ) ios.readObject();
+            //String str = bf.readLine();
             ControllaID check = new ControllaID();
-            Cliente c = check.controllaIDQuery(str);
+            //Model.Cliente c = check.controllaIDQuery(str);
 
-            PrintWriter pr = new PrintWriter(socket.getOutputStream());
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             if(c == null) {
                 //Manda l'oggetto cliente null
-                oos.writeObject(null);
+                //oos.writeObject(null);
                 System.out.println("Non ci sono clienti con questo ID");
             }else{
                 //Manda l'oggetto cliente creato
-                oos.writeObject(c);
+                System.out.println("è stato richiesto l'utente["+c.getIdCliente()+"]: "+c.getNome()+" "+c.getCognome());
+                oos.writeObject(c.getNome());
                 System.out.println("Inviato");
                 //Mandagli i ristoranti attivi
             }
-        } catch (IOException | SQLException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

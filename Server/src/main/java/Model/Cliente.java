@@ -1,7 +1,9 @@
+package Model;
+
 import java.io.Serializable;
 
 public class Cliente implements Serializable {
-
+    private static final long serialVersionUID = 9176873029745254542L;
     private String idCliente;
     private String nome;
     private String cognome;

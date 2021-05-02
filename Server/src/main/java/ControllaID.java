@@ -1,3 +1,5 @@
+import Model.Cliente;
+
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +12,7 @@ public class ControllaID implements Serializable {
         ResultSet rs = dbconn.eseguiQuery(query);
         if (rs.next() == false) {
             System.out.println("Non ci sono id compatibili");
-            //Cliente c = new Cliente("null","null","null");
+            //Model.Cliente c = new Model.Cliente("null","null","null");
             return null;
         } else {
             //Prende la prima riga e crea il cliente

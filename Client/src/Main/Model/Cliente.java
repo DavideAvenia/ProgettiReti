@@ -1,19 +1,21 @@
 package Model;
 
-public class Cliente implements java.io.Serializable {
+import java.io.Serializable;
 
+public class Cliente implements Serializable {
+    private static final long serialVersionUID = 9176873029745254542L;
     private String idCliente;
     private String nome;
     private String cognome;
+
+    public Cliente(){
+
+    }
 
     public Cliente(String idCliente, String nome, String cognome){
         this.idCliente = idCliente;
         this.nome = nome;
         this.cognome = cognome;
-    }
-
-    public Cliente(){
-
     }
 
     public String getCognome() {
