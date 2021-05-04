@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
+import java.awt.*;
 import java.io.IOException;
 
 public class ConnessioneView extends Application {

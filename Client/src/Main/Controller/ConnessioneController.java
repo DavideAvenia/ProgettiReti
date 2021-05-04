@@ -7,8 +7,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class ConnessioneController implements java.io.Serializable {
-    private String ip = "localhost";
-    private int port = 30000;
+    private int port = 16313;
     private Socket socket;
 
     private InputStreamReader isr;
@@ -17,13 +16,13 @@ public class ConnessioneController implements java.io.Serializable {
     private PrintWriter out;
     private ObjectInputStream ois;
 
-    private InetAddress addr = InetAddress.getByName("localhost");
+    private InetAddress addr = InetAddress.getByName("4.tcp.ngrok.io");
     private Cliente cliente;
 
     private static ConnessioneController connessioneController = null;
 
     private ConnessioneController() throws IOException {
-        socket = new Socket(this.addr, 30000);
+        socket = new Socket(this.addr, port);
         System.out.println("Client Socket: "+ socket);
         try{
             //Qui dovrebbe stabilire la connessione
