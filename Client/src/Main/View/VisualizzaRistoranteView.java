@@ -1,5 +1,6 @@
 package View;
 
+import Controller.VisualizzaRistoranteController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class VisualizzaRistoranteView extends Application implements Initializable {
@@ -31,6 +34,11 @@ public class VisualizzaRistoranteView extends Application implements Initializab
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        try {
+            VisualizzaRistoranteController visualizzaRistoranteController = VisualizzaRistoranteController.getInstanza();
+            List<String> listaNomi = visualizzaRistoranteController.caricaListaRistoranti();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

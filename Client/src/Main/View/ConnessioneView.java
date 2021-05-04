@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.InetAddress;
 
 public class ConnessioneView extends Application {
 
@@ -38,7 +37,7 @@ public class ConnessioneView extends Application {
             //Se non c'è, messaggio di errore al lato del server, altrimenti va avanti
 
             String id = textFieldIdCliente.getText();
-            ConnessioneController connessioneController = new ConnessioneController();
+            ConnessioneController connessioneController = ConnessioneController.getInstanza();
 
             if(!connessioneController.inviaIdCliente(id)){
                 //Finestra di errore

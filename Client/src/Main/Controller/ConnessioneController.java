@@ -20,7 +20,9 @@ public class ConnessioneController implements java.io.Serializable {
     private InetAddress addr = InetAddress.getByName("localhost");
     private Cliente cliente;
 
-    public ConnessioneController() throws IOException {
+    private static ConnessioneController connessioneController = null;
+
+    private ConnessioneController() throws IOException {
         socket = new Socket(this.addr, 30000);
         System.out.println("Client Socket: "+ socket);
         try{
@@ -35,16 +37,21 @@ public class ConnessioneController implements java.io.Serializable {
         }
     }
 
+    public static ConnessioneController getInstanza() throws IOException {
+        if(connessioneController == null){
+            connessioneController = new ConnessioneController();
+        }
+        return connessioneController;
+    }
+
     //Qui prendo l'id del cliente e vedo s'è giusto
     public boolean inviaIdCliente(String idCliente) throws IOException, ClassNotFoundException {
         //Qui deve inviare l'id al server tramite la socket
-
         Cliente invCliente = new Cliente(idCliente,null,null);
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         oos.writeObject(invCliente);
 
         ois = new ObjectInputStream(socket.getInputStream());
-
         Cliente ret = (Cliente) ois.readObject();
         cliente = ret;
         if(ret == null){
@@ -56,5 +63,9 @@ public class ConnessioneController implements java.io.Serializable {
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public Socket getSocket() {
+        return socket;
     }
 }
