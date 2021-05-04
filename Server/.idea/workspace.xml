@@ -23,11 +23,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845e8354-c086-4159-a7db-bf98a769a7ac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Rider/src/Main/Model/Rider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rider/src/Main/View/Messaggio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rider/src/resources/Messaggio.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ControllaID.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Rider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/out/production/Rider/Controller/ConfermaOrdineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/out/production/Rider/Controller/ConfermaOrdineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/out/production/Rider/View/ConfermaOrdine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/out/production/Rider/View/ConfermaOrdine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/out/production/Rider/View/LoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/out/production/Rider/View/LoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/out/production/Ristorante/Controller/ConnessioneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/out/production/Ristorante/Controller/ConnessioneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/out/production/Ristorante/View/ConnessioneView.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/out/production/Ristorante/View/ConnessioneView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />

@@ -57,7 +57,7 @@ public class ConnessioneView extends Application {
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("Connection accepted: " + clientSocket);
                 try {
-                    new ConnessioneController(clientSocket);
+                    new ConnessioneController(clientSocket, idRistorante);
 
                 } catch (IOException e) {
                     clientSocket.close();

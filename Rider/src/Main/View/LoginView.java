@@ -19,6 +19,7 @@ import java.net.Socket;
 
 public class LoginView extends Application {
 
+    private boolean ordineConsegnato  = false;
     @FXML
     private TextField TextfieldAccessoRider;
 
@@ -32,27 +33,28 @@ public class LoginView extends Application {
 
     public void AccediPremuto(ActionEvent actionEvent) {
         try {
-
-            String idRider = TextfieldAccessoRider.getText();
             ConnessioneController connessioneController = new ConnessioneController();
+            String idRider = TextfieldAccessoRider.getText();
 
             //Chiamo il metodo per vedere se l'id è presente
             //Il server andrà a dare o true o false in caso di presenza del'id
             //Se non c'è, messaggio di errore, altrimenti va avanti
 
-            //Chiude la finestra
-
-            Node node = (Node) actionEvent.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            stage.close();
-
-            Socket s = connessioneController.getSocket();
-            if(connessioneController.checkRichiesta()) {
-                System.out.println("accetti l'ordine?");
-                ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s,idRider);
-                confermaOrdine.mostra();
-
-
+            if(!connessioneController.inviaIdCliente(idRider)){
+                //Finestra di errore
+                Messaggio m = new Messaggio("Errore","Non c'è il tuo ID nel database");
+                m.start(new Stage());
+            }else {
+                //Chiude la finestra
+                Node node = (Node) actionEvent.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.close();
+                Socket s = connessioneController.getSocket();
+                if(connessioneController.checkRichiesta()) {
+                    System.out.println("accetti l'ordine?");
+                    ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s, idRider);
+                    confermaOrdine.mostra();
+                }
             }
 
         } catch (IOException e) {

@@ -32,13 +32,16 @@ public class ConfermaOrdine extends Application {
     public void ConfermaPremuto(ActionEvent actionEvent) {
         try {
             ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
-            String idOrdine = confermaOrdine.conferma();
+            confermaOrdine.conferma();
+            String idOrdine = confermaOrdine.getIdOrdine();
+            String idRistorante = confermaOrdine.getIdRistorante();
             System.out.println("conferma premuto");
-            BottoneConferma.setDisable(true);
-            BottoneConferma.setVisible(false);
-            BottoneAnnulla.setDisable(true);
-            BottoneAnnulla.setVisible(false);
             Text.setText("id ordine: " + idOrdine);
+            System.out.println("id ristorante: "+ idRistorante);
+            confermaOrdine.consegna();
+            Text.setText("id ordine: " + idOrdine + " consegnato");
+
+
         }catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -62,4 +65,6 @@ public class ConfermaOrdine extends Application {
             e.printStackTrace();
         }
     }
+
+
 }

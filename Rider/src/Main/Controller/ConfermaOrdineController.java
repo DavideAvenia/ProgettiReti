@@ -4,6 +4,7 @@ import View.ConfermaOrdine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
@@ -15,6 +16,8 @@ import java.net.Socket;
 import java.util.Set;
 
 public class ConfermaOrdineController {
+
+
     private String ip = "localhost";
     private int port = 30000;
     private Socket socket;
@@ -23,6 +26,8 @@ public class ConfermaOrdineController {
     private PrintWriter out;
     private String idRider;
     private String idOrdine;
+    private String idRistorante;
+    private String stato;
 
     private ConfermaOrdineController(Socket s, String i) throws IOException {
         socket = s;
@@ -53,13 +58,26 @@ public class ConfermaOrdineController {
     }
 
 
-    public String conferma() throws IOException{
+    public void conferma() throws IOException{
         out.write(idRider + "\n");
         out.flush();
 
         idOrdine = in.readLine();
+        idRistorante = in.readLine();
         System.out.println("id ordine: " + idOrdine);
+    }
+
+    public String getIdOrdine(){
         return idOrdine;
+    }
+
+    public String getIdRistorante(){
+        return idRistorante;
+    }
+
+    public void consegna() throws Exception{
+        out.write("consegnato\n");
+        out.flush();
     }
 
     public void annulla() throws IOException{

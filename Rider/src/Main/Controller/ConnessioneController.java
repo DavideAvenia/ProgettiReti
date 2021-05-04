@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Rider;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -14,7 +16,8 @@ public class ConnessioneController {
     private BufferedReader in;
     private PrintWriter out;
     private InetAddress addr = InetAddress.getByName("localhost");
-
+    private ObjectInputStream ois;
+    private Rider rider;
     private static ConnessioneController instanza = null;
 
     public ConnessioneController() throws IOException {
@@ -55,20 +58,28 @@ public class ConnessioneController {
         }
     }
 
-    /*
-    private ConnessioneController() throws IOException {
-        socket = new Socket(ip, port);
+    //Qui prendo l'id del cliente e vedo s'è giusto
+    public boolean inviaIdCliente(String idCliente) throws IOException, ClassNotFoundException {
+        //Qui deve inviare l'id al server tramite la socket
 
-    }
+        Rider invCliente = new Rider(idCliente,null,null);
+        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+        oos.writeObject(invCliente);
 
-    public static ConnessioneController getInstanza() throws IOException {
-        if (instanza == null) {
-            instanza = new ConnessioneController();
+        ois = new ObjectInputStream(socket.getInputStream());
+
+        Rider ret = (Rider) ois.readObject();
+        rider = ret;
+        if(ret == null){
+            return false;
         }
-        return instanza;
+
+        return true;
     }
 
-
-     */
-
+    public Rider getCliente() {
+        return rider;
+    }
 }
+
+
