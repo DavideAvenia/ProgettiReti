@@ -3,6 +3,7 @@ import Model.Cliente;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.SQLException;
 
 public class ConnessioneServer extends Thread{
     private int port = 30000;
@@ -26,24 +27,24 @@ public class ConnessioneServer extends Thread{
             in = new InputStreamReader(socket.getInputStream());
             BufferedReader bf = new BufferedReader(in);
             ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
-            Cliente c = (Cliente ) ios.readObject();
-            //String str = bf.readLine();
+
+            Cliente c = (Cliente) ios.readObject();
             ControllaID check = new ControllaID();
-            //Model.Cliente c = check.controllaIDQuery(str);
+            Model.Cliente ret = check.controllaIDQuery(c.getIdCliente());
 
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-            if(c == null) {
+            if(ret == null) {
                 //Manda l'oggetto cliente null
-                //oos.writeObject(null);
+                oos.writeObject(null);
                 System.out.println("Non ci sono clienti con questo ID");
             }else{
                 //Manda l'oggetto cliente creato
-                System.out.println("è stato richiesto l'utente["+c.getIdCliente()+"]: "+c.getNome()+" "+c.getCognome());
-                oos.writeObject(c.getNome());
+                System.out.println("è stato richiesto l'utente["+ret.getIdCliente()+"]: "+ret.getNome()+" "+ret.getCognome());
+                oos.writeObject(ret);
                 System.out.println("Inviato");
                 //Mandagli i ristoranti attivi
             }
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }

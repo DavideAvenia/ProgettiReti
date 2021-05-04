@@ -38,30 +38,23 @@ public class ConnessioneController implements java.io.Serializable {
     //Qui prendo l'id del cliente e vedo s'è giusto
     public boolean inviaIdCliente(String idCliente) throws IOException, ClassNotFoundException {
         //Qui deve inviare l'id al server tramite la socket
+
         Cliente invCliente = new Cliente(idCliente,null,null);
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         oos.writeObject(invCliente);
+
         ois = new ObjectInputStream(socket.getInputStream());
 
-        System.out.println("CRASHO QUAAAAAAAAAAAA 3");
-        //Cliente other = (Cliente) ois.readObject();
-        String ret = (String) ois.readObject();
+        Cliente ret = (Cliente) ois.readObject();
+        cliente = ret;
         if(ret == null){
             return false;
         }
-        System.out.println("returned dal server: "+ret);
 
-
-        /*if(!(other instanceof Cliente))
-            return false;
-
-        Cliente c = (Cliente) other;
-        System.out.println("CRASHO QUAAAAAAAAAAAA 4");
-        ois.close();*/
         return true;
+    }
 
-        //Il cliente di fatto qua non serve però dovrei passarlo al VisualizzaRistoranteController
-        //per poi usarlo come ordine
-
+    public Cliente getCliente() {
+        return cliente;
     }
 }

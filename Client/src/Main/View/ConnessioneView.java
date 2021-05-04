@@ -39,23 +39,19 @@ public class ConnessioneView extends Application {
 
             String id = textFieldIdCliente.getText();
             ConnessioneController connessioneController = new ConnessioneController();
-            System.out.println("CRASHO QUAAAAAAAAAAAA 0");
 
-
-            connessioneController.inviaIdCliente(id);
-            /*if(!connessioneController.inviaIdCliente(id)){
-                System.out.println("CRASHO QUAAAAAAAAAAAA 1");
+            if(!connessioneController.inviaIdCliente(id)){
+                //Finestra di errore
                 Messaggio m = new Messaggio("Errore","Non c'è il tuo ID nel database");
                 m.start(new Stage());
             }else {
-                System.out.println("CRASHO QUAAAAAAAAAAAA 2");
                 //Chiude la finestra
                 Node node = (Node) actionEvent.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.close();
                 VisualizzaRistoranteController visualizzaRistorantiController = VisualizzaRistoranteController.getInstanza();
                 visualizzaRistorantiController.mostra();
-            }*/
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
