@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Ristorante {
+public class Ristorante implements Serializable {
     private String nome;
     private ArrayList<String> cibo;
     private ArrayList<String> bevande;

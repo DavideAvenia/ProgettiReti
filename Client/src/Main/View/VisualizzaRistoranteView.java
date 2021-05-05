@@ -2,6 +2,8 @@ package View;
 
 import Controller.VisualizzaRistoranteController;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,7 +24,9 @@ public class VisualizzaRistoranteView extends Application implements Initializab
     private Label labelRistoranteSelezionato;
 
     @FXML
-    private ListView listaRistorante;
+    public ListView listaRistoranti;
+
+    private int indiceSelezionato;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -37,6 +41,19 @@ public class VisualizzaRistoranteView extends Application implements Initializab
         try {
             VisualizzaRistoranteController visualizzaRistoranteController = VisualizzaRistoranteController.getInstanza();
             List<String> listaNomi = visualizzaRistoranteController.caricaListaRistoranti();
+
+            listaRistoranti.setEditable(false);
+            ObservableList<String> nomiRistoranti = FXCollections.observableArrayList(listaNomi);
+            listaRistoranti.setItems(nomiRistoranti);
+
+            listaRistoranti.getSelectionModel().select(indiceSelezionato);
+            indiceSelezionato = 0;
+
+
+            listaRistoranti.setOnMouseClicked(mouseEvent ->{
+                labelRistoranteSelezionato.setText(String.valueOf(listaRistoranti.getSelectionModel().getSelectedItem()));
+            });
+
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

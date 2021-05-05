@@ -7,16 +7,14 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class ConnessioneController implements java.io.Serializable {
-    private int port = 16313;
+    private int port = 30000;
     private Socket socket;
 
     private InputStreamReader isr;
     private OutputStreamWriter osw;
-    private BufferedReader in;
-    private PrintWriter out;
     private ObjectInputStream ois;
 
-    private InetAddress addr = InetAddress.getByName("4.tcp.ngrok.io");
+    private InetAddress addr = InetAddress.getByName("localhost");
     private Cliente cliente;
 
     private static ConnessioneController connessioneController = null;
@@ -27,10 +25,7 @@ public class ConnessioneController implements java.io.Serializable {
         try{
             //Qui dovrebbe stabilire la connessione
             isr = new InputStreamReader(socket.getInputStream());
-            in = new BufferedReader(isr);
-
             osw = new OutputStreamWriter(socket.getOutputStream());
-            out = new PrintWriter(new BufferedWriter(osw), true);
         } catch(IOException e) {
             socket.close();
         }
