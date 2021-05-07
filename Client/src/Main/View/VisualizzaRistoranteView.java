@@ -4,11 +4,13 @@ import Controller.VisualizzaRistoranteController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -21,12 +23,15 @@ import java.util.ResourceBundle;
 public class VisualizzaRistoranteView extends Application implements Initializable {
 
     @FXML
+    private Button buttoneProcediOrdine;
+
+    @FXML
     private Label labelRistoranteSelezionato;
 
     @FXML
     public ListView listaRistoranti;
 
-    private int indiceSelezionato;
+    private String nomeRistoranteSelezionato = new String("Nessun selezionato");
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -46,16 +51,20 @@ public class VisualizzaRistoranteView extends Application implements Initializab
             ObservableList<String> nomiRistoranti = FXCollections.observableArrayList(listaNomi);
             listaRistoranti.setItems(nomiRistoranti);
 
-            listaRistoranti.getSelectionModel().select(indiceSelezionato);
-            indiceSelezionato = 0;
-
+            labelRistoranteSelezionato.setText(String.valueOf(listaRistoranti.getSelectionModel().getSelectedIndex()));
 
             listaRistoranti.setOnMouseClicked(mouseEvent ->{
                 labelRistoranteSelezionato.setText(String.valueOf(listaRistoranti.getSelectionModel().getSelectedItem()));
+                nomeRistoranteSelezionato = labelRistoranteSelezionato.getText();
             });
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void procediOrdine(ActionEvent actionEvent) {
+
+
     }
 }

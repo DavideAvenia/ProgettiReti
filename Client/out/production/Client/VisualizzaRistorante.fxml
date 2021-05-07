@@ -21,7 +21,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="labelRistoranteSelezionato" layoutX="14.0" layoutY="466.0" text="Ristorante selezionato:" />
+            <Label layoutX="14.0" layoutY="466.0" text="Ristorante selezionato:" />
+            <Label fx:id="labelRistoranteSelezionato" layoutX="100.0" layoutY="492.0" />
          </children>
       </Pane>
    </children>

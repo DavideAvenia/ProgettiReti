@@ -15,14 +15,14 @@
       <Pane fx:id="btnOrdine" prefHeight="600.0" prefWidth="227.0">
          <children>
             <ListView fx:id="listaRistoranti" layoutX="14.0" layoutY="46.0" prefHeight="406.0" prefWidth="200.0" />
-            <Button layoutX="60.0" layoutY="548.0" mnemonicParsing="false" text="Procedi all'ordine" />
+            <Button fx:id="buttoneProcediOrdine" layoutX="60.0" layoutY="548.0" mnemonicParsing="false" onAction="#procediOrdine" text="Procedi all'ordine" />
             <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="200.0" text="Visualizzazione dei ristoranti" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="labelRistoranteSelezionato" layoutX="14.0" layoutY="466.0" text="Ristorante selezionato:" />
-            <Label layoutX="100.0" layoutY="492.0" />
+            <Label layoutX="14.0" layoutY="466.0" text="Ristorante selezionato:" />
+            <Label fx:id="labelRistoranteSelezionato" layoutX="100.0" layoutY="492.0" />
          </children>
       </Pane>
    </children>

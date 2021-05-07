@@ -63,6 +63,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Educational Edition 2020.2.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -130,26 +137,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1619964267622" />
-    <state x="260" y="278" key="FileChooserDialogImpl" timestamp="1620248358761">
+    <state x="260" y="278" key="FileChooserDialogImpl" timestamp="1620401878877">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="260" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620248358761" />
-    <state width="928" height="220" key="GridCell.Tab.0.bottom" timestamp="1620259135898">
+    <state x="260" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620401878877" />
+    <state width="914" height="219" key="GridCell.Tab.0.bottom" timestamp="1620410727460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="928" height="220" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620259135898" />
-    <state width="928" height="220" key="GridCell.Tab.0.center" timestamp="1620259135898">
+    <state width="914" height="219" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620410727460" />
+    <state width="914" height="219" key="GridCell.Tab.0.center" timestamp="1620410727460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="928" height="220" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620259135898" />
-    <state width="928" height="220" key="GridCell.Tab.0.left" timestamp="1620259135898">
+    <state width="914" height="219" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620410727460" />
+    <state width="914" height="219" key="GridCell.Tab.0.left" timestamp="1620410727460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="928" height="220" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620259135898" />
-    <state width="928" height="220" key="GridCell.Tab.0.right" timestamp="1620259135898">
+    <state width="914" height="219" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620410727460" />
+    <state width="914" height="219" key="GridCell.Tab.0.right" timestamp="1620410727460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="928" height="220" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620259135898" />
+    <state width="914" height="219" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620410727460" />
     <state x="102" y="88" width="930" height="1026" key="dock-window-1" timestamp="1620140237293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

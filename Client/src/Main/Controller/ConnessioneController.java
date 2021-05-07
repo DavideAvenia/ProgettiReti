@@ -6,7 +6,7 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class ConnessioneController implements java.io.Serializable {
+public class ConnessioneController{
     private int port = 30000;
     private Socket socket;
 
