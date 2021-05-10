@@ -10,13 +10,6 @@ public class VisualizzaRistoranti {
         ArrayList<Ristorante> lista = new ArrayList<>();
         String query = "SELECT * FROM `ristorante`";
 
-        //prende anche i menu, ma deve essere fatto in due momenti diversi per il menu quindi non va bene inviarli direttamente al cliente
-        //Quindi riempi
-        //Select NomeRistorante, NomeOggetto
-        //From ristorante inner join gestione inner join oggetto
-        //Where ristorante.IDRistorante = gestione.IDRistorante AND gestione.IDOggetto = oggetto.IDOggetto
-        //ORDER BY NomeRistorante;
-
         ResultSet rs = dbconn.eseguiQuery(query);
 
         while(rs.next()){

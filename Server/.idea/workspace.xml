@@ -88,6 +88,9 @@
     <property name="project.structure.side.proportion" value="0.3689655" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Model" />
     </key>
@@ -137,10 +140,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1619964267622" />
-    <state x="260" y="278" key="FileChooserDialogImpl" timestamp="1620401878877">
+    <state x="743" y="385" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1620661541876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="260" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620401878877" />
+    <state x="743" y="385" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1620661541876" />
+    <state x="260" y="278" key="FileChooserDialogImpl" timestamp="1620660842432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="260" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620660842432" />
     <state width="914" height="219" key="GridCell.Tab.0.bottom" timestamp="1620410727460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -24,7 +24,7 @@ public class Ristorante implements Serializable {
         return nome;
     }
 
-    public ArrayList<String> getBevande() {
+    public ArrayList<String> getMenu() {
         return menu;
     }
 
