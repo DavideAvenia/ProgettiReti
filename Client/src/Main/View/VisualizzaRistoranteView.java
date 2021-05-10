@@ -1,5 +1,6 @@
 package View;
 
+import Controller.MostraMenuController;
 import Controller.VisualizzaRistoranteController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -63,8 +64,12 @@ public class VisualizzaRistoranteView extends Application implements Initializab
         }
     }
 
-    public void procediOrdine(ActionEvent actionEvent) {
-
-
+    public void procediOrdine(ActionEvent actionEvent) throws IOException {
+        MostraMenuController mostraMenuController = MostraMenuController.getInstanza();
+        try {
+            mostraMenuController.mostra(nomeRistoranteSelezionato);
+        } catch (Exception e) {
+            e.printStackTrace();
+        };
     }
 }

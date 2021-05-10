@@ -44,4 +44,8 @@ public class VisualizzaRistoranteController {
 
         return listaNomi;
     }
+
+    public ArrayList<Ristorante> getListaRistoranti() {
+        return listaRistoranti;
+    }
 }

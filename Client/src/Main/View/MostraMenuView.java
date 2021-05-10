@@ -25,6 +25,6 @@ public class MostraMenuView extends Application implements Initializable {
 
     }
 
-    public void procediOrdine(ActionEvent actionEvent) {
+    public void effettuaOrdine(ActionEvent actionEvent) {
     }
 }

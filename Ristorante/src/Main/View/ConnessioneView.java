@@ -53,7 +53,8 @@ public class ConnessioneView extends Application {
             stage.close();
 
 
-            while (true) {// bloccante finchè non avviene una connessione:
+            while (true) {
+                // bloccante finchè non avviene una connessione:
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("Connection accepted: " + clientSocket);
                 try {

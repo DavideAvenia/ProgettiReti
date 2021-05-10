@@ -1,6 +1,6 @@
 Architettura:
 
-Client-Server
+Client-Server MVC
 
 Client è suddiviso in:
 
@@ -26,8 +26,8 @@ Conferma ordine S
 ---
 
 Server (Non è un attore):
-Collegarsi al DB X Fatto
-Inoltra ordine D
-Notifica D
+Collegarsi al DB D Fatto (ngrok x Laragon)
+Inoltra ordine (Scambio degli id tra client e rider) D
+Notifica al ristorante della consegna effettuata D
 
 

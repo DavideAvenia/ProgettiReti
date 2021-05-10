@@ -14,8 +14,6 @@ public class VisualizzaRistoranti {
 
         while(rs.next()){
             String nome = rs.getString("NomeRistorante");
-            //Dovrò vedere di estrapolare i menu
-            //Magari faccio più query e poi uso i setter
             lista.add(new Ristorante(nome, null));
         }
 
