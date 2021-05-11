@@ -34,10 +34,8 @@ public class ConfermaOrdine extends Application {
             ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
             confermaOrdine.conferma();
             String idOrdine = confermaOrdine.getIdOrdine();
-            String idRistorante = confermaOrdine.getIdRistorante();
             System.out.println("conferma premuto");
             Text.setText("id ordine: " + idOrdine);
-            System.out.println("id ristorante: "+ idRistorante);
             confermaOrdine.consegna();
             Text.setText("id ordine: " + idOrdine + " consegnato");
 

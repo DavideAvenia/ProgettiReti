@@ -78,8 +78,6 @@ public class ConnessioneController extends Thread{
                        String idOrdine = "1234";
                        out.write(idOrdine + "\n");
                        out.flush();
-                       out.write(idRistorante + "\n");
-                       out.flush();
                        System.out.println("id ordine e id ristorante inviato");
 
                        //controllo che l'ordine sia consegnato

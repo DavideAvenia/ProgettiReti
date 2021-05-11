@@ -26,7 +26,6 @@ public class ConfermaOrdineController {
     private PrintWriter out;
     private String idRider;
     private String idOrdine;
-    private String idRistorante;
     private String stato;
 
     private ConfermaOrdineController(Socket s, String i) throws IOException {
@@ -63,16 +62,11 @@ public class ConfermaOrdineController {
         out.flush();
 
         idOrdine = in.readLine();
-        idRistorante = in.readLine();
         System.out.println("id ordine: " + idOrdine);
     }
 
     public String getIdOrdine(){
         return idOrdine;
-    }
-
-    public String getIdRistorante(){
-        return idRistorante;
     }
 
     public void consegna() throws Exception{
