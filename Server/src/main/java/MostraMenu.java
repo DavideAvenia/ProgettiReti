@@ -17,9 +17,10 @@ public class MostraMenu {
         ResultSet rs = dbconn.eseguiQuery(query);
 
         while(rs.next()){
-            lista.add(rs.getString());
+            lista.add(rs.getString("NomeOggetto"));
         }
 
+        r.setMenu(lista);
         System.out.println(lista);
         return lista;
     }

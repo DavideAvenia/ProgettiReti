@@ -4,6 +4,7 @@ import Model.Ristorante;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +27,10 @@ public class ConnessioneServer extends Thread{
 
     public void run(){
         try {
-            ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
+            ObjectInputStream iosCliente = new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream oosCliente = new ObjectOutputStream(socket.getOutputStream());
 
-            Cliente c = (Cliente) ios.readObject();
+            Cliente c = (Cliente) iosCliente.readObject();
             ControllaID check = new ControllaID();
             Cliente ret = check.controllaIDQuery(c.getIdCliente());
 
@@ -48,6 +49,14 @@ public class ConnessioneServer extends Thread{
                 ObjectOutputStream oosListRistoranti = new ObjectOutputStream(socket.getOutputStream());
                 oosListRistoranti.writeObject(nuovaLista);
                 System.out.println("Inviato");
+
+                //Devo inviare la lista del menu in base al ristorante che riceverò dal cliente
+                ObjectInputStream iosRistorante = new ObjectInputStream(socket.getInputStream());
+                Ristorante r = (Ristorante) iosRistorante.readObject();
+                MostraMenu mm = new MostraMenu();
+                ArrayList<String> listaMenu = mm.MostraMenuQuery(r);
+                ObjectOutputStream oosListaMenu = new ObjectOutputStream(socket.getOutputStream());
+                oosListaMenu.writeObject(listaMenu);
 
             }else{
                 //Manda l'oggetto cliente null

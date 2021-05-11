@@ -7,6 +7,10 @@ public class Ristorante implements Serializable {
     private String nome;
     private ArrayList<String> menu;
 
+    public Ristorante (){
+
+    }
+
     public Ristorante(String nome, ArrayList<String> menu){
         this.nome = nome;
         this.menu = menu;
