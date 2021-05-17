@@ -10,17 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VisualizzaRistoranteController {
-    private Socket socket = ConnessioneController.getInstanza().getSocket();
-    private ObjectInputStream ois;
-    private ObjectOutputStream oos;
 
-    private ArrayList<Ristorante> listaRistoranti = new ArrayList<Ristorante>();
+    private ArrayList<Ristorante> listaRistoranti = new ArrayList<>();
+
+    private Socket socket = ConnessioneController.getInstanza().getSocket();
 
     private static VisualizzaRistoranteController visualizzaRistoranteControllerInstanza = null;
 
     private VisualizzaRistoranteController() throws IOException {
-        ois = new ObjectInputStream(socket.getInputStream());
-        oos = new ObjectOutputStream(socket.getOutputStream());
     }
 
     public static VisualizzaRistoranteController getInstanza() throws IOException {
@@ -36,11 +33,13 @@ public class VisualizzaRistoranteController {
     }
 
     public List<String> caricaListaRistoranti() throws IOException, ClassNotFoundException {
-        List<String> listaNomi = new ArrayList<String>();
-        listaRistoranti = (ArrayList) ois.readObject();
+        ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+        List<String> listaNomi = new ArrayList<>();
+        listaRistoranti = (ArrayList) ois.readUnshared();
 
-        for(Ristorante r: listaRistoranti)
+        for(Ristorante r: listaRistoranti){
             listaNomi.add(r.getNome());
+        }
 
         return listaNomi;
     }
@@ -48,4 +47,5 @@ public class VisualizzaRistoranteController {
     public ArrayList<Ristorante> getListaRistoranti() {
         return listaRistoranti;
     }
+
 }

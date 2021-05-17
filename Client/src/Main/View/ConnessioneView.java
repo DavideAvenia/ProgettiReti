@@ -53,9 +53,6 @@ public class ConnessioneView extends Application {
                 VisualizzaRistoranteController visualizzaRistorantiController = VisualizzaRistoranteController.getInstanza();
                 visualizzaRistorantiController.mostra();
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }

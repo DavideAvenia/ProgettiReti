@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -32,7 +33,7 @@ public class VisualizzaRistoranteView extends Application implements Initializab
     @FXML
     public ListView listaRistoranti;
 
-    private String nomeRistoranteSelezionato = new String("Nessun selezionato");
+    private String nomeRistoranteSelezionato;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -52,7 +53,8 @@ public class VisualizzaRistoranteView extends Application implements Initializab
             ObservableList<String> nomiRistoranti = FXCollections.observableArrayList(listaNomi);
             listaRistoranti.setItems(nomiRistoranti);
 
-            labelRistoranteSelezionato.setText(String.valueOf(listaRistoranti.getSelectionModel().getSelectedIndex()));
+            labelRistoranteSelezionato.setText("Nessun selezionato");
+            nomeRistoranteSelezionato = "Nessun selezionato";
 
             listaRistoranti.setOnMouseClicked(mouseEvent ->{
                 labelRistoranteSelezionato.setText(String.valueOf(listaRistoranti.getSelectionModel().getSelectedItem()));
@@ -64,12 +66,16 @@ public class VisualizzaRistoranteView extends Application implements Initializab
         }
     }
 
-    public void procediOrdine(ActionEvent actionEvent) throws IOException {
-        MostraMenuController mostraMenuController = MostraMenuController.getInstanza();
+    public void procediOrdine(ActionEvent actionEvent) {
         try {
-            mostraMenuController.mostra(nomeRistoranteSelezionato);
+            MostraMenuController mostraMenuController = MostraMenuController.getInstanza();
+            mostraMenuController.setRistoranteUtile(nomeRistoranteSelezionato);
+            mostraMenuController.mostra();
+            Node node = (Node) actionEvent.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.close();
         } catch (Exception e) {
             e.printStackTrace();
-        };
+        }
     }
 }

@@ -79,8 +79,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="JavaFXApplication" />
         <option value="FxmlFile" />
       </list>
     </option>
@@ -117,8 +117,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-15/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
     <property name="recentsLimit" value="5" />
@@ -248,37 +248,61 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1620410446161">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1620837326882">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1620410446161" />
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1620837326882" />
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1620408855452">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620408855452" />
-    <state x="1227" y="278" key="FileChooserDialogImpl" timestamp="1620257198990">
+    <state x="1227" y="278" key="FileChooserDialogImpl" timestamp="1621262897731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1227" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620257198990" />
-    <state width="1877" height="272" key="GridCell.Tab.0.bottom" timestamp="1620410725057">
+    <state x="1227" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621262897731" />
+    <state width="1877" height="218" key="GridCell.Tab.0.bottom" timestamp="1621265051721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620410725057" />
-    <state width="1877" height="272" key="GridCell.Tab.0.center" timestamp="1620410725057">
+    <state width="1877" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621265051721" />
+    <state width="1877" height="218" key="GridCell.Tab.0.center" timestamp="1621265051721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="272" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620410725057" />
-    <state width="1877" height="272" key="GridCell.Tab.0.left" timestamp="1620410725057">
+    <state width="1877" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621265051721" />
+    <state width="1877" height="218" key="GridCell.Tab.0.left" timestamp="1621265051721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="272" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620410725057" />
-    <state width="1877" height="272" key="GridCell.Tab.0.right" timestamp="1620410725057">
+    <state width="1877" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621265051721" />
+    <state width="1877" height="218" key="GridCell.Tab.0.right" timestamp="1621265051721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="272" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620410725057" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1620257645460">
+    <state width="1877" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621265051721" />
+    <state width="1877" height="286" key="GridCell.Tab.1.bottom" timestamp="1620751720155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620257645460" />
+    <state width="1877" height="286" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620751720155" />
+    <state width="1877" height="286" key="GridCell.Tab.1.center" timestamp="1620751720155">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="286" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620751720155" />
+    <state width="1877" height="286" key="GridCell.Tab.1.left" timestamp="1620751720155">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="286" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620751720155" />
+    <state width="1877" height="286" key="GridCell.Tab.1.right" timestamp="1620751720155">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="286" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620751720155" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1621262901388">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1621262901388" />
+    <state x="473" y="212" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1620837579853">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="473" y="212" key="com.intellij.javaee.MapExternalResourceDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620837579853" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1620746762871">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620746762871" />
   </component>
 </project>

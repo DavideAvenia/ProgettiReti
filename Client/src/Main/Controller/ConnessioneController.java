@@ -10,9 +10,10 @@ public class ConnessioneController{
     private int port = 30000;
     private Socket socket;
 
-    private InputStreamReader isr;
-    private OutputStreamWriter osw;
-    private ObjectInputStream ois;
+    private ObjectOutputStream oos = null;
+    private ObjectInputStream ois = null;
+    private BufferedReader in;
+    private PrintWriter out;
 
     private InetAddress addr = InetAddress.getByName("localhost");
     private Cliente cliente;
@@ -20,13 +21,16 @@ public class ConnessioneController{
     private static ConnessioneController connessioneController = null;
 
     private ConnessioneController() throws IOException {
-        socket = new Socket(this.addr, port);
-        System.out.println("Client Socket: "+ socket);
         try{
             //Qui dovrebbe stabilire la connessione
-            isr = new InputStreamReader(socket.getInputStream());
-            osw = new OutputStreamWriter(socket.getOutputStream());
+            socket = new Socket(this.addr, port);
+            System.out.println("Client Socket: " + socket);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+            out = new PrintWriter(new BufferedWriter(osw), true);
         } catch(IOException e) {
+            ois.close();
+            oos.close();
             socket.close();
         }
     }
@@ -38,15 +42,15 @@ public class ConnessioneController{
         return connessioneController;
     }
 
-    //Qui prendo l'id del cliente e vedo s'è giusto
     public boolean inviaIdCliente(String idCliente) throws IOException, ClassNotFoundException {
         //Qui deve inviare l'id al server tramite la socket
         Cliente invCliente = new Cliente(idCliente,null,null);
-        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-        oos.writeObject(invCliente);
+
+        oos = new ObjectOutputStream(socket.getOutputStream());
+        oos.writeUnshared(invCliente);
 
         ois = new ObjectInputStream(socket.getInputStream());
-        Cliente ret = (Cliente) ois.readObject();
+        Cliente ret = (Cliente) ois.readUnshared();
         cliente = ret;
         if(ret == null){
             return false;

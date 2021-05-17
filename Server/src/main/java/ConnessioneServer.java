@@ -30,33 +30,32 @@ public class ConnessioneServer extends Thread{
             ObjectInputStream iosCliente = new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream oosCliente = new ObjectOutputStream(socket.getOutputStream());
 
-            Cliente c = (Cliente) iosCliente.readObject();
+            Cliente c = (Cliente) iosCliente.readUnshared();
             ControllaID check = new ControllaID();
             Cliente ret = check.controllaIDQuery(c.getIdCliente());
 
             if(ret != null) {
                 //Manda l'oggetto cliente creato
                 System.out.println("è stato richiesto l'utente["+ret.getIdCliente()+"]: "+ret.getNome()+" "+ret.getCognome());
-                oosCliente.writeObject(ret);
+                oosCliente.writeUnshared(ret);
 
                 //Mandagli i ristoranti attivi
-                VisualizzaRistoranti visualizzaRistoranti = new VisualizzaRistoranti();
-
                 //Devo fare in modo di riempire anche gli arrayList dei menu dei determinati ristoranti
-                ArrayList<Ristorante> nuovaLista = visualizzaRistoranti.VisualizzaRistorantiQuery();
-
                 //Devono esserci più oos per ogni "oggetto" da portare fuori dal server
+                VisualizzaRistoranti visualizzaRistoranti = new VisualizzaRistoranti();
+                ArrayList<Ristorante> nuovaLista = visualizzaRistoranti.VisualizzaRistorantiQuery();
                 ObjectOutputStream oosListRistoranti = new ObjectOutputStream(socket.getOutputStream());
-                oosListRistoranti.writeObject(nuovaLista);
+                oosListRistoranti.writeUnshared(nuovaLista);
                 System.out.println("Inviato");
 
                 //Devo inviare la lista del menu in base al ristorante che riceverò dal cliente
                 ObjectInputStream iosRistorante = new ObjectInputStream(socket.getInputStream());
-                Ristorante r = (Ristorante) iosRistorante.readObject();
+                Ristorante r = (Ristorante) iosRistorante.readUnshared();
+                System.out.println(r.getNome());
                 MostraMenu mm = new MostraMenu();
                 ArrayList<String> listaMenu = mm.MostraMenuQuery(r);
                 ObjectOutputStream oosListaMenu = new ObjectOutputStream(socket.getOutputStream());
-                oosListaMenu.writeObject(listaMenu);
+                oosListaMenu.writeUnshared(listaMenu);
 
             }else{
                 //Manda l'oggetto cliente null
