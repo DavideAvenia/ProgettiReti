@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class ConnessioneController {
     private String ip = "localhost";
-    private int port = 30000;
+    private int port = 32000;
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;
@@ -22,7 +22,7 @@ public class ConnessioneController {
 
     public ConnessioneController() throws IOException {
         try{
-            socket = new Socket(this.addr, 30000);
+            socket = new Socket(this.addr, port);
             System.out.println("Client Socket: "+ socket); //Qui dovrebbe stabilire la connessione
         } catch(IOException e) {}
         try {

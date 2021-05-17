@@ -20,12 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Main/Model/Ristorante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/.idea/libraries/lib2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/resources/VisualizzaRider.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/Controller/ConnessioneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/Controller/ConnessioneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/View/ConnessioneView.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/View/ConnessioneView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Main/View/ConnessioneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/ConnessioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/Ristorante.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/Ristorante.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ControllaID.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ControllaID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Ristorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Ristorante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/resources/ConnessioneView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/resources/ConnessioneView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +136,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ristorante" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
@@ -140,6 +150,7 @@
       <recent name="C:\Users\Jugs\Desktop\ProgettiReti\Rider\src\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Model" />
       <recent name="Controller" />
     </key>
   </component>

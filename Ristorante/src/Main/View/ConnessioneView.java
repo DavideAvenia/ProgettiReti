@@ -1,6 +1,6 @@
 package View;
 
-import Controller.ConnessioneController;
+import Controller.ConnessioneServerController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,14 +12,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 
 public class ConnessioneView extends Application {
 
     @FXML
     public javafx.scene.control.Label text;
-    public TextField TextFieldIdRider;
+    public TextField TextFieldIdRistorante;
 
 
     @Override
@@ -36,13 +34,9 @@ public class ConnessioneView extends Application {
     // il un loop infinito accetta le connessioni sulla porta specificata nella serversocket
     // poi crea una nuova connessione per ogni rider accettato e mostra la finestra di attesa
     public void AccediPremuto(ActionEvent actionEvent) throws IOException {
-
-        ServerSocket serverSocket = new ServerSocket(30000);
-        System.out.println("EchoMultiServer: started");
-        System.out.println("Server Socket: " + serverSocket);
         try {
 
-            String idRistorante = TextFieldIdRider.getText();
+            String idRistorante = TextFieldIdRistorante.getText();
             //Chiamo il metodo per vedere se l'id è presente
             //Il server andrà a dare o true o false in caso di presenza del'id
             //Se non c'è, messaggio di errore, altrimenti va avanti
@@ -53,25 +47,13 @@ public class ConnessioneView extends Application {
             stage.close();
 
 
-            while (true) {
-                // bloccante finchè non avviene una connessione:
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Connection accepted: " + clientSocket);
-                try {
-                    new ConnessioneController(clientSocket, idRistorante);
-
-                } catch (IOException e) {
-                    clientSocket.close();
-                }
-            }
-
 
         }  catch (Exception e) {
             System.err.println("Accept failed");
             System.exit(1);
         }
         System.out.println("EchoMultiServer: closing...");
-        serverSocket.close();
+
     }
 }
 
