@@ -36,6 +36,7 @@ public class MostraMenuController {
         List<String> listaMenu = (ArrayList) ois.readUnshared();
 
         System.out.println(listaMenu);
+        ristoranteUtile.setMenu(listaMenu);
         return listaMenu;
     }
 

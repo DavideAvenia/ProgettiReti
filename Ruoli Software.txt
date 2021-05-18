@@ -18,16 +18,23 @@ Effettua ordine D
 Ristorante:
 Visulizza rider S
 Invia menu S
+Inoltra ordine (Scambio degli id tra client e rider) D
 Invia richiesta rider S
  
 Rider:
 Conferma ordine S
 
----
-
 Server (Non è un attore):
 Collegarsi al DB D Fatto (ngrok x Laragon)
-Inoltra ordine (Scambio degli id tra client e rider) D
 Notifica al ristorante della consegna effettuata D
+
+---
+
+Porte per le connessioni:
+Client -> Server 30000
+Ristorante -> Server 31000
+Rider -> Ristorante 32000
+
+
 
 

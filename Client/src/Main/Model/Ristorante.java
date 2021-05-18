@@ -2,10 +2,11 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Ristorante implements Serializable {
     private String nome;
-    private ArrayList<String> menu;
+    private List<String> menu;
 
     public Ristorante (){
 
@@ -20,7 +21,7 @@ public class Ristorante implements Serializable {
         this.nome = nome;
     }
 
-    public void setMenu(ArrayList<String> menu){
+    public void setMenu(List<String> menu){
         this.menu = menu;
     }
 
@@ -28,7 +29,7 @@ public class Ristorante implements Serializable {
         return nome;
     }
 
-    public ArrayList<String> getMenu() {
+    public List<String> getMenu() {
         return menu;
     }
 

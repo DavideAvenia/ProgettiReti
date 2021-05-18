@@ -4,12 +4,10 @@ import Model.Ristorante;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class ConnessioneServer extends Thread{
+public class ClientHandler extends Thread{
     private int port = 30000;
     private Socket socket;
     private ServerSocket ss = null;
@@ -17,7 +15,7 @@ public class ConnessioneServer extends Thread{
     private BufferedReader in;
     private PrintWriter out;
 
-    public ConnessioneServer(Socket s) throws IOException {
+    public ClientHandler (Socket s) throws IOException {
         socket = s;
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
@@ -56,6 +54,8 @@ public class ConnessioneServer extends Thread{
                 ArrayList<String> listaMenu = mm.MostraMenuQuery(r);
                 ObjectOutputStream oosListaMenu = new ObjectOutputStream(socket.getOutputStream());
                 oosListaMenu.writeUnshared(listaMenu);
+
+                //Bisogna creare un oggetto ordine da inviare al rider e ricevere una risposta
 
             }else{
                 //Manda l'oggetto cliente null
