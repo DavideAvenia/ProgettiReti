@@ -1,38 +1,63 @@
 import java.io.*;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        /*System.out.println(">Server: started");
+
         int[] ports = {30000, 31000};
         Selector selector = Selector.open();
 
-        for (int port: ports) {
-            ServerSocketChannel server = ServerSocketChannel.open();
-            server.configureBlocking(false);
-
-            server.socket().bind(new InetSocketAddress(port));
-            // we are only interested when accept evens occur on this socket
-            server.register(selector, SelectionKey.OP_ACCEPT);
+        for (int port : ports) {
+            ServerSocketChannel serverChannel = ServerSocketChannel.open();
+            serverChannel.configureBlocking(false);
+            serverChannel.socket().bind(new InetSocketAddress(port));
+            serverChannel.register(selector, SelectionKey.OP_ACCEPT);
         }
 
-        while(selector.isOpen()){
+        while (true) {
+            selector.select();
 
-        }
-        /*System.out.println(">Server Socket: " + serverSocketCliente);
+            Iterator<SelectionKey> selectedKeys = selector.selectedKeys().iterator();
+            while (selectedKeys.hasNext()) {
+                SelectionKey selectedKey = selectedKeys.next();
+
+                if (selectedKey.isAcceptable()) {
+                    SocketChannel socketChannel = ((ServerSocketChannel) selectedKey.channel()).accept();
+                    socketChannel.configureBlocking(false);
+                    switch (socketChannel.socket().getPort()) {
+                        case 30000:
+                            System.out.println("Connection accepted: " + socketChannel.socket());
+                            new ClientHandler(socketChannel.socket());
+                            break;
+                        case 31000:
+                            // handle connection for the secon port (4321)
+                            break;
+                    }
+                }
+            }
+        }*/
+
+        ServerSocket serverSocketCliente = new ServerSocket(30000);
+        //Devo fare la gestione del multi porta tramite più porte con uno switch case
+        System.out.println(">Server Socket: " + serverSocketCliente);
         System.out.println(">Server: started");
         try {
             while(true) {
                 // bloccante finchè non avviene una connessione:
                 // Controllare da che porta viene da porter gestire le accettazioni
-            Socket clientSocket = serverSocketCliente.accept();
-            clientSocket.getPort()
-            System.out.println("Connection accepted: "+ clientSocket);
+                Socket clientSocket = serverSocketCliente.accept();
+                System.out.println("Connection accepted: "+ clientSocket);
             try {
                 new ClientHandler(clientSocket);
             } catch(IOException e) {
@@ -45,7 +70,7 @@ public class Main {
         }
         System.out.println("EchoMultiServer: closing...");
         serverSocketCliente.close();
-        serverSocketRistorante.close();*/
+        //serverSocketRistorante.close();
     }
 }
 
