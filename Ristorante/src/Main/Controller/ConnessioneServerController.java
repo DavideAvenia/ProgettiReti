@@ -1,9 +1,10 @@
 package Controller;
 // connessione con il server
+
 import Model.Rider;
 
 import java.io.*;
-import java.net.*;
+import java.net.Socket;
 import java.sql.SQLException;
 import java.util.ArrayList;
 // controller per la connessione del ristorante con il rider

@@ -1,6 +1,5 @@
 package View;
 
-import Controller.ConnessioneServerController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,8 +15,8 @@ import java.io.IOException;
 public class ConnessioneView extends Application {
 
     @FXML
-    public javafx.scene.control.Label text;
-    public TextField TextFieldIdRistorante;
+    private javafx.scene.control.Label text;
+    private TextField TextFieldIdRistorante;
 
 
     @Override
