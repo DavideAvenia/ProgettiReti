@@ -45,18 +45,6 @@ public class ConnessioneController {
     }
 
 
-    public boolean checkRichiesta() throws IOException {
-
-        if (socket.isConnected()) {
-            int stringa = in.read();
-            if (stringa == 1) {
-                return true;
-            } else return false;
-        } else {
-            System.out.println("non connesso");
-            return false;
-        }
-    }
 
     //Qui prendo l'id del cliente e vedo s'è giusto
     public boolean inviaIdCliente(String idCliente) throws IOException, ClassNotFoundException {
@@ -68,13 +56,11 @@ public class ConnessioneController {
 
         ois = new ObjectInputStream(socket.getInputStream());
 
-        Rider ret = (Rider) ois.readObject();
-        rider = ret;
-        if(ret == null){
-            return false;
-        }
-
-        return true;
+        String ret;
+        ret = (String) ois.readObject();
+        if(ret.equals("ok")){
+            return true;
+        } else return false;
     }
 
     public Rider getCliente() {

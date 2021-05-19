@@ -1,5 +1,7 @@
 package View;
 
+import Controller.ServerHandler;
+import Controller.VisualizzaRiderController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -15,7 +18,8 @@ import java.io.IOException;
 public class ConnessioneView extends Application {
 
     @FXML
-    private javafx.scene.control.Label text;
+    private Label text;
+    @FXML
     private TextField TextFieldIdRistorante;
 
 
@@ -32,8 +36,7 @@ public class ConnessioneView extends Application {
     // come prima cosa viene creata la serversocket per accetta le connessioni dei rider
     // il un loop infinito accetta le connessioni sulla porta specificata nella serversocket
     // poi crea una nuova connessione per ogni rider accettato e mostra la finestra di attesa
-    public void AccediPremuto(ActionEvent actionEvent) throws IOException {
-        try {
+    public void AccediPremuto(ActionEvent actionEvent) throws Exception {
 
             String idRistorante = TextFieldIdRistorante.getText();
             //Chiamo il metodo per vedere se l'id è presente
@@ -41,16 +44,15 @@ public class ConnessioneView extends Application {
             //Se non c'è, messaggio di errore, altrimenti va avanti
 
             //Chiude la finestra
+
             Node node = (Node) actionEvent.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
 
+            VisualizzaRiderController visualizzarider = VisualizzaRiderController.getInstanza();
+            visualizzarider.mostra();
 
 
-        }  catch (Exception e) {
-            System.err.println("Accept failed");
-            System.exit(1);
-        }
         System.out.println("EchoMultiServer: closing...");
 
     }

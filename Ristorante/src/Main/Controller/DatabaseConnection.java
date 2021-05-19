@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class DatabaseConnection {
 
-    private final String URL = "jdbc:mysql://4.tcp.ngrok.io:16246/progettoreti";
+    private final String URL = "jdbc:mysql://0.tcp.ngrok.io:18771/progettoreti";
     private final String USER = "root";
     private final String PASS = "";
     private Statement stmt;

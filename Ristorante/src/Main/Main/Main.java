@@ -1,6 +1,7 @@
 package Main;
 
-import Controller.ConnessioneServerController;
+import Controller.RiderHandler;
+import Controller.ServerHandler;
 import View.ConnessioneView;
 import javafx.application.Application;
 
@@ -10,24 +11,14 @@ import java.net.Socket;
 
 public class Main {
     public static void main(String[] args) {
-        Application.launch(ConnessioneView.class, args);
+        ServerHandler serverHandlerRider = new ServerHandler(32000);
+        serverHandlerRider.startServer();
         try {
-            ServerSocket serverSocket = new ServerSocket(32000);
+            Application.launch(ConnessioneView.class, args);
             System.out.println("EchoMultiServer: started");
-            System.out.println("Server Socket: " + serverSocket);
 
-            while (true) {
-                // bloccante finchè non avviene una connessione:
-                Socket clientSocket = serverSocket.accept();
 
-                System.out.println("Connection accepted: " + clientSocket);
-                try {
-                    new ConnessioneServerController(clientSocket);
 
-                } catch (IOException e) {
-                    clientSocket.close();
-                }
-            }
         } catch (Exception e) {
             System.err.println("Accept failed");
             System.exit(1);

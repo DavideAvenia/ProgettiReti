@@ -46,15 +46,14 @@ public class LoginView extends Application {
                 m.start(new Stage());
             }else {
                 //Chiude la finestra
+                System.out.println("id controllato");
                 Node node = (Node) actionEvent.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.close();
                 Socket s = connessioneController.getSocket();
-                if(connessioneController.checkRichiesta()) {
-                    System.out.println("accetti l'ordine?");
-                    ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s, idRider);
-                    confermaOrdine.mostra();
-                }
+                System.out.println("accetti l'ordine?");
+                ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s, idRider);
+                confermaOrdine.mostra();
             }
 
         } catch (IOException e) {

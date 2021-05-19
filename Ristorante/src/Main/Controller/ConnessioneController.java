@@ -1,5 +1,5 @@
 package Controller;
-// gestione delle connessioni con i rider
+// gestione delle connessioni con il server
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
