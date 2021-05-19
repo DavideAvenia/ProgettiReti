@@ -1,3 +1,5 @@
+package Queries;
+
 import java.sql.*;
 
 public class DatabaseConnection {

@@ -1,3 +1,5 @@
+package Queries;
+
 import Model.Ristorante;
 
 import java.sql.ResultSet;

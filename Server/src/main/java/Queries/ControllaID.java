@@ -1,3 +1,5 @@
+package Queries;
+
 import Model.Cliente;
 
 import java.io.Serializable;
