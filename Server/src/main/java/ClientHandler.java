@@ -25,6 +25,7 @@ public class ClientHandler extends Thread{
 
     public void run(){
         try {
+            System.out.println("KITEMMUORTO CLIENTE");
             ObjectInputStream iosCliente = new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream oosCliente = new ObjectOutputStream(socket.getOutputStream());
 

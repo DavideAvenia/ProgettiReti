@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Ristorante implements Serializable {
+    private static final long serialVersionUID = 6529685098267757690L;
     private String nome;
     private ArrayList<String> menu;
 

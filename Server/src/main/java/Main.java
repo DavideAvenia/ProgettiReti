@@ -58,6 +58,18 @@ public class Main {
                 // Controllare da che porta viene da porter gestire le accettazioni
                 Socket clientSocket = serverSocketCliente.accept();
                 System.out.println("Connection accepted: "+ clientSocket);
+                /*switch (clientSocket.getPort()){
+                    case 30000:
+                        try {
+                            new ClientHandler(clientSocket);
+                        } catch(IOException e) {
+                            clientSocket.close();
+                        }
+                        break;
+                    case 31000:
+                        break;
+                }*/
+
             try {
                 new ClientHandler(clientSocket);
             } catch(IOException e) {
@@ -70,7 +82,7 @@ public class Main {
         }
         System.out.println("EchoMultiServer: closing...");
         serverSocketCliente.close();
-        //serverSocketRistorante.close();
+
     }
 }
 
