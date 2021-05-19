@@ -7,7 +7,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class ConnessioneController{
-    private int port = 31000;
+    private int port = 30000;
     private Socket socket;
 
     private ObjectOutputStream oos = null;
