@@ -8,13 +8,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class VisualizzaRiderController {
 
     private static VisualizzaRiderController visualizzaRiderControllerInstanza = null;
-    private VisualizzaRiderView visualizzarider;
+    private static VisualizzaRiderView visualizzarider = null;
 
     private VisualizzaRiderController() throws IOException {
+        visualizzarider = new VisualizzaRiderView();
     }
 
     public static VisualizzaRiderController getInstanza() throws IOException {
@@ -25,12 +27,11 @@ public class VisualizzaRiderController {
     }
 
     public void mostra() throws Exception {
-
-        visualizzarider = new VisualizzaRiderView();
         visualizzarider.start(new Stage());
+
     }
 
-    public void refresh(){
+    public void refresh() throws Exception {
         System.out.println("refresh controller");
         visualizzarider.refresh();
     }

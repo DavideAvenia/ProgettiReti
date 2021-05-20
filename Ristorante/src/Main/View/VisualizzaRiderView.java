@@ -20,11 +20,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class VisualizzaRiderView extends Application implements Initializable {
 
     @FXML
-    private ListView listaRider = new ListView();
+    private ListView listaRider;
     @FXML
     private Label labelRiderSelezionato;
 
@@ -32,9 +33,7 @@ public class VisualizzaRiderView extends Application implements Initializable {
 
 
     ArrayList<String> riderConnessi = new ArrayList<String>();
-    ObservableList<String> nomiRider = FXCollections.observableArrayList();
-    ArrayList<String> fatti = new ArrayList<String>();
-
+    ObservableList<String> nomiRider = FXCollections.observableArrayList("attendi");
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -43,20 +42,18 @@ public class VisualizzaRiderView extends Application implements Initializable {
         primaryStage.setTitle("Visualizza i rider");
         primaryStage.setScene(new Scene(root, 300, 600));
         primaryStage.show();
-fatti.add("uno");
-fatti.add("due");
+
     }
 
     public void refresh(){
         System.out.println("refresh view");
         riderConnessi = RiderHandler.getRiderConnessi();
-        System.out.println("rider in lista1: " + riderConnessi);
+
         nomiRider.clear();
-        nomiRider = FXCollections.observableArrayList(riderConnessi);
+        nomiRider.addAll(riderConnessi);
         System.out.println("nomi rider: " + nomiRider);
         listaRider.setItems(nomiRider);
         System.out.println("lista rider: " + listaRider.getItems());
-        listaRider.refresh();
     }
 
 
@@ -66,8 +63,8 @@ fatti.add("due");
         listaRider.setEditable(true);
         riderConnessi = RiderHandler.getRiderConnessi();
         System.out.println("rider presi");
-        nomiRider.addAll(fatti);
         //nomiRider = FXCollections.observableArrayList(riderConnessi);
+        //nomiRider.addAll(riderConnessi);
         listaRider.setItems(nomiRider);
 
         labelRiderSelezionato.setText("Nessun selezionato");
@@ -79,9 +76,10 @@ fatti.add("due");
                 });
     }
 
-
-
-
     public void procediOrdine(ActionEvent actionEvent) {
+    }
+
+    public void RefreshPremuto(ActionEvent actionEvent) {
+        refresh();
     }
 }

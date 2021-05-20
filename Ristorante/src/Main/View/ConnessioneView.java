@@ -1,5 +1,6 @@
 package View;
 
+import Controller.RiderHandler;
 import Controller.ServerHandler;
 import Controller.VisualizzaRiderController;
 import javafx.application.Application;
@@ -14,6 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ConnessioneView extends Application {
 
@@ -51,10 +54,6 @@ public class ConnessioneView extends Application {
 
             VisualizzaRiderController visualizzarider = VisualizzaRiderController.getInstanza();
             visualizzarider.mostra();
-
-
-        System.out.println("EchoMultiServer: closing...");
-
     }
 }
 

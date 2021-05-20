@@ -34,6 +34,8 @@ public class ServerHandler extends Thread
                 new RiderHandler(socket);
             } catch (IOException e){
                 e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

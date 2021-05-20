@@ -2,6 +2,8 @@ package Controller;
 // connessione con i rider
 
 import Model.Rider;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 
 import java.io.*;
 import java.net.Socket;
@@ -19,13 +21,13 @@ public class RiderHandler extends Thread {
     private PrintWriter out;
     private String idRistorante;
     private static ArrayList<String> riderConnessi = new ArrayList<>();
-
+    //private static boolean connesso = false;
     private static RiderHandler instanza = null;
 
     // il costruttore prende la socket che è stata creata e la salva
     // stanzia il canali di comunicazione di lettura e scrittura con il rider
     // infine chiama run
-    public RiderHandler(Socket s) throws IOException {
+    public RiderHandler(Socket s) throws Exception {
         socket = s;
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
@@ -45,6 +47,7 @@ public class RiderHandler extends Thread {
     // e aspetta la risposta
     // se il rider accetta allora gli viene inviato il codice dell'ordine
 
+    //public boolean getConnesso(){return connesso;}
 
         public void run () {
             try {
@@ -65,13 +68,11 @@ public class RiderHandler extends Thread {
                     oos.writeObject("ok");
                     //deve occuparsi di gestire i rider
                     riderConnessi.add(ret.getNome());
-                    System.out.println("rider in lista:" + riderConnessi);
-                    VisualizzaRiderController vr = VisualizzaRiderController.getInstanza();
-                    vr.refresh();
-
+                    //connesso=true;
                 }
 
                 socket.close();
+                //connesso=false;
                 System.out.println("socket chiusa");
 
             } catch (IOException e) {
