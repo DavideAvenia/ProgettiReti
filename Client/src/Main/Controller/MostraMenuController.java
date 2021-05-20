@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Cliente;
+import Model.Ordine;
 import Model.Ristorante;
 import View.MostraMenuView;
 import javafx.stage.Stage;
@@ -38,6 +40,19 @@ public class MostraMenuController {
         System.out.println(listaMenu);
         ristoranteUtile.setMenu(listaMenu);
         return listaMenu;
+    }
+
+    public boolean inviaOrdine(List<String> listaProdotti){
+        try{
+            Cliente cliente = ConnessioneController.getInstanza().getCliente();
+            Ordine ordineEffettutato = new Ordine(cliente, listaProdotti);
+            ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+            oos.writeUnshared(ordineEffettutato);
+            return true;
+        }catch(IOException e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public void setRistoranteUtile(String nomeRistorante){

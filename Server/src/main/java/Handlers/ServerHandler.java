@@ -29,7 +29,7 @@ public class ServerHandler extends Thread
         while(true) {
             try {
                 i++;
-                System.out.println( ">In attesa di una connesione" + i);
+                System.out.println( ">In attesa di una connesione: " + i);
                 Socket socket = serverSocket.accept();
                 switch (port){
                     case 30000:

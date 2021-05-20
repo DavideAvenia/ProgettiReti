@@ -1,11 +1,13 @@
 package Handlers;
 
-import Model.Cliente;
+import Model.Ordine;
 import Model.Ristorante;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class RistoHandler extends Thread{
@@ -13,18 +15,17 @@ public class RistoHandler extends Thread{
     private Socket socket;
     private ServerSocket ss = null;
 
-    private BufferedReader in;
-    private PrintWriter out;
+    private Map<Ristorante,Ordine> ordiniEseguiti = new HashMap<>();
 
     public RistoHandler (Socket s) throws IOException {
         socket = s;
-        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
-        out = new PrintWriter(new BufferedWriter(osw), true);
         start();
     }
 
     public void run(){
+        synchronized (ordiniEseguiti){
+            //controlla da che ristorante viene e invia
+        }
     }
 }
 

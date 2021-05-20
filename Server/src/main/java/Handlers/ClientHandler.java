@@ -1,6 +1,7 @@
 package Handlers;
 
 import Model.Cliente;
+import Model.Ordine;
 import Model.Ristorante;
 import Queries.ControllaID;
 import Queries.MostraMenu;
@@ -15,7 +16,7 @@ public class ClientHandler extends Thread{
     private int port = 30000;
     private Socket socket;
 
-    public ClientHandler (Socket s) throws IOException {
+    public ClientHandler (Socket s) {
         socket = s;
         start();
     }
@@ -23,20 +24,19 @@ public class ClientHandler extends Thread{
     public void run(){
         try {
             ObjectInputStream iosCliente = new ObjectInputStream(socket.getInputStream());
-            ObjectOutputStream oosCliente = new ObjectOutputStream(socket.getOutputStream());
-
             Cliente c = (Cliente) iosCliente.readUnshared();
             ControllaID check = new ControllaID();
             Cliente ret = check.controllaIDQuery(c.getIdCliente());
 
+            ObjectOutputStream oosCliente = new ObjectOutputStream(socket.getOutputStream());
+
             if(ret != null) {
                 //Manda l'oggetto cliente creato
                 System.out.println("è stato richiesto l'utente["+ret.getIdCliente()+"]: "+ret.getNome()+" "+ret.getCognome());
+
                 oosCliente.writeUnshared(ret);
 
                 //Mandagli i ristoranti attivi
-                //Devo fare in modo di riempire anche gli arrayList dei menu dei determinati ristoranti
-                //Devono esserci più oos per ogni "oggetto" da portare fuori dal server
                 VisualizzaRistoranti visualizzaRistoranti = new VisualizzaRistoranti();
                 ArrayList<Ristorante> nuovaLista = visualizzaRistoranti.VisualizzaRistorantiQuery();
                 ObjectOutputStream oosListRistoranti = new ObjectOutputStream(socket.getOutputStream());
@@ -53,6 +53,11 @@ public class ClientHandler extends Thread{
                 oosListaMenu.writeUnshared(listaMenu);
 
                 //Bisogna creare un oggetto ordine da inviare al rider e ricevere una risposta
+                //Lettura dell'ordine
+                ObjectInputStream iosOrdine = new ObjectInputStream(socket.getInputStream());
+                Ordine o = (Ordine) iosOrdine.readUnshared();
+
+                //Scenario produttore consumatore, il client è il produttore e il ristorante è il consumatore
 
             }else{
                 //Manda l'oggetto cliente null

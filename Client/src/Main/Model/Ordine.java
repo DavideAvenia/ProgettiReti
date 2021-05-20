@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Ordine implements Serializable {
+    private static final long serialVersionUID = 6529685098267757690L;
     private Cliente cliente;
     private List<String> prodotti;
 
