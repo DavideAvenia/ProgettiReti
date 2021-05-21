@@ -36,8 +36,6 @@ public class ConfermaOrdine extends Application {
             String idOrdine = confermaOrdine.getIdOrdine();
             System.out.println("conferma premuto");
             Text.setText("id ordine: " + idOrdine);
-            confermaOrdine.consegna();
-            Text.setText("id ordine: " + idOrdine + " consegnato");
 
 
         }catch (IOException e) {
@@ -52,11 +50,7 @@ public class ConfermaOrdine extends Application {
             ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
             confermaOrdine.annulla();
             System.out.println("annulla premuto");
-            BottoneConferma.setDisable(true);
-            BottoneConferma.setVisible(false);
-            BottoneAnnulla.setDisable(true);
-            BottoneAnnulla.setVisible(false);
-            Text.setText("Ordine annullato");
+
         }catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

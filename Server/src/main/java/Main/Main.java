@@ -6,6 +6,7 @@ import Model.Ordine;
 import Model.Ristorante;
 
 import java.io.*;
+import java.net.Socket;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -41,7 +42,7 @@ public class Main {
             }
         }
 
-        public void consume(Ristorante ristorante) throws InterruptedException {
+        public void consume(Ristorante ristorante, Socket socket) throws Exception {
             synchronized (ordiniDaEseguire){
                 while(ordiniDaEseguire.isEmpty())
                     wait();
@@ -51,7 +52,9 @@ public class Main {
                         System.out.println("Elaborato l'ordine: al "+ o.getRistorante() + " di " + o.getCliente());
                         //Qui deve prendere l'oggetto del ristoHandler e mandarlo al ristorante
                         //Che lo manderà al rider con già contenente l'ID del cliente
-
+                        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                        oos.writeUnshared(o);
+                        System.out.println("ordine inviato al ristorante");
 
                         ordiniDaEseguire.remove(o);
                         ordiniDaEseguire.notifyAll();

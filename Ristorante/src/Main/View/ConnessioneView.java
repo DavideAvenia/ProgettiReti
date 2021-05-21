@@ -1,8 +1,10 @@
 package View;
 
+import Controller.ConnessioneController;
 import Controller.RiderHandler;
 import Controller.ServerHandler;
 import Controller.VisualizzaRiderController;
+import Model.Ordine;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,19 +43,22 @@ public class ConnessioneView extends Application {
     // poi crea una nuova connessione per ogni rider accettato e mostra la finestra di attesa
     public void AccediPremuto(ActionEvent actionEvent) throws Exception {
 
-            String idRistorante = TextFieldIdRistorante.getText();
+        String idRistorante = TextFieldIdRistorante.getText();
+        //connessione con il server
+        ConnessioneController connessionecontroller = ConnessioneController.getInstanza(idRistorante);
+
             //Chiamo il metodo per vedere se l'id è presente
             //Il server andrà a dare o true o false in caso di presenza del'id
             //Se non c'è, messaggio di errore, altrimenti va avanti
 
             //Chiude la finestra
 
-            Node node = (Node) actionEvent.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            stage.close();
+        Node node = (Node) actionEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
 
-            VisualizzaRiderController visualizzarider = VisualizzaRiderController.getInstanza();
-            visualizzarider.mostra();
+        VisualizzaRiderController visualizzarider = VisualizzaRiderController.getInstanza();
+        visualizzarider.mostra();
     }
 }
 

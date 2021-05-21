@@ -43,7 +43,8 @@ public class RistoHandler extends Thread{
                 ristoranteAttuale = ret;
 
                 OrdineHandler ordineHandler = new OrdineHandler();
-                ordineHandler.consume(ristoranteAttuale);
+                ordineHandler.consume(ristoranteAttuale, socket);
+
 
                 //Fai cose per gestire gli ordini
                 //Credo che glieli debba inviare
@@ -54,6 +55,8 @@ public class RistoHandler extends Thread{
             }
 
         } catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

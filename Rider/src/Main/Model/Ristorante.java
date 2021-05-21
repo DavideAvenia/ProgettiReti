@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Ristorante implements Serializable {
+    private static final long serialVersionUID = 6529685098267757690L;
+    private String idRistorante;
     private String nome;
     private ArrayList<String> menu;
 
@@ -11,7 +13,8 @@ public class Ristorante implements Serializable {
 
     }
 
-    public Ristorante(String nome, ArrayList<String> menu){
+    public Ristorante(String idRistorante, String nome, ArrayList<String> menu){
+        this.idRistorante = idRistorante;
         this.nome = nome;
         this.menu = menu;
     }
@@ -22,6 +25,10 @@ public class Ristorante implements Serializable {
 
     public void setMenu(ArrayList<String> menu){
         this.menu = menu;
+    }
+
+    public String getIdRistorante(){
+        return idRistorante;
     }
 
     public String getNome() {

@@ -30,9 +30,6 @@ public class ConfermaOrdineController {
 
     private ConfermaOrdineController(Socket s, String i) throws IOException {
         socket = s;
-        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
-        out = new PrintWriter(new BufferedWriter(osw), true);
         idRider = i;
     }
 
@@ -58,10 +55,7 @@ public class ConfermaOrdineController {
 
 
     public void conferma() throws IOException{
-        out.write(idRider + "\n");
-        out.flush();
 
-        idOrdine = in.readLine();
         System.out.println("id ordine: " + idOrdine);
     }
 
@@ -69,14 +63,9 @@ public class ConfermaOrdineController {
         return idOrdine;
     }
 
-    public void consegna() throws Exception{
-        out.write("consegnato\n");
-        out.flush();
-    }
 
     public void annulla() throws IOException{
-        out.write("annulla\n");
-        out.flush();
+        System.out.println("ordine annullato");
     }
 }
 
