@@ -1,13 +1,13 @@
 package Main;
 
+import Handlers.RistoHandler;
 import Handlers.ServerHandler;
 import Model.Ordine;
 import Model.Ristorante;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Main {
 
@@ -27,50 +27,41 @@ public class Main {
     }
 
     public static class OrdineHandler{
-        Map<Ristorante, Ordine> ordiniDaEseguire = new HashMap<>(10);
+        BlockingQueue<Ordine> ordiniDaEseguire = new LinkedBlockingQueue();
 
+        public void produce(Ordine ordine) throws InterruptedException {
+            synchronized (ordiniDaEseguire) {
+                while(ordiniDaEseguire.size() >= 10)
+                    wait();
 
-        public void produce(Ristorante ristorante, Ordine ordine) throws InterruptedException {
-                synchronized (ordiniDaEseguire){
-                    if(ordiniDaEseguire.size() == 10)
-                        wait();
-
-                    ordiniDaEseguire.put(ristorante, ordine);
-                    System.out.println("Aggiunto il valore: al "+ ristorante.getNome() + " di " + ordine.getCliente().getCognome());
-                    notify();
-                    Thread.sleep(1000);
-                }
+                ordiniDaEseguire.put(ordine);
+                System.out.println("Aggiunto il valore: al " + ordine.getRistorante().getNome() + " di " + ordine.getCliente().getCognome());
+                ordiniDaEseguire.notifyAll();
+                Thread.sleep(1000);
+            }
         }
 
-        public void consume(Ristorante ristorante, Ordine ordine) throws InterruptedException {
-            while(true){
-                synchronized (ordiniDaEseguire){
-                    while(ordiniDaEseguire.isEmpty())
-                        wait();
+        public void consume(Ristorante ristorante) throws InterruptedException {
+            synchronized (ordiniDaEseguire){
+                while(ordiniDaEseguire.isEmpty())
+                    wait();
 
-                    //Controllare se il ristorante è presente nella mappa
-                    //Se c'è, consuma, altrimenti wait()
-                    Iterator it = ordiniDaEseguire.entrySet().iterator();
-                    while(it.hasNext()){
-                        Map.Entry pair = (Map.Entry) it.next();
-                        if(pair.getKey().equals(ristorante)){
-                            System.out.println("Elaborato l'ordine: al "+ pair.getKey() + " di " + pair.getValue());
-
-                            //Questi due oggetti li devo passare al ristoHandler che poi deve inviare al rider
-                            //Ristorante ristorante = pair.getKey();
-                            //Ordine ordine = pair.getValue();
-
-                            ordiniDaEseguire.remove(ristorante, ordine);
+                for (Ordine o:ordiniDaEseguire) {
+                    if(o.getRistorante().equals(ristorante)){
+                        System.out.println("Elaborato l'ordine: al "+ o.getRistorante() + " di " + o.getCliente());
+                        //Qui deve prendere l'oggetto del ristoHandler e mandarlo al ristorante
+                        //Che lo manderà al rider con già contenente l'ID del cliente
 
 
-                            notify();
-                        }
+                        ordiniDaEseguire.remove(o);
+                        ordiniDaEseguire.notifyAll();
                     }
-
-                    Thread.sleep(1000);
                 }
             }
+            Thread.sleep(1000);
         }
     }
 }
+
+
 

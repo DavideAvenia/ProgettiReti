@@ -45,7 +45,7 @@ public class MostraMenuController {
     public boolean inviaOrdine(List<String> listaProdotti){
         try{
             Cliente cliente = ConnessioneController.getInstanza().getCliente();
-            Ordine ordineEffettutato = new Ordine(cliente, listaProdotti);
+            Ordine ordineEffettutato = new Ordine(cliente, listaProdotti, this.ristoranteUtile);
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             oos.writeUnshared(ordineEffettutato);
             return true;

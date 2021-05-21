@@ -58,8 +58,8 @@ public class ClientHandler extends Thread{
                 Ordine ordine = (Ordine) iosOrdine.readUnshared();
 
                 //Scenario produttore consumatore, il client è il produttore e il ristorante è il consumatore
-                OrdineHandler ordineHandlerAttuale = new OrdineHandler();
-                ordineHandlerAttuale.produce(ristorante,ordine);
+                OrdineHandler ordineHandler = new OrdineHandler();
+                ordineHandler.produce(ordine);
 
                 //wait(); che un rider confermi l'ordine
 

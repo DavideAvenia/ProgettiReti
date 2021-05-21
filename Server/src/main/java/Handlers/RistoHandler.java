@@ -1,15 +1,16 @@
 package Handlers;
 
-import Model.Cliente;
+import Main.Main.OrdineHandler;
 import Model.Ordine;
 import Model.Ristorante;
-import Queries.ControllaIDCliente;
+
 import Queries.ControllaIDRistorante;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,7 @@ public class RistoHandler extends Thread{
     private ServerSocket ss = null;
 
     private Ristorante ristoranteAttuale;
+    private ArrayList<Ordine> ordiniDaEseguire = new ArrayList<>();
 
     public RistoHandler (Socket s) {
         socket = s;
@@ -40,6 +42,9 @@ public class RistoHandler extends Thread{
             if(ret!= null){
                 ristoranteAttuale = ret;
 
+                OrdineHandler ordineHandler = new OrdineHandler();
+                ordineHandler.consume(ristoranteAttuale);
+
                 //Fai cose per gestire gli ordini
                 //Credo che glieli debba inviare
             }else{
@@ -48,10 +53,13 @@ public class RistoHandler extends Thread{
                 System.out.println("Non ci sono clienti con questo ID");
             }
 
-
-        } catch (IOException | ClassNotFoundException | SQLException e) {
+        } catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean addOrdine(Ordine o){
+        return ordiniDaEseguire.add(o);
     }
 }
 
