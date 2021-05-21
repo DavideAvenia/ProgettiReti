@@ -6,7 +6,6 @@ import Model.Ordine;
 import Model.Ristorante;
 
 import java.io.*;
-import java.net.Socket;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -14,16 +13,16 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println(">Aperta la porta 30000 \n");
+        System.out.println(">Aperta la porta 30000");
         ServerHandler serverHandlerCliente = new ServerHandler(30000);
 
-        System.out.println(">Aperta la porta 31000 \n");
+        System.out.println(">Aperta la porta 31000");
         ServerHandler serverHandlerRistorante = new ServerHandler(31000);
 
-        System.out.println(">Server: inizializzato con porta 30000 \n");
+        System.out.println(">Server: inizializzato con porta 30000");
         serverHandlerCliente.startServer();
 
-        System.out.println(">Server: inizializzato con porta 31000 \n");
+        System.out.println(">Server: inizializzato con porta 31000");
         serverHandlerRistorante.startServer();
     }
 
@@ -38,11 +37,11 @@ public class Main {
                 ordiniDaEseguire.put(ordine);
                 System.out.println("Aggiunto il valore: al " + ordine.getRistorante().getNome() + " di " + ordine.getCliente().getCognome());
                 ordiniDaEseguire.notifyAll();
-                Thread.sleep(1000);
             }
         }
 
-        public void consume(Ristorante ristorante, Socket socket) throws Exception {
+        public Ordine consume(Ristorante ristorante) throws InterruptedException {
+            Ordine ordineDaImportare = null;
             synchronized (ordiniDaEseguire){
                 while(ordiniDaEseguire.isEmpty())
                     wait();
@@ -52,16 +51,13 @@ public class Main {
                         System.out.println("Elaborato l'ordine: al "+ o.getRistorante() + " di " + o.getCliente());
                         //Qui deve prendere l'oggetto del ristoHandler e mandarlo al ristorante
                         //Che lo manderà al rider con già contenente l'ID del cliente
-                        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-                        oos.writeUnshared(o);
-                        System.out.println("ordine inviato al ristorante");
-
+                        ordineDaImportare = o;
                         ordiniDaEseguire.remove(o);
                         ordiniDaEseguire.notifyAll();
                     }
                 }
             }
-            Thread.sleep(1000);
+            return ordineDaImportare;
         }
     }
 }

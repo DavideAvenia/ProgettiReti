@@ -10,10 +10,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.*;
 
 public class RistoHandler extends Thread{
     private int port = 31000;
@@ -21,7 +18,8 @@ public class RistoHandler extends Thread{
     private ServerSocket ss = null;
 
     private Ristorante ristoranteAttuale;
-    private ArrayList<Ordine> ordiniDaEseguire = new ArrayList<>();
+    //La lista deve essere sincronizata per evitare che si fotta con altri client
+    private List<Ordine> ordiniDaEseguire = Collections.synchronizedList(new ArrayList<>());
 
     public RistoHandler (Socket s) {
         socket = s;
@@ -42,27 +40,26 @@ public class RistoHandler extends Thread{
             if(ret!= null){
                 ristoranteAttuale = ret;
 
+                //Thread-Safe se chiamato in locale
+                //Non nel pattern consume
                 OrdineHandler ordineHandler = new OrdineHandler();
-                ordineHandler.consume(ristoranteAttuale, socket);
+                Ordine ordine = ordineHandler.consume(ristoranteAttuale);
+                ordiniDaEseguire.add(ordine);
 
+                //QUA DEVE INVIARE L'ORDINE
+                //IL CONSUME SI OCCUPA SOLO DI CONSUMARE L'ORDINE
+                //NON DI MANDARLO PURE
 
-                //Fai cose per gestire gli ordini
-                //Credo che glieli debba inviare
             }else{
                 //Manda l'oggetto Ristorante null
                 oosRistorante.writeUnshared(null);
                 System.out.println("Non ci sono clienti con questo ID");
+                socket.close();
             }
 
         } catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) {
             e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-    }
-
-    public boolean addOrdine(Ordine o){
-        return ordiniDaEseguire.add(o);
     }
 }
 

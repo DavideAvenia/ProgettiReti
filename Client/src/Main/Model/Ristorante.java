@@ -4,18 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Ristorante implements Serializable {
+    private static final long serialVersionUID = 6529685098267757690L;
+    private String idRistorante;
     private String nome;
     private ArrayList<String> menu;
-    private String idRistorante;
 
-    public Ristorante(){
+    public Ristorante (){
 
     }
 
     public Ristorante(String idRistorante, String nome, ArrayList<String> menu){
+        this.idRistorante = idRistorante;
         this.nome = nome;
         this.menu = menu;
-        this.idRistorante = idRistorante;
     }
 
     public void setNome(String nome){
@@ -26,7 +27,7 @@ public class Ristorante implements Serializable {
         this.menu = menu;
     }
 
-    public void setIdRistorante(String idRistorante){this.idRistorante = idRistorante;}
+    public String getIdRistorante(){return idRistorante;}
 
     public String getNome() {
         return nome;
@@ -35,7 +36,5 @@ public class Ristorante implements Serializable {
     public ArrayList<String> getMenu() {
         return menu;
     }
-
-    public String getIdRistorante(){return idRistorante;}
 
 }
