@@ -13,7 +13,7 @@ Casi d'uso:
 
 Utente:
 Visulizza Ristorante D Fatto
-Effettua ordine D
+Effettua ordine D Fatto
 
 Ristorante:
 Visulizza rider S

@@ -2,18 +2,19 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Ristorante implements Serializable {
     private static final long serialVersionUID = 6529685098267757690L;
+    private String idRistorante;
     private String nome;
-    private List<String> menu;
+    private ArrayList<String> menu;
 
     public Ristorante (){
 
     }
 
-    public Ristorante(String nome, ArrayList<String> menu){
+    public Ristorante(String idRistorante, String nome, ArrayList<String> menu){
+        this.idRistorante = idRistorante;
         this.nome = nome;
         this.menu = menu;
     }
@@ -22,15 +23,17 @@ public class Ristorante implements Serializable {
         this.nome = nome;
     }
 
-    public void setMenu(List<String> menu){
+    public void setMenu(ArrayList<String> menu){
         this.menu = menu;
     }
+
+    public String getIdRistorante(){return idRistorante;}
 
     public String getNome() {
         return nome;
     }
 
-    public List<String> getMenu() {
+    public ArrayList<String> getMenu() {
         return menu;
     }
 

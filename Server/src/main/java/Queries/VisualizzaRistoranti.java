@@ -9,17 +9,19 @@ import java.util.ArrayList;
 public class VisualizzaRistoranti {
     public ArrayList<Ristorante> VisualizzaRistorantiQuery() throws SQLException {
         DatabaseConnection dbconn = new DatabaseConnection();
-        ArrayList<Ristorante> lista = new ArrayList<>();
-        String query = "SELECT * FROM `ristorante`";
+        ArrayList<Ristorante> listaRistoranti = new ArrayList<>();
 
-        ResultSet rs = dbconn.eseguiQuery(query);
+        String queryRistoranti = "SELECT * FROM `ristorante`";
 
-        while(rs.next()){
-            String nome = rs.getString("NomeRistorante");
-            lista.add(new Ristorante(nome, null));
+        ResultSet rsRistoranti = dbconn.eseguiQuery(queryRistoranti);
+
+        while(rsRistoranti.next()){
+            String id = rsRistoranti.getString("IDRistorante");
+            String nome = rsRistoranti.getString("NomeRistorante");
+            listaRistoranti.add(new Ristorante(id,nome,null));
         }
 
-        System.out.println(lista);
-        return lista;
+        System.out.println(listaRistoranti);
+        return listaRistoranti;
     }
 }

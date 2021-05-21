@@ -2,6 +2,7 @@ package View;
 
 import Controller.MostraMenuController;
 import Controller.VisualizzaRistoranteController;
+import Model.Ristorante;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,6 +34,7 @@ public class VisualizzaRistoranteView extends Application implements Initializab
     @FXML
     public ListView listaRistoranti;
 
+    private String idRistoranteSelezionato;
     private String nomeRistoranteSelezionato;
 
     @Override

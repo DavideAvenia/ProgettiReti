@@ -253,8 +253,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
-<<<<<<< Updated upstream
-=======
   <component name="WindowStateProjectService">
     <state x="440" y="94" key="#Project_Structure" timestamp="1620837326882">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -272,22 +270,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1227" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621443625666" />
-    <state width="914" height="216" key="GridCell.Tab.0.bottom" timestamp="1621443627586">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1621618386959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621443627586" />
-    <state width="914" height="216" key="GridCell.Tab.0.center" timestamp="1621443627586">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621618386959" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1621618386959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="216" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621443627586" />
-    <state width="914" height="216" key="GridCell.Tab.0.left" timestamp="1621443627586">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621618386959" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1621618386959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="216" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621443627586" />
-    <state width="914" height="216" key="GridCell.Tab.0.right" timestamp="1621443627586">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621618386959" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1621618386959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="216" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621443627586" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621618386959" />
     <state width="1877" height="286" key="GridCell.Tab.1.bottom" timestamp="1620751720155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -317,5 +315,4 @@
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620746762871" />
   </component>
->>>>>>> Stashed changes
 </project>

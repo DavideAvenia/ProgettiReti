@@ -65,7 +65,7 @@ public class MostraMenuView extends Application implements Initializable {
                         StringBuilder builder = new StringBuilder();
 
                         for (String name : selectedItems) {
-                            builder.append("\n" + name + "\n");
+                            builder.append(name + "\n");
                             listaProdottiDaInviare.add(name);
                         }
 

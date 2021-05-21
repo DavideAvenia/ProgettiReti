@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ControllaID implements Serializable {
+public class ControllaIDCliente implements Serializable {
     public Cliente controllaIDQuery(String id) throws SQLException {
         DatabaseConnection dbconn = new DatabaseConnection();
         String query = "SELECT * FROM `cliente` WHERE `IDCliente` =  \"" + id + "\" ";

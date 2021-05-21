@@ -35,7 +35,7 @@ public class MostraMenuController {
         oos.writeUnshared(ristoranteUtile);
 
         ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-        List<String> listaMenu = (ArrayList) ois.readUnshared();
+        ArrayList<String> listaMenu = (ArrayList) ois.readUnshared();
 
         System.out.println(listaMenu);
         ristoranteUtile.setMenu(listaMenu);
@@ -55,8 +55,15 @@ public class MostraMenuController {
         }
     }
 
-    public void setRistoranteUtile(String nomeRistorante){
-        ristoranteUtile = new Ristorante(nomeRistorante, null);
+    public void setRistoranteUtile(String nomeRistorante) throws IOException {
+        List<Ristorante> listaRistoranti = VisualizzaRistoranteController.getInstanza().getListaRistoranti();
+
+        for (Ristorante r:listaRistoranti) {
+            if(r.getNome().equals(nomeRistorante)) {
+                ristoranteUtile = r;
+                break;
+            }
+        }
     }
 
     public void mostra() throws Exception {
