@@ -33,10 +33,7 @@ public class ConfermaOrdine extends Application {
         try {
             ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
             confermaOrdine.conferma();
-            String idOrdine = confermaOrdine.getIdOrdine();
             System.out.println("conferma premuto");
-            Text.setText("id ordine: " + idOrdine);
-
 
         }catch (IOException e) {
             e.printStackTrace();

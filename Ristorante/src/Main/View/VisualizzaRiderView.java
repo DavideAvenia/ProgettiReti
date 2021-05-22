@@ -1,6 +1,8 @@
 package View;
 
+import Controller.ConnessioneController;
 import Controller.RiderHandler;
+import Model.Ordine;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -76,7 +79,10 @@ public class VisualizzaRiderView extends Application implements Initializable {
                 });
     }
 
-    public void procediOrdine(ActionEvent actionEvent) {
+    public void procediOrdine(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        ConnessioneController cc = null;
+        ArrayList<Ordine> Ordini = cc.getOrdiniRicevuti();
+        RiderHandler.inviaOrdine(Ordini);
     }
 
     public void RefreshPremuto(ActionEvent actionEvent) {

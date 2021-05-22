@@ -1,6 +1,7 @@
 package Controller;
 // connessione con i rider
 
+import Model.Ordine;
 import Model.Rider;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -29,9 +30,6 @@ public class RiderHandler extends Thread {
     // infine chiama run
     public RiderHandler(Socket s) throws Exception {
         socket = s;
-        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
-        out = new PrintWriter(new BufferedWriter(osw), true);
         run();
     }
 
@@ -39,6 +37,15 @@ public class RiderHandler extends Thread {
         return socket;
     }
 
+    public static void inviaOrdine(ArrayList<Ordine> ordini) throws IOException, ClassNotFoundException {
+        Socket socket = instanza.socket;
+        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+        oos.writeObject(ordini.get(0));
+        ordini.remove(0);
+
+        ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
+        String rispostaRider = (String) ios.readObject();
+    }
     public static ArrayList<String> getRiderConnessi() {
         return riderConnessi;
     }

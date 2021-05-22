@@ -52,8 +52,12 @@ public class LoginView extends Application {
                 stage.close();
                 Socket s = connessioneController.getSocket();
                 System.out.println("accetti l'ordine?");
+
                 ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s, idRider);
-                confermaOrdine.mostra();
+                if(confermaOrdine.checkRichieste())
+                {
+                    confermaOrdine.mostra();
+                }
             }
 
         } catch (IOException e) {

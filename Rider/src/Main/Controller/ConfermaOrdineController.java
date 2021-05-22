@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Ordine;
 import View.ConfermaOrdine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,6 +34,13 @@ public class ConfermaOrdineController {
         idRider = i;
     }
 
+    public boolean checkRichieste() throws IOException, ClassNotFoundException {
+        ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
+        Ordine ordine = (Ordine) ios.readObject();
+        // deve prendere l'id dell'ordine che però non c'è nella classe??
+        return true;
+    }
+
     public static ConfermaOrdineController getInstanza() throws IOException {
         if (instanza == null) {
             System.out.println("istanza non esiste");
@@ -55,7 +63,8 @@ public class ConfermaOrdineController {
 
 
     public void conferma() throws IOException{
-
+        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+        oos.writeObject("conferma");
         System.out.println("id ordine: " + idOrdine);
     }
 
@@ -65,6 +74,8 @@ public class ConfermaOrdineController {
 
 
     public void annulla() throws IOException{
+        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+        oos.writeObject("annulla");
         System.out.println("ordine annullato");
     }
 }

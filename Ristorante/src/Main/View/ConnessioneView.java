@@ -44,15 +44,12 @@ public class ConnessioneView extends Application {
     public void AccediPremuto(ActionEvent actionEvent) throws Exception {
 
         String idRistorante = TextFieldIdRistorante.getText();
-        //connessione con il server
-        ConnessioneController connessionecontroller = ConnessioneController.getInstanza(idRistorante);
-
+        new ConnessioneController(idRistorante);
             //Chiamo il metodo per vedere se l'id è presente
             //Il server andrà a dare o true o false in caso di presenza del'id
             //Se non c'è, messaggio di errore, altrimenti va avanti
 
-            //Chiude la finestra
-
+        //Chiude la finestra
         Node node = (Node) actionEvent.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         stage.close();

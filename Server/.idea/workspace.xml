@@ -23,48 +23,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845e8354-c086-4159-a7db-bf98a769a7ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Ordine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Handlers/ClientHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Main/Main$OrdineHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/Main/Model/Ristorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Main/Model/Ristorante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rider/src/Main/Model/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rider/src/Main/Model/Ordine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/out/production/Rider/Controller/ConfermaOrdineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/out/production/Rider/Controller/ConfermaOrdineController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/out/production/Rider/Controller/ConnessioneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/out/production/Rider/Controller/ConnessioneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/out/production/Rider/Model/Ristorante.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/out/production/Rider/Model/Ristorante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/out/production/Rider/View/ConfermaOrdine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/out/production/Rider/View/ConfermaOrdine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Model/Ristorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Model/Ristorante.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Ristorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Ristorante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/RiderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/RiderHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRiderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRiderView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/target/classes/Controller/ConnessioneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/target/classes/Controller/ConnessioneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/target/classes/Controller/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/target/classes/Controller/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/target/classes/Model/Ristorante.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/target/classes/Model/Ristorante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/target/classes/Controller/RiderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/target/classes/Controller/RiderHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/target/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/target/classes/Main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/target/classes/View/ConnessioneView.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/target/classes/View/ConnessioneView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/target/classes/View/VisualizzaRiderView.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/target/classes/View/VisualizzaRiderView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/target/classes/VisualizzaRider.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/target/classes/VisualizzaRider.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handlers/RistoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handlers/RistoHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Handlers/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handlers/ClientHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Handlers/RistoHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handlers/RistoHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Handlers/ServerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handlers/ServerHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main$OrdineHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Ordine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Ordine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Ristorante.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Ristorante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Queries/ControllaIDCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Queries/ControllaIDCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Queries/ControllaIDRistorante.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Queries/ControllaIDRistorante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Queries/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Queries/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Queries/MostraMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Queries/MostraMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Queries/VisualizzaRistoranti.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Queries/VisualizzaRistoranti.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Main$OrdineHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Main$OrdineHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,13 +63,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Educational Edition 2020.2.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -156,11 +129,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1621641267668">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621641267668" />
   </component>
 </project>
