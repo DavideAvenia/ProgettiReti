@@ -59,15 +59,29 @@ public class ClientHandler extends Thread{
 
                 //Scenario produttore consumatore, il client è il produttore e il ristorante è il consumatore
                 OrdineHandler ordineHandler = new OrdineHandler();
-                ordineHandler.produce(ordine);
+                ordineHandler.produceOrdine(ordine);
+                boolean conferma = false;
 
-                //wait(); che un rider confermi l'ordine
+                //Controllare se il ristorante è online
+                //Da mettere i ristoranti in una coda
 
+                while(!conferma){
+                    //quando arriva la conferma cambia in true
+                }
+
+                String idRider = new String("da inserire qui l'id del rider");
+                ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
+                oosIdRider.writeUnshared(idRider);
+
+
+                socket.close();
+                this.interrupt();
             }else{
                 //Manda l'oggetto cliente null
                 oosCliente.writeObject(null);
                 System.out.println("Non ci sono clienti con questo ID");
-                socket.close();
+                //socket.close();
+                //this.interrupt();
             }
         } catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) {
             e.printStackTrace();

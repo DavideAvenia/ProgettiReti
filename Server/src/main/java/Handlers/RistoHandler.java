@@ -43,17 +43,26 @@ public class RistoHandler extends Thread{
                 //Thread-Safe se chiamato in locale
                 //Non nel pattern consume
                 OrdineHandler ordineHandler = new OrdineHandler();
-                Ordine ordine = ordineHandler.consume(ristoranteAttuale);
+                Ordine ordine = ordineHandler.consumaOrdine(ristoranteAttuale);
                 ordiniDaEseguire.add(ordine);
 
                 //QUA DEVE INVIARE L'ORDINE
                 //IL CONSUME SI OCCUPA SOLO DI CONSUMARE L'ORDINE
                 //NON DI MANDARLO PURE
 
+                //Manda l'ordine all'handler del ristorante
+                ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
+                oosOrdine.writeUnshared(ordine);
+
+                //Qua deve ricevere il rider
+                //ObjectInputStream iosRider = new ObjectInputStream(socket.getInputStream());
+                //iosRider.readUnshared();
+
+                //In qualche modo deve mandarlo al cliente
             }else{
                 //Manda l'oggetto Ristorante null
                 oosRistorante.writeUnshared(null);
-                System.out.println("Non ci sono clienti con questo ID");
+                System.out.println("Non ci sono ristoranti con questo ID");
                 socket.close();
             }
 
