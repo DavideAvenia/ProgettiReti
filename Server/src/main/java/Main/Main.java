@@ -106,6 +106,11 @@ public class Main {
             }
             return ristoranteDaDisattivare;
         }
+
+        public boolean controllaPresenzaRistorante(Ristorante ristorante){
+            return ristorantiAttivi.contains(ristorante);
+        }
+
     }
 }
 

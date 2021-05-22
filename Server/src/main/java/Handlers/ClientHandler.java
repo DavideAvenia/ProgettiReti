@@ -60,19 +60,20 @@ public class ClientHandler extends Thread{
                 //Scenario produttore consumatore, il client è il produttore e il ristorante è il consumatore
                 OrdineHandler ordineHandler = new OrdineHandler();
                 ordineHandler.produceOrdine(ordine);
-                boolean conferma = false;
+                boolean confermaRider = false;
 
                 //Controllare se il ristorante è online
                 //Da mettere i ristoranti in una coda
+                while(ordineHandler.controllaPresenzaRistorante(ordine.getRistorante()))
+                    wait();
 
-                while(!conferma){
+                while(!confermaRider){
                     //quando arriva la conferma cambia in true
                 }
 
-                String idRider = new String("da inserire qui l'id del rider");
+                String idRider = "da inserire qui l'id del rider";
                 ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
                 oosIdRider.writeUnshared(idRider);
-
 
                 socket.close();
                 this.interrupt();
