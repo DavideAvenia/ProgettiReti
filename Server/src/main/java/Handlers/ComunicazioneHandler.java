@@ -113,7 +113,6 @@ public class ComunicazioneHandler {
                 while(riderDisponibili.size() >= 10)
                     wait();
 
-                //Inserisce l'ordine nella coda
                 riderDisponibili.put(rider);
                 System.out.println("Il rider " + rider.getIdRider() + "di cognome " + rider.getCognome() + "è pronto");
                 //Rilascia il monitor a tutti
@@ -121,9 +120,20 @@ public class ComunicazioneHandler {
             }
         }
 
-        public Rider consumaRider(Rider rider){
+        public Rider consumaRider(Rider rider) throws InterruptedException {
             Rider riderDaOccupare = null;
             //Simile a ordine da consumare
+
+            synchronized (riderDisponibili){
+                while(riderDisponibili.isEmpty())
+                    wait();
+
+                //adesso prende il rider in testa, cioè il primo disponibile
+                //Non credo debba fare sta cosa, nel caso lo cambiamo
+                riderDaOccupare = riderDisponibili.take();
+                System.out.println("Il rider " + riderDaOccupare.getIdRider() + "di cognome " + riderDaOccupare.getCognome() + "è stato rimosso");
+                riderDisponibili.wait();
+            }
             return riderDaOccupare;
         }
     }
