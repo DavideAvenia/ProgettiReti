@@ -1,6 +1,7 @@
 package Handlers;
 
-import Main.Main.OrdineHandler;
+import Handlers.ComunicazioneHandler.OrdineHandler;
+import Handlers.ComunicazioneHandler.VisualizzaRistorantiAttiviHandler;
 import Model.Cliente;
 import Model.Ordine;
 import Model.Ristorante;
@@ -60,29 +61,33 @@ public class ClientHandler extends Thread{
                 //Scenario produttore consumatore, il client è il produttore e il ristorante è il consumatore
                 OrdineHandler ordineHandler = new OrdineHandler();
                 ordineHandler.produceOrdine(ordine);
-                boolean confermaRider = false;
 
                 //Controllare se il ristorante è online
                 //Da mettere i ristoranti in una coda
-                while(ordineHandler.controllaPresenzaRistorante(ordine.getRistorante()))
-                    wait();
 
-                while(!confermaRider){
+                System.out.println(">In attesa del ristorante sia online");
+                //La wait() sta nel metodo per controllare se il ristorante è attivo
+
+                VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
+                ristorantiAttiviHandler.controllaPresenzaRistorante(ristorante);
+
+                System.out.println(">In attesa di un rider accetti il tuo ordine");
+                /*while(!confermaRider){
                     //quando arriva la conferma cambia in true
-                }
+                    //Penso wait(); perché dovrebbe aspettare
+                }*/
 
                 String idRider = "da inserire qui l'id del rider";
                 ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
                 oosIdRider.writeUnshared(idRider);
 
+                System.out.println("Chiusura socket e cliente servito con successo");
                 socket.close();
                 this.interrupt();
             }else{
                 //Manda l'oggetto cliente null
                 oosCliente.writeObject(null);
                 System.out.println("Non ci sono clienti con questo ID");
-                //socket.close();
-                //this.interrupt();
             }
         } catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) {
             e.printStackTrace();

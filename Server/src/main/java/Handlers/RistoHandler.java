@@ -1,6 +1,8 @@
 package Handlers;
 
-import Main.Main.OrdineHandler;
+import Handlers.ComunicazioneHandler.OrdineHandler;
+import Handlers.ComunicazioneHandler.VisualizzaRistorantiAttiviHandler;
+
 import Model.Ordine;
 import Model.Ristorante;
 
@@ -18,6 +20,7 @@ public class RistoHandler extends Thread{
     private ServerSocket ss = null;
 
     private Ristorante ristoranteAttuale;
+
     //La lista deve essere sincronizata per evitare che si fotta con altri client
     private List<Ordine> ordiniDaEseguire = Collections.synchronizedList(new ArrayList<>());
 
@@ -37,12 +40,15 @@ public class RistoHandler extends Thread{
 
             ObjectOutputStream oosRistorante = new ObjectOutputStream(socket.getOutputStream());
 
-            if(ret!= null){
+            if(ret != null){
                 ristoranteAttuale = ret;
+                OrdineHandler ordineHandler = new OrdineHandler();
+
+                VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
+                ristorantiAttiviHandler.produceRistorante(ret);
 
                 //Thread-Safe se chiamato in locale
                 //Non nel pattern consume
-                OrdineHandler ordineHandler = new OrdineHandler();
                 Ordine ordine = ordineHandler.consumaOrdine(ristoranteAttuale);
                 ordiniDaEseguire.add(ordine);
 
@@ -58,7 +64,11 @@ public class RistoHandler extends Thread{
                 //ObjectInputStream iosRider = new ObjectInputStream(socket.getInputStream());
                 //iosRider.readUnshared();
 
+                //Appena riceve conferma rider
+
                 //In qualche modo deve mandarlo al cliente
+                //Quando ha completato l'ordine
+                //Chiama ordineHandler.consumaRistorante per rimuoverlo dai ristoranti online
             }else{
                 //Manda l'oggetto Ristorante null
                 oosRistorante.writeUnshared(null);
