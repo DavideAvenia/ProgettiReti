@@ -16,6 +16,8 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Set;
 
+import static java.lang.Thread.sleep;
+
 public class ConfermaOrdineController {
 
 
@@ -62,10 +64,15 @@ public class ConfermaOrdineController {
     }
 
 
-    public void conferma() throws IOException{
+    public void conferma() throws Exception {
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         oos.writeObject("conferma");
-        System.out.println("id ordine: " + idOrdine);
+        System.out.println("ordine confermato");
+        sleep(1000);
+        if(checkRichieste())
+        {
+            mostra();
+        }
     }
 
     public String getIdOrdine(){
@@ -73,10 +80,14 @@ public class ConfermaOrdineController {
     }
 
 
-    public void annulla() throws IOException{
+    public void annulla() throws Exception {
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         oos.writeObject("annulla");
         System.out.println("ordine annullato");
+        if(checkRichieste())
+        {
+            mostra();
+        }
     }
 }
 

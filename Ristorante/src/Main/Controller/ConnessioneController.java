@@ -2,7 +2,9 @@ package Controller;
 // gestione delle connessioni con il server
 // sulla porta 31000
 import Model.Ordine;
+import Model.Rider;
 import Model.Ristorante;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -18,7 +20,6 @@ public class ConnessioneController extends Thread {
     //private BufferedReader in;
     //private PrintWriter out;
     private InetAddress addr = InetAddress.getByName("localhost");
-    private static ConnessioneController instanza = null;
     private String idRistorante;
 
 
@@ -33,13 +34,15 @@ public class ConnessioneController extends Thread {
 
     }
 
+    public void removeOrdine(Ordine o){
+        OrdiniRicevuti.remove(o);
+    }
 
     public void run()  {
         try{
 
             System.out.println("invio id del ristorante: " + idRistorante);
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-            System.out.println("uno");
 
             // invio per il controllo
             Ristorante check = new Ristorante(idRistorante,null,null);
@@ -50,6 +53,7 @@ public class ConnessioneController extends Thread {
             System.out.println("ordine ricevuto: " + o);
             OrdiniRicevuti.add(o);
 
+
         }catch (Exception e){
             System.err.println(e);
         }
@@ -58,8 +62,6 @@ public class ConnessioneController extends Thread {
     }
 
     public ArrayList<Ordine> getOrdiniRicevuti(){return OrdiniRicevuti;}
-
-
 
     public Socket getSocket() {
         return socket;

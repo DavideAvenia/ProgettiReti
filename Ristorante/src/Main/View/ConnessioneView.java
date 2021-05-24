@@ -5,6 +5,7 @@ import Controller.RiderHandler;
 import Controller.ServerHandler;
 import Controller.VisualizzaRiderController;
 import Model.Ordine;
+import Model.Rider;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,6 +46,7 @@ public class ConnessioneView extends Application {
 
         String idRistorante = TextFieldIdRistorante.getText();
         new ConnessioneController(idRistorante);
+
             //Chiamo il metodo per vedere se l'id è presente
             //Il server andrà a dare o true o false in caso di presenza del'id
             //Se non c'è, messaggio di errore, altrimenti va avanti

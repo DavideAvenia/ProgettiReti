@@ -3,12 +3,14 @@ package Main;
 import Controller.ConnessioneController;
 import Controller.RiderHandler;
 import Controller.ServerHandler;
+import Model.Ordine;
 import View.ConnessioneView;
 import javafx.application.Application;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,6 +19,9 @@ public class Main {
         try {
             Application.launch(ConnessioneView.class, args);
             System.out.println("EchoMultiServer: started");
+            RiderHandler.inviaOrdine(); //dovrebbe farlo all'infinito?
+
+
         } catch (Exception e) {
             System.err.println("Accept failed");
             System.exit(1);

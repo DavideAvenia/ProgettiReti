@@ -40,7 +40,7 @@ public class LoginView extends Application {
             //Il server andrà a dare o true o false in caso di presenza del'id
             //Se non c'è, messaggio di errore, altrimenti va avanti
 
-            if(!connessioneController.inviaIdCliente(idRider)){
+            if(!connessioneController.inviaIdRider(idRider)){
                 //Finestra di errore
                 Messaggio m = new Messaggio("Errore","Non c'è il tuo ID nel database");
                 m.start(new Stage());
@@ -57,7 +57,9 @@ public class LoginView extends Application {
                 if(confermaOrdine.checkRichieste())
                 {
                     confermaOrdine.mostra();
+
                 }
+
             }
 
         } catch (IOException e) {

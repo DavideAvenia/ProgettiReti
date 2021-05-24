@@ -34,10 +34,10 @@ public class ConnessioneController {
 
 
     //Qui prendo l'id del cliente e vedo s'è giusto
-    public boolean inviaIdCliente(String idCliente) throws IOException, ClassNotFoundException {
-        //Qui deve inviare l'id al server tramite la socket
+    public boolean inviaIdRider(String idRider) throws IOException, ClassNotFoundException {
+        //Qui deve inviare l'id al ristorante
 
-        Rider invRider = new Rider(idCliente,null,null);
+        Rider invRider = new Rider(idRider,null,null);
         oos = new ObjectOutputStream(socket.getOutputStream());
         oos.writeObject(invRider);
 

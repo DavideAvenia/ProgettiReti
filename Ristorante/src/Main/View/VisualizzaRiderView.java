@@ -80,9 +80,7 @@ public class VisualizzaRiderView extends Application implements Initializable {
     }
 
     public void procediOrdine(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        ConnessioneController cc = null;
-        ArrayList<Ordine> Ordini = cc.getOrdiniRicevuti();
-        RiderHandler.inviaOrdine(Ordini);
+
     }
 
     public void RefreshPremuto(ActionEvent actionEvent) {
