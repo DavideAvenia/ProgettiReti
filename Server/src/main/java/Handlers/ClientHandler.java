@@ -75,6 +75,8 @@ public class ClientHandler extends Thread{
                 ConfermeRiderHandler confermeRiderHandler = new ConfermeRiderHandler();
                 Rider rider = confermeRiderHandler.consumaRider();
 
+                //C'è qualcosa che non mi piace e forse dovrei mettere qualcosa qui in mezzo
+
                 //Consuma il primo rider alla testa
                 ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
                 oosIdRider.writeUnshared(rider);
@@ -89,6 +91,7 @@ public class ClientHandler extends Thread{
                 //Manda l'oggetto cliente null
                 oosCliente.writeObject(null);
                 System.out.println("Non ci sono clienti con questo ID");
+                socket.close();
             }
         } catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) {
             e.printStackTrace();

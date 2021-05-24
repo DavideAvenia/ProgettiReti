@@ -52,22 +52,22 @@ public class RistoHandler extends Thread{
                 Ordine ordine = ordineHandler.consumaOrdine(ristoranteAttuale);
                 ordiniDaEseguire.add(ordine);
 
-                //QUA DEVE INVIARE L'ORDINE
-                //IL CONSUME SI OCCUPA SOLO DI CONSUMARE L'ORDINE
-                //NON DI MANDARLO PURE
-
                 //Manda l'ordine all'handler del ristorante
                 ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
                 oosOrdine.writeUnshared(ordine);
 
                 //Qua deve ricevere il rider
                 //ObjectInputStream iosRider = new ObjectInputStream(socket.getInputStream());
-                //iosRider.readUnshared();
+                //Rider rider = (Rider) iosRider.readUnshared();
+
+                //Qui produrrà il rider
+                //ConfermaRiderHandler prende l'instanza
+                //confermaRiderHandler.produceRider(rider)
 
                 //Appena riceve conferma rider
-                //ConfermaRiderHandler è la classe
-
                 //In qualche modo deve mandarlo al cliente
+                //Tramite il ConfermaRiderHandler che il cliente deve chiamare il consumaRider
+
                 //Quando ha completato l'ordine
                 //Chiama ordineHandler.consumaRistorante per rimuoverlo dai ristoranti online
             }else{
