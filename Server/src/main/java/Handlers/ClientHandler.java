@@ -2,8 +2,10 @@ package Handlers;
 
 import Handlers.ComunicazioneHandler.OrdineHandler;
 import Handlers.ComunicazioneHandler.VisualizzaRistorantiAttiviHandler;
+import Handlers.ComunicazioneHandler.ConfermeRiderHandler;
 import Model.Cliente;
 import Model.Ordine;
+import Model.Rider;
 import Model.Ristorante;
 import Queries.ControllaIDCliente;
 import Queries.MostraMenu;
@@ -64,24 +66,23 @@ public class ClientHandler extends Thread{
 
                 //Controllare se il ristorante è online
                 //Da mettere i ristoranti in una coda
-
-                System.out.println(">In attesa del ristorante sia online");
                 //La wait() sta nel metodo per controllare se il ristorante è attivo
-
+                System.out.println(">In attesa del ristorante sia online");
                 VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
                 ristorantiAttiviHandler.controllaPresenzaRistorante(ristorante);
 
                 System.out.println(">In attesa di un rider accetti il tuo ordine");
-                /*while(!confermaRider){
-                    //quando arriva la conferma cambia in true
-                    //Penso wait(); perché dovrebbe aspettare
-                }*/
+                ConfermeRiderHandler confermeRiderHandler = new ConfermeRiderHandler();
+                Rider rider = confermeRiderHandler.consumaRider();
 
-                String idRider = "da inserire qui l'id del rider";
+                //Consuma il primo rider alla testa
                 ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
-                oosIdRider.writeUnshared(idRider);
+                oosIdRider.writeUnshared(rider);
 
-                System.out.println("Chiusura socket e cliente servito con successo");
+                System.out.println("Chiusura socket e' cliente servito con successo");
+                //this.Thread.sleep(10000);
+                //Si deve creare una notifica al ristorante
+
                 socket.close();
                 this.interrupt();
             }else{

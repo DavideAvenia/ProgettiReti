@@ -77,7 +77,7 @@ public class ComunicazioneHandler {
             //Deve essere chiamato da un ristorante solo quando va Offline
             Ristorante ristoranteDaDisattivare = null;
             synchronized (ristorantiAttivi){
-                while(ristorantiAttivi.isEmpty())
+                while(ristorantiAttivi.isEmpty() && ristorantiAttivi.contains(ristorante))
                     wait();
 
                 for (Ristorante r:ristorantiAttivi) {
@@ -99,7 +99,7 @@ public class ComunicazioneHandler {
                 while(!ristorantiAttivi.contains(ristorante))
                     wait();
             }
-            notifyAll();
+            ristorantiAttivi.notifyAll();
             return ristorantiAttivi.contains(ristorante);
         }
     }
@@ -120,7 +120,7 @@ public class ComunicazioneHandler {
             }
         }
 
-        public Rider consumaRider(Rider rider) throws InterruptedException {
+        public Rider consumaRider() throws InterruptedException {
             Rider riderDaOccupare = null;
             //Simile a ordine da consumare
 

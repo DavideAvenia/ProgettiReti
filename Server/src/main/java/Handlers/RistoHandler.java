@@ -65,6 +65,7 @@ public class RistoHandler extends Thread{
                 //iosRider.readUnshared();
 
                 //Appena riceve conferma rider
+                //ConfermaRiderHandler è la classe
 
                 //In qualche modo deve mandarlo al cliente
                 //Quando ha completato l'ordine

@@ -16,9 +16,9 @@ Visulizza Ristorante D Fatto
 Effettua ordine D Fatto
 
 Ristorante:
-Visulizza rider S
+Visulizza rider S Fatto
 Invia menu S
-Inoltra ordine (Scambio degli id tra client e rider) D
+Inoltra ordine (Scambio degli id tra client e rider) D Fatto
 Invia richiesta rider S
  
 Rider:
@@ -26,7 +26,7 @@ Conferma ordine S
 
 Server (Non è un attore):
 Collegarsi al DB D Fatto (ngrok x Laragon)
-Notifica al ristorante della consegna effettuata D
+Notifica al ristorante della consegna effettuata D 
 
 ---
 
