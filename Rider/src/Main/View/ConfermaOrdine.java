@@ -34,7 +34,7 @@ public class ConfermaOrdine extends Application {
             ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
             confermaOrdine.conferma();
             System.out.println("conferma premuto");
-
+            Text.setText(confermaOrdine.getidCliente());
         }catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

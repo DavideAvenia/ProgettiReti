@@ -8,6 +8,10 @@ public class Rider implements Serializable {
     private String cognome;
     private String idRider;
 
+    public Rider(){
+
+    }
+
     public Rider(String idRider, String nome, String cognome){
         this.nome = nome;
         this.idRider = idRider;

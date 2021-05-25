@@ -4,7 +4,9 @@ package Controller;
 import Model.Ordine;
 import Model.Rider;
 import Model.Ristorante;
-import com.sun.org.apache.xpath.internal.operations.Or;
+import Controller.ComunicazioneHandler.OrdineHandler;
+import Controller.ComunicazioneHandler.ComunicazioneRiderHandler;
+import Controller.ComunicazioneHandler.RiderConfermatiHandler;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -15,10 +17,7 @@ public class ConnessioneController extends Thread {
 
     private int port = 31000;
     private Socket socket;
-    private ArrayList<Ordine> OrdiniRicevuti = new ArrayList<Ordine>();
 
-    //private BufferedReader in;
-    //private PrintWriter out;
     private InetAddress addr = InetAddress.getByName("localhost");
     private String idRistorante;
 
@@ -34,10 +33,6 @@ public class ConnessioneController extends Thread {
 
     }
 
-    public void removeOrdine(Ordine o){
-        OrdiniRicevuti.remove(o);
-    }
-
     public void run()  {
         try{
 
@@ -51,20 +46,20 @@ public class ConnessioneController extends Thread {
             ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
             Ordine o = (Ordine) ios.readUnshared();
             System.out.println("ordine ricevuto: " + o);
-            OrdiniRicevuti.add(o);
+            OrdineHandler ordiniRicevuti = new ComunicazioneHandler.OrdineHandler();
+            ordiniRicevuti.produceOrdine(o);
 
+            //invio del primo rider che ha confermato al server
+            // il primo rider della lista dovrebbe essere quello
+            // che ha accettato il primo ordine del ristorante
+            RiderConfermatiHandler riderDaInviare = new RiderConfermatiHandler();
+            riderDaInviare.consumaRider();
+            oos.writeObject(riderDaInviare);
 
         }catch (Exception e){
             System.err.println(e);
         }
 
-
-    }
-
-    public ArrayList<Ordine> getOrdiniRicevuti(){return OrdiniRicevuti;}
-
-    public Socket getSocket() {
-        return socket;
     }
 
 }

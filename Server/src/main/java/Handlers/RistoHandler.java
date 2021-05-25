@@ -2,8 +2,10 @@ package Handlers;
 
 import Handlers.ComunicazioneHandler.OrdineHandler;
 import Handlers.ComunicazioneHandler.VisualizzaRistorantiAttiviHandler;
+import Handlers.ComunicazioneHandler.ConfermeRiderHandler;
 
 import Model.Ordine;
+import Model.Rider;
 import Model.Ristorante;
 
 import Queries.ControllaIDRistorante;
@@ -57,12 +59,13 @@ public class RistoHandler extends Thread{
                 oosOrdine.writeUnshared(ordine);
 
                 //Qua deve ricevere il rider
-                //ObjectInputStream iosRider = new ObjectInputStream(socket.getInputStream());
-                //Rider rider = (Rider) iosRider.readUnshared();
+                ObjectInputStream iosRider = new ObjectInputStream(socket.getInputStream());
+                Rider rider = (Rider) iosRider.readUnshared();
 
                 //Qui produrrà il rider
                 //ConfermaRiderHandler prende l'instanza
-                //confermaRiderHandler.produceRider(rider)
+                ComunicazioneHandler.ConfermeRiderHandler confermaRider= new ComunicazioneHandler.ConfermeRiderHandler();
+                confermaRider.produceRider(rider);
 
                 //Appena riceve conferma rider
                 //In qualche modo deve mandarlo al cliente
@@ -70,6 +73,9 @@ public class RistoHandler extends Thread{
 
                 //Quando ha completato l'ordine
                 //Chiama ordineHandler.consumaRistorante per rimuoverlo dai ristoranti online
+                
+                //ristorantiAttiviHandler.consumaRistorante(ret);
+
             }else{
                 //Manda l'oggetto Ristorante null
                 oosRistorante.writeUnshared(null);

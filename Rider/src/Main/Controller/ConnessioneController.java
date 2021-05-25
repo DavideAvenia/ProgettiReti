@@ -13,8 +13,6 @@ public class ConnessioneController {
     private String ip = "localhost";
     private int port = 32000;
     private Socket socket;
-    private BufferedReader in;
-    private PrintWriter out;
     private InetAddress addr = InetAddress.getByName("localhost");
     private ObjectInputStream ois;
     private  ObjectOutputStream oos;
@@ -31,9 +29,6 @@ public class ConnessioneController {
         return socket;
     }
 
-
-
-    //Qui prendo l'id del cliente e vedo s'è giusto
     public boolean inviaIdRider(String idRider) throws IOException, ClassNotFoundException {
         //Qui deve inviare l'id al ristorante
 

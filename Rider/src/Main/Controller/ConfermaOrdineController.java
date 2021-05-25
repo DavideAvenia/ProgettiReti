@@ -1,7 +1,9 @@
 package Controller;
 
+import Model.Cliente;
 import Model.Ordine;
 import View.ConfermaOrdine;
+import com.sun.javafx.binding.StringFormatter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,11 +27,8 @@ public class ConfermaOrdineController {
     private int port = 30000;
     private Socket socket;
     private static ConfermaOrdineController instanza = null;
-    private BufferedReader in;
-    private PrintWriter out;
     private String idRider;
-    private String idOrdine;
-    private String stato;
+    private Cliente c;
 
     private ConfermaOrdineController(Socket s, String i) throws IOException {
         socket = s;
@@ -39,7 +38,7 @@ public class ConfermaOrdineController {
     public boolean checkRichieste() throws IOException, ClassNotFoundException {
         ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
         Ordine ordine = (Ordine) ios.readObject();
-        // deve prendere l'id dell'ordine che però non c'è nella classe??
+        c = ordine.getCliente();
         return true;
     }
 
@@ -75,8 +74,8 @@ public class ConfermaOrdineController {
         }
     }
 
-    public String getIdOrdine(){
-        return idOrdine;
+    public String getidCliente(){
+        return c.getIdCliente();
     }
 
 

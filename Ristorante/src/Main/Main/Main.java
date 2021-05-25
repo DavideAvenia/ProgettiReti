@@ -19,7 +19,6 @@ public class Main {
         try {
             Application.launch(ConnessioneView.class, args);
             System.out.println("EchoMultiServer: started");
-            RiderHandler.inviaOrdine(); //dovrebbe farlo all'infinito?
 
 
         } catch (Exception e) {

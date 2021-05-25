@@ -1,8 +1,10 @@
 package View;
 
+import Controller.ComunicazioneHandler;
 import Controller.ConnessioneController;
 import Controller.RiderHandler;
 import Model.Ordine;
+import Model.Rider;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -35,7 +37,7 @@ public class VisualizzaRiderView extends Application implements Initializable {
     private String nomeRiderSelezionato;
 
 
-    ArrayList<String> riderConnessi = new ArrayList<String>();
+    ArrayList<Rider> riderConnessi = new ArrayList<Rider>();
     ObservableList<String> nomiRider = FXCollections.observableArrayList("attendi");
 
     @Override
@@ -50,10 +52,12 @@ public class VisualizzaRiderView extends Application implements Initializable {
 
     public void refresh(){
         System.out.println("refresh view");
-        riderConnessi = RiderHandler.getRiderConnessi();
-
+        ComunicazioneHandler.ComunicazioneRiderHandler rider = new ComunicazioneHandler.ComunicazioneRiderHandler();
+        riderConnessi = rider.getRiderDisponibili();
         nomiRider.clear();
-        nomiRider.addAll(riderConnessi);
+       for(Rider i:riderConnessi){
+           nomiRider.add(i.getNome());
+       }
         System.out.println("nomi rider: " + nomiRider);
         listaRider.setItems(nomiRider);
         System.out.println("lista rider: " + listaRider.getItems());
@@ -64,7 +68,6 @@ public class VisualizzaRiderView extends Application implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         listaRider.setEditable(true);
-        riderConnessi = RiderHandler.getRiderConnessi();
         System.out.println("rider presi");
         //nomiRider = FXCollections.observableArrayList(riderConnessi);
         //nomiRider.addAll(riderConnessi);

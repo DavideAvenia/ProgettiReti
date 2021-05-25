@@ -1,6 +1,11 @@
 package Controller;
 // connessione con i rider
 
+import Controller.ComunicazioneHandler.OrdineHandler;
+import Controller.ComunicazioneHandler.ComunicazioneRiderHandler;
+import Controller.ComunicazioneHandler.RiderConfermatiHandler;
+
+
 import Model.Ordine;
 import Model.Rider;
 import javafx.event.ActionEvent;
@@ -16,20 +21,13 @@ public class RiderHandler extends Thread {
     private int port = 32000;
     private Socket socket;
 
-    private static int counter = 0;
-    private int id = ++counter;
-    private BufferedReader in;
-    private PrintWriter out;
     private String idRistorante;
-    private static ArrayList<String> riderConnessi = new ArrayList<>();
-    private static Rider r;
-    private static Socket so;
+    private static Rider rider;
     // il costruttore prende la socket che è stata creata e la salva
     // stanzia il canali di comunicazione di lettura e scrittura con il rider
     // infine chiama run
     public RiderHandler(Socket s) throws Exception {
         socket = s;
-        so=s;
         run();
     }
 
@@ -38,9 +36,9 @@ public class RiderHandler extends Thread {
 
                 ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
                 // controllo che l'id del rider è presente del DB
-                r = (Rider) ios.readObject();
+                rider = (Rider) ios.readObject();
                 ControllaID check = new ControllaID();
-                Model.Rider ret = check.controllaIDQuery(r.getIdRider());
+                Model.Rider ret = check.controllaIDQuery(rider.getIdRider());
                 ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
                 if (ret == null) {
                     //Manda l'oggetto rider null
@@ -53,7 +51,38 @@ public class RiderHandler extends Thread {
                     // per confermare che l'id è nel DB, quindi viene aggiunto
                     // alla lista di rider connessi
                     oos.writeObject("ok");
-                    riderConnessi.add(ret.getNome());
+                    ComunicazioneRiderHandler riderConnessi = new ComunicazioneRiderHandler();
+                    riderConnessi.produceRider(ret);
+
+                    // invio dell'ordine al rider
+                    // consumo l'ordine e il rider dall'handler
+                    OrdineHandler ordine = new OrdineHandler();
+                    Ordine o = ordine.consumaOrdine();
+
+                    ComunicazioneRiderHandler riderCom = new ComunicazioneRiderHandler();
+                    Rider riderLista = new Rider();
+                    String rispostaRider = "annulla";
+                    riderLista = riderCom.consumaRider();
+
+                    // se non è quello con cui ho aperto la socket allora
+                    // lo rimetto dentro
+                    // solo se il rider che prendo dalla lista e il rider con il quale
+                    // sto comunicando mando l'ordine da accettare
+                   while(!rispostaRider.equals("annulla")){
+                       while(riderLista != rider){
+                           riderCom.produceRider(riderLista);
+                           riderLista = riderCom.consumaRider();
+                       }
+                       // mando l'ordine al rider
+                       oos.writeObject(o);
+                       // ricevo la risposta dal rider
+                       // solo se conferma esco
+                       rispostaRider = (String) ios.readObject();
+                   }
+
+                    // metto il rider nella lista dei rider che hanno confermato
+                    RiderConfermatiHandler riderconfermati = new RiderConfermatiHandler();
+                    riderconfermati.produceRider(riderLista);
                 }
 
                 socket.close();
@@ -71,41 +100,7 @@ public class RiderHandler extends Thread {
             }
         }
 
-    public Socket getSocket() {
-        return socket;
-    }
-
-    public static void removeRider(Rider r){
-        riderConnessi.remove(r.getNome());
-    }
-
-    public static Rider getRider(){return r;}
-
-    public static boolean inviaOrdine() throws IOException, ClassNotFoundException {
-        ConnessioneController cc = null;
-        ArrayList<Ordine> ordini = cc.getOrdiniRicevuti();
-
-        ObjectOutputStream oos = new ObjectOutputStream(so.getOutputStream());
-        oos.writeObject(ordini.get(0));
-
-        ObjectInputStream ios = new ObjectInputStream(so.getInputStream());
-        String rispostaRider = (String) ios.readObject();
-
-        //se il rider accetta l'ordine, allora il rider viene rimosso dalla lista di
-        // rider connessi e l'ordine rimosso dalla lista di ordini
-        if(rispostaRider.equals("conferma")){
-            riderConnessi.remove(r.getNome());
-            cc.removeOrdine(ordini.get(0));
-            return true;
-        }
-        return false;
-    }
-
-    public static ArrayList<String> getRiderConnessi() {
-        return riderConnessi;
-    }
-
-    };
+};
 
 
 

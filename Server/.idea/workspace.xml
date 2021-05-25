@@ -23,21 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845e8354-c086-4159-a7db-bf98a769a7ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Rider/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/.idea/libraries/lib1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/libraries/lib1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/Rider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/Rider.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ComunicazioneHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Model/Rider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Model/Rider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/RiderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/RiderHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Rider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Model/Rider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRiderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRiderView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Handlers/RistoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handlers/RistoHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ristorante" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
