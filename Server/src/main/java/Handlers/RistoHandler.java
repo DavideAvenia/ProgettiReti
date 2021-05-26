@@ -53,6 +53,7 @@ public class RistoHandler extends Thread{
                 //Thread-Safe se chiamato in locale
                 //Non nel pattern consume
                 OrdineHandler ordineHandler = new OrdineHandler();
+                System.out.println(ordineHandler.ordiniDaEseguire.size());
                 System.out.println("Sto controllando gli ordini da eseguire");
                 Ordine ordine = ordineHandler.consumaOrdine(ristoranteAttuale);
                 ordiniDaEseguire.add(ordine);
