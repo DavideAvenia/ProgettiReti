@@ -44,6 +44,8 @@ public class RistoHandler extends Thread{
 
             if(ret != null){
                 ristoranteAttuale = ret;
+                System.out.println("è stato richiesto l'utente["+ret.getIdRistorante()+"]: "+ret.getNome());
+
                 OrdineHandler ordineHandler = new OrdineHandler();
 
                 VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();

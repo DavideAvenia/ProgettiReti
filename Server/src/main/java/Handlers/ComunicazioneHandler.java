@@ -98,9 +98,9 @@ public class ComunicazioneHandler {
                     ristorantiAttivi.wait();
                 while(!ristorantiAttivi.contains(ristorante))
                     ristorantiAttivi.wait();
+                ristorantiAttivi.notifyAll();
+                return ristorantiAttivi.contains(ristorante);
             }
-            ristorantiAttivi.notifyAll();
-            return ristorantiAttivi.contains(ristorante);
         }
     }
 
@@ -123,7 +123,6 @@ public class ComunicazioneHandler {
         public Rider consumaRider() throws InterruptedException {
             Rider riderDaOccupare = null;
             //Simile a ordine da consumare
-
             synchronized (riderDisponibili){
                 while(riderDisponibili.isEmpty())
                     riderDisponibili.wait();
