@@ -69,24 +69,30 @@ public class ClientHandler extends Thread{
                 //La wait() sta nel metodo per controllare se il ristorante è attivo
                 System.out.println(">In attesa del ristorante sia online");
                 VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
-                ristorantiAttiviHandler.controllaPresenzaRistorante(ristorante);
+                if(ristorantiAttiviHandler.controllaPresenzaRistorante(ristorante)){
+                    System.out.println(">In attesa di un rider accetti il tuo ordine");
+                    ConfermeRiderHandler confermeRiderHandler = new ConfermeRiderHandler();
+                    Rider rider = confermeRiderHandler.consumaRider();
 
-                System.out.println(">In attesa di un rider accetti il tuo ordine");
-                ConfermeRiderHandler confermeRiderHandler = new ConfermeRiderHandler();
-                Rider rider = confermeRiderHandler.consumaRider();
+                    //C'è qualcosa che non mi piace e forse dovrei mettere qualcosa qui in mezzo
 
-                //C'è qualcosa che non mi piace e forse dovrei mettere qualcosa qui in mezzo
+                    //Consuma il primo rider alla testa
+                    ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
+                    oosIdRider.writeUnshared(rider);
 
-                //Consuma il primo rider alla testa
-                ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
-                oosIdRider.writeUnshared(rider);
+                    System.out.println("Chiusura socket e' cliente servito con successo");
+                    //this.Thread.sleep(10000);
+                    //Si deve creare una notifica al ristorante
 
-                System.out.println("Chiusura socket e' cliente servito con successo");
-                //this.Thread.sleep(10000);
-                //Si deve creare una notifica al ristorante
+                    socket.close();
+                    this.interrupt();
+                }else{
+                    System.out.println(">Il ristorante non è attivo");
+                    System.out.println(">Il cliente deve riavviare il client");
+                    socket.close();
+                    this.interrupt();
+                }
 
-                socket.close();
-                this.interrupt();
             }else{
                 //Manda l'oggetto cliente null
                 oosCliente.writeObject(null);
