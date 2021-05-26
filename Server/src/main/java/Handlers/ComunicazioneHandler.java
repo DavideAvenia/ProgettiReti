@@ -21,7 +21,7 @@ public class ComunicazioneHandler {
             synchronized (ordiniDaEseguire) {
                 //Il produttore non può produrre quando ci sono 10 o più ordini
                 while(ordiniDaEseguire.size() >= 10)
-                    wait();
+                    ordiniDaEseguire.wait();
 
                 //Inserisce l'ordine nella coda
                 ordiniDaEseguire.put(ordine);
@@ -36,7 +36,7 @@ public class ComunicazioneHandler {
             synchronized (ordiniDaEseguire){
                 //Il consumatore non può consumare quando la linkedList è vuota
                 while(ordiniDaEseguire.isEmpty())
-                    wait();
+                    ordiniDaEseguire.wait();
 
                 for (Ordine o:ordiniDaEseguire) {
                     //Si usa l'equals e non ==
@@ -65,11 +65,11 @@ public class ComunicazioneHandler {
             //Deve essere chiamato da un ristorante solo quando va Online
             synchronized (ristorantiAttivi) {
                 while(ristorantiAttivi.size() >= 10)
-                    wait();
+                    ristorantiAttivi.wait();
 
                 ristorantiAttivi.put(ristorante);
                 System.out.println("Il ristorante " + ristorante.getNome() + " con id " + ristorante.getIdRistorante() + ".");
-                notifyAll();
+                ristorantiAttivi.notifyAll();
             }
         }
 
@@ -78,7 +78,7 @@ public class ComunicazioneHandler {
             Ristorante ristoranteDaDisattivare = null;
             synchronized (ristorantiAttivi){
                 while(ristorantiAttivi.isEmpty() && ristorantiAttivi.contains(ristorante))
-                    wait();
+                    ristorantiAttivi.wait();
 
                 for (Ristorante r:ristorantiAttivi) {
                     if(r.equals(ristorante)){
@@ -95,9 +95,9 @@ public class ComunicazioneHandler {
         public boolean controllaPresenzaRistorante(Ristorante ristorante) throws InterruptedException {
             synchronized (ristorantiAttivi){
                 while(ristorantiAttivi.isEmpty())
-                    wait();
+                    ristorantiAttivi.wait();
                 while(!ristorantiAttivi.contains(ristorante))
-                    wait();
+                    ristorantiAttivi.wait();
             }
             ristorantiAttivi.notifyAll();
             return ristorantiAttivi.contains(ristorante);
@@ -111,7 +111,7 @@ public class ComunicazioneHandler {
             synchronized (riderDisponibili) {
                 //Il produttore non può produrre quando ci sono 10 o più rider
                 while(riderDisponibili.size() >= 10)
-                    wait();
+                    riderDisponibili.wait();
 
                 riderDisponibili.put(rider);
                 System.out.println("Il rider " + rider.getIdRider() + "di cognome " + rider.getCognome() + "è pronto");
@@ -126,7 +126,7 @@ public class ComunicazioneHandler {
 
             synchronized (riderDisponibili){
                 while(riderDisponibili.isEmpty())
-                    wait();
+                    riderDisponibili.wait();
 
                 //adesso prende il rider in testa, cioè il primo disponibile
                 //Non credo debba fare sta cosa, nel caso lo cambiamo
