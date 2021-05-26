@@ -15,7 +15,7 @@ public class ComunicazioneHandler {
         //Deve essere chiamata localmente quando deve produrre o deve consumare PER GLI ORDINI
 
         //Questa lista si trova in una parte della memoria dov'è condivisa con tutti i thread che chiamano questi metodi
-        BlockingQueue<Ordine> ordiniDaEseguire = new LinkedBlockingQueue();
+        BlockingQueue<Ordine> ordiniDaEseguire = new LinkedBlockingQueue<>(10);
 
         public void produceOrdine(Ordine ordine) throws InterruptedException {
             synchronized (ordiniDaEseguire) {
@@ -34,10 +34,12 @@ public class ComunicazioneHandler {
         public Ordine consumaOrdine(Ristorante ristorante) throws InterruptedException {
             Ordine ordineDaImportare = null;
             synchronized (ordiniDaEseguire){
+                System.out.println(ordiniDaEseguire);
                 //Il consumatore non può consumare quando la linkedList è vuota
                 while(ordiniDaEseguire.isEmpty())
                     ordiniDaEseguire.wait();
 
+                System.out.println("Sto controllando gli ordini da eseguire");
                 for (Ordine o:ordiniDaEseguire) {
                     //Si usa l'equals e non ==
                     if(o.getRistorante().equals(ristorante)){
@@ -51,15 +53,15 @@ public class ComunicazioneHandler {
                     }
                 }
                 ordiniDaEseguire.notifyAll();
+                return ordineDaImportare;
             }
-            return ordineDaImportare;
         }
     }
 
     public static class VisualizzaRistorantiAttiviHandler{
         //Anche questa classe è condivisa
         //Si occupa del controllare se i ristoranti sono attivi
-        BlockingQueue<Ristorante> ristorantiAttivi = new LinkedBlockingQueue();
+        BlockingQueue<Ristorante> ristorantiAttivi = new LinkedBlockingQueue<>(10);
 
         public void produceRistorante(Ristorante ristorante) throws InterruptedException {
             //Deve essere chiamato da un ristorante solo quando va Online
@@ -77,6 +79,7 @@ public class ComunicazioneHandler {
             //Deve essere chiamato da un ristorante solo quando va Offline
             Ristorante ristoranteDaDisattivare = null;
             synchronized (ristorantiAttivi){
+                System.out.println(ristorantiAttivi);
                 while(ristorantiAttivi.isEmpty() && ristorantiAttivi.contains(ristorante))
                     ristorantiAttivi.wait();
 
@@ -88,12 +91,13 @@ public class ComunicazioneHandler {
                     }
                 }
                 ristorantiAttivi.notifyAll();
+                return ristoranteDaDisattivare;
             }
-            return ristoranteDaDisattivare;
         }
 
         public boolean controllaPresenzaRistorante(Ristorante ristorante) throws InterruptedException {
             synchronized (ristorantiAttivi){
+                System.out.println(ristorantiAttivi);
                 while(ristorantiAttivi.isEmpty())
                     ristorantiAttivi.wait();
                 while(!ristorantiAttivi.contains(ristorante))
@@ -105,7 +109,7 @@ public class ComunicazioneHandler {
     }
 
     public static class ConfermeRiderHandler{
-        BlockingQueue<Rider> riderDisponibili = new LinkedBlockingQueue();
+        BlockingQueue<Rider> riderDisponibili = new LinkedBlockingQueue<>(10);
 
         public void produceRider(Rider rider) throws InterruptedException {
             synchronized (riderDisponibili) {
@@ -124,6 +128,7 @@ public class ComunicazioneHandler {
             Rider riderDaOccupare = null;
             //Simile a ordine da consumare
             synchronized (riderDisponibili){
+                System.out.println(riderDisponibili);
                 while(riderDisponibili.isEmpty())
                     riderDisponibili.wait();
 
@@ -131,9 +136,10 @@ public class ComunicazioneHandler {
                 //Non credo debba fare sta cosa, nel caso lo cambiamo
                 riderDaOccupare = riderDisponibili.take();
                 System.out.println("Il rider " + riderDaOccupare.getIdRider() + "di cognome " + riderDaOccupare.getCognome() + "è stato rimosso");
-                riderDisponibili.wait();
+                riderDisponibili.notifyAll();
+                return riderDaOccupare;
             }
-            return riderDaOccupare;
+
         }
     }
 }

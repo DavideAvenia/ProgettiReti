@@ -69,7 +69,7 @@ public class ClientHandler extends Thread{
                 //La wait() sta nel metodo per controllare se il ristorante è attivo
                 System.out.println(">In attesa del ristorante sia online");
                 VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
-                if(ristorantiAttiviHandler.controllaPresenzaRistorante(ristorante)){
+                while(ristorantiAttiviHandler.controllaPresenzaRistorante(ristorante)){
                     System.out.println(">In attesa di un rider accetti il tuo ordine");
                     ConfermeRiderHandler confermeRiderHandler = new ConfermeRiderHandler();
                     Rider rider = confermeRiderHandler.consumaRider();
@@ -84,11 +84,6 @@ public class ClientHandler extends Thread{
                     //this.Thread.sleep(10000);
                     //Si deve creare una notifica al ristorante
 
-                    socket.close();
-                    this.interrupt();
-                }else{
-                    System.out.println(">Il ristorante non è attivo");
-                    System.out.println(">Il cliente deve riavviare il client");
                     socket.close();
                     this.interrupt();
                 }

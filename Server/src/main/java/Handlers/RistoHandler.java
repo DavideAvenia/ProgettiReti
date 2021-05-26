@@ -46,17 +46,19 @@ public class RistoHandler extends Thread{
                 ristoranteAttuale = ret;
                 System.out.println("è stato richiesto l'utente["+ret.getIdRistorante()+"]: "+ret.getNome());
 
-                OrdineHandler ordineHandler = new OrdineHandler();
-
+                System.out.println("Instanza ordineHandler");
                 VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
                 ristorantiAttiviHandler.produceRistorante(ret);
 
                 //Thread-Safe se chiamato in locale
                 //Non nel pattern consume
+                OrdineHandler ordineHandler = new OrdineHandler();
+                System.out.println("Sto controllando gli ordini da eseguire");
                 Ordine ordine = ordineHandler.consumaOrdine(ristoranteAttuale);
                 ordiniDaEseguire.add(ordine);
 
                 //Manda l'ordine all'handler del ristorante
+                System.out.println("Sto scrivendo l'ordine da eseguire");
                 ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
                 oosOrdine.writeUnshared(ordine);
 
