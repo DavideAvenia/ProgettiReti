@@ -5,6 +5,9 @@ import Model.Rider;
 import Model.Ristorante;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -16,7 +19,7 @@ public class ComunicazioneHandler {
         //Deve essere chiamata localmente quando deve produrre o deve consumare PER GLI ORDINI
 
         //Questa lista si trova in una parte della memoria dov'è condivisa con tutti i thread che chiamano questi metodi
-        ArrayList<Ordine> ordiniDaEseguire = new ArrayList<>(10);
+        List<Ordine> ordiniDaEseguire = Collections.synchronizedList(new ArrayList<Ordine>());
 
         public void produceOrdine(Ordine ordine) throws InterruptedException {
             synchronized (ordiniDaEseguire) {
@@ -54,7 +57,7 @@ public class ComunicazioneHandler {
                         ordiniDaEseguire.remove(o);
                     }
                 }
-                ordiniDaEseguire.notifyAll();
+                ordiniDaEseguire.notify();
                 return ordineDaImportare;
             }
         }
@@ -63,7 +66,7 @@ public class ComunicazioneHandler {
     public static class VisualizzaRistorantiAttiviHandler{
         //Anche questa classe è condivisa
         //Si occupa del controllare se i ristoranti sono attivi
-        ArrayList<Ristorante> ristorantiAttivi = new ArrayList<>(10);
+        List<Ristorante> ristorantiAttivi = Collections.synchronizedList(new ArrayList<>());
 
         public void produceRistorante(Ristorante ristorante) throws InterruptedException {
             //Deve essere chiamato da un ristorante solo quando va Online
@@ -74,7 +77,7 @@ public class ComunicazioneHandler {
                 System.out.println(ristorantiAttivi.add(ristorante));
                 System.out.println("Il ristorante " + ristorante.getNome() + " con id " + ristorante.getIdRistorante() + ".");
                 System.out.println(ristorantiAttivi.size());
-                ristorantiAttivi.notifyAll();
+                ristorantiAttivi.notify();
             }
         }
 
@@ -105,7 +108,7 @@ public class ComunicazioneHandler {
                     ristorantiAttivi.wait();
                 while(!ristorantiAttivi.contains(ristorante))
                     ristorantiAttivi.wait();
-                ristorantiAttivi.notifyAll();
+                ristorantiAttivi.notify();
                 return ristorantiAttivi.contains(ristorante);
             }
         }
@@ -123,7 +126,7 @@ public class ComunicazioneHandler {
                 System.out.println(riderDisponibili.offer(rider));
                 System.out.println("Il rider " + rider.getIdRider() + "di cognome " + rider.getCognome() + "è pronto");
                 //Rilascia il monitor a tutti
-                riderDisponibili.notifyAll();
+                riderDisponibili.notify();
             }
         }
 
@@ -139,7 +142,7 @@ public class ComunicazioneHandler {
                 //Non credo debba fare sta cosa, nel caso lo cambiamo
                 riderDaOccupare = riderDisponibili.take();
                 System.out.println("Il rider " + riderDaOccupare.getIdRider() + "di cognome " + riderDaOccupare.getCognome() + "è stato rimosso");
-                riderDisponibili.notifyAll();
+                riderDisponibili.notify();
                 return riderDaOccupare;
             }
 
