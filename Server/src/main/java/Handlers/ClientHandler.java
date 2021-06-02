@@ -7,6 +7,7 @@ import Model.Cliente;
 import Model.Ordine;
 import Model.Rider;
 import Model.Ristorante;
+import PatternPC.OrdiniDaEseguire;
 import Queries.ControllaIDCliente;
 import Queries.MostraMenu;
 import Queries.VisualizzaRistoranti;
@@ -61,13 +62,15 @@ public class ClientHandler extends Thread{
                 Ordine ordine = (Ordine) iosOrdine.readUnshared();
 
                 //Scenario produttore consumatore, il client è il produttore e il ristorante è il consumatore
-                OrdineHandler ordineHandler = new OrdineHandler();
-                ordineHandler.produceOrdine(ordine);
+                OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
+                ordiniDaEseguire.produceOrdine(ordine);
+                ordiniDaEseguire.visualizzaLista();
 
                 //Controllare se il ristorante è online
                 //Da mettere i ristoranti in una coda
                 //La wait() sta nel metodo per controllare se il ristorante è attivo
-                System.out.println(">In attesa del ristorante sia online");
+
+                /*System.out.println(">In attesa del ristorante sia online");
                 VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
                 while(ristorantiAttiviHandler.controllaPresenzaRistorante(ristorante)){
                     System.out.println(">In attesa di un rider accetti il tuo ordine");
@@ -86,7 +89,7 @@ public class ClientHandler extends Thread{
 
                     socket.close();
                     this.interrupt();
-                }
+                }*/
 
             }else{
                 //Manda l'oggetto cliente null

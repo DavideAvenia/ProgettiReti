@@ -8,6 +8,7 @@ import Model.Ordine;
 import Model.Rider;
 import Model.Ristorante;
 
+import PatternPC.OrdiniDaEseguire;
 import Queries.ControllaIDRistorante;
 
 import java.io.*;
@@ -51,15 +52,16 @@ public class RistoHandler extends Thread{
                 ristorantiAttiviHandler.produceRistorante(ret);
 
                 //Thread-Safe se chiamato in locale
-                //Non nel pattern consume
-                OrdineHandler ordineHandler = new OrdineHandler();
-                System.out.println(ordineHandler.ordiniDaEseguire.size());
-                System.out.println("Sto controllando gli ordini da eseguire");
-                Ordine ordine = ordineHandler.consumaOrdine(ristoranteAttuale);
-                ordiniDaEseguire.add(ordine);
+                System.out.println("Sto controllando gli ordini da eseguire NEL HANDLER");
+
+                OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
+                ordiniDaEseguire.consumaOrdine(ristoranteAttuale);
+
+                ordiniDaEseguire.visualizzaLista();
 
                 //Manda l'ordine all'handler del ristorante
-                System.out.println("Sto scrivendo l'ordine da eseguire");
+
+                /*System.out.println("Sto scrivendo l'ordine da eseguire");
                 ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
                 oosOrdine.writeUnshared(ordine);
 
@@ -69,7 +71,7 @@ public class RistoHandler extends Thread{
 
                 //Qui produrrà il rider
                 //ConfermaRiderHandler prende l'instanza
-                ComunicazioneHandler.ConfermeRiderHandler confermaRider= new ComunicazioneHandler.ConfermeRiderHandler();
+                ComunicazioneHandler.ConfermeRiderHandler confermaRider = new ComunicazioneHandler.ConfermeRiderHandler();
                 confermaRider.produceRider(rider);
 
                 //Appena riceve conferma rider
@@ -79,7 +81,7 @@ public class RistoHandler extends Thread{
                 //Quando ha completato l'ordine
                 //Chiama ordineHandler.consumaRistorante per rimuoverlo dai ristoranti online
                 
-                //ristorantiAttiviHandler.consumaRistorante(ret);
+                //ristorantiAttiviHandler.consumaRistorante(ret);*/
 
             }else{
                 //Manda l'oggetto Ristorante null

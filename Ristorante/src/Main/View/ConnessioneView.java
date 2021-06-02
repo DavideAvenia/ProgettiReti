@@ -35,8 +35,6 @@ public class ConnessioneView extends Application {
         primaryStage.setTitle("LOGIN");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-
-
     }
 
     // come prima cosa viene creata la serversocket per accetta le connessioni dei rider

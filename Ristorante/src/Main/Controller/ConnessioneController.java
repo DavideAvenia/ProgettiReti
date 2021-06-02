@@ -21,21 +21,18 @@ public class ConnessioneController extends Thread {
     private InetAddress addr = InetAddress.getByName("localhost");
     private String idRistorante;
 
-
     // il costruttore prende la socket che è stata creata e la salva
     // stanzia il canali di comunicazione di lettura e scrittura con il rider
     // infine chiama run
     public ConnessioneController(String id) throws Exception {
-
         socket = new Socket(this.addr, port);
         idRistorante = id;
-        run();
-
+        start();
     }
 
-    public void run()  {
+    public void run(){
         try{
-
+            //Da rattoppare con una query sul DB in locale per vedere se effettiamente il ristorante c'è
             System.out.println("invio id del ristorante: " + idRistorante);
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 

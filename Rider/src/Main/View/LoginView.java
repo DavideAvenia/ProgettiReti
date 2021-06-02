@@ -19,7 +19,6 @@ import java.net.Socket;
 
 public class LoginView extends Application {
 
-    private boolean ordineConsegnato  = false;
     @FXML
     private TextField TextfieldAccessoRider;
 
@@ -33,7 +32,7 @@ public class LoginView extends Application {
 
     public void AccediPremuto(ActionEvent actionEvent) {
         try {
-            ConnessioneController connessioneController = new ConnessioneController();
+            ConnessioneController connessioneController = ConnessioneController.getInstanza();
             String idRider = TextfieldAccessoRider.getText();
 
             //Chiamo il metodo per vedere se l'id è presente
@@ -50,16 +49,12 @@ public class LoginView extends Application {
                 Node node = (Node) actionEvent.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.close();
-                Socket s = connessioneController.getSocket();
                 System.out.println("accetti l'ordine?");
 
-                ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza(s, idRider);
-                if(confermaOrdine.checkRichieste())
-                {
+                ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
+                if(confermaOrdine.checkRichieste()) {
                     confermaOrdine.mostra();
-
                 }
-
             }
 
         } catch (IOException e) {

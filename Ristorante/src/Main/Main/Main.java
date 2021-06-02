@@ -18,9 +18,6 @@ public class Main {
         serverHandlerRider.startServer();
         try {
             Application.launch(ConnessioneView.class, args);
-            System.out.println("EchoMultiServer: started");
-
-
         } catch (Exception e) {
             System.err.println("Accept failed");
             System.exit(1);

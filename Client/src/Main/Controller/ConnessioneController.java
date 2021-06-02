@@ -55,7 +55,6 @@ public class ConnessioneController{
         if(ret == null){
             return false;
         }
-
         return true;
     }
 
