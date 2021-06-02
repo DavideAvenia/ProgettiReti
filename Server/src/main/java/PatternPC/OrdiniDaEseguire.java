@@ -1,17 +1,19 @@
 package PatternPC;
 
 import Model.Ordine;
+import Model.Rider;
 import Model.Ristorante;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 
 public class OrdiniDaEseguire {
     private HashMap<Ristorante,Ordine> ordiniDaEseguire;
+    private HashMap<Rider, Ordine> ordiniEseguiti;
     private static OrdiniDaEseguire istanza = null;
 
     private OrdiniDaEseguire(){
         ordiniDaEseguire = new HashMap<>();
+        ordiniEseguiti = new HashMap<>();
     }
 
     public static OrdiniDaEseguire getIstanza(){
@@ -42,8 +44,37 @@ public class OrdiniDaEseguire {
         return ordineDaImportare;
     }
 
-    public void visualizzaLista(){
+    public void visualizzaListaOrdiniDaEseguire(){
         System.out.println(ordiniDaEseguire);
     }
 
+    public synchronized boolean produceOrdineEseguiti(Rider key, Ordine value) throws InterruptedException {
+        while(ordiniEseguiti.size() >= 10){
+            wait();
+        }
+
+        ordiniEseguiti.put(key,value);
+        notifyAll();
+
+        return true;
+    }
+
+    public synchronized boolean consumaOrdineEseguiti(Rider r) throws InterruptedException {
+        while(ordiniEseguiti.isEmpty()){
+            wait();
+        }
+
+        if(ordiniEseguiti.containsValue(r))
+        notifyAll();
+
+        return true;
+    }
+
+    public synchronized boolean controllaPresenzaOrdineEseguito(Rider r) throws InterruptedException {
+        while(!ordiniEseguiti.containsKey(r)){
+            wait();
+        }
+        notifyAll();
+        return ordiniEseguiti.containsKey(r);
+    }
 }

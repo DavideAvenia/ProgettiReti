@@ -1,13 +1,12 @@
 package Handlers;
 
-import Handlers.ComunicazioneHandler.OrdineHandler;
-import Handlers.ComunicazioneHandler.VisualizzaRistorantiAttiviHandler;
-import Handlers.ComunicazioneHandler.ConfermeRiderHandler;
 import Model.Cliente;
 import Model.Ordine;
 import Model.Rider;
 import Model.Ristorante;
+import PatternPC.ConfermaRider;
 import PatternPC.OrdiniDaEseguire;
+import PatternPC.VisualizzaRistorantiAttivi;
 import Queries.ControllaIDCliente;
 import Queries.MostraMenu;
 import Queries.VisualizzaRistoranti;
@@ -64,33 +63,31 @@ public class ClientHandler extends Thread{
                 //Scenario produttore consumatore, il client è il produttore e il ristorante è il consumatore
                 OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
                 ordiniDaEseguire.produceOrdine(ordine);
-                ordiniDaEseguire.visualizzaLista();
+                ordiniDaEseguire.visualizzaListaOrdiniDaEseguire();
 
                 //Controllare se il ristorante è online
                 //Da mettere i ristoranti in una coda
-                //La wait() sta nel metodo per controllare se il ristorante è attivo
 
-                /*System.out.println(">In attesa del ristorante sia online");
-                VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
-                while(ristorantiAttiviHandler.controllaPresenzaRistorante(ristorante)){
-                    System.out.println(">In attesa di un rider accetti il tuo ordine");
-                    ConfermeRiderHandler confermeRiderHandler = new ConfermeRiderHandler();
-                    Rider rider = confermeRiderHandler.consumaRider();
+                System.out.println(">In attesa del ristorante sia online");
+                VisualizzaRistorantiAttivi ristorantiAttivi = VisualizzaRistorantiAttivi.getIstanza();
+                ristorantiAttivi.controllaPresenzaRistorante(ristorante);
 
-                    //C'è qualcosa che non mi piace e forse dovrei mettere qualcosa qui in mezzo
+                System.out.println(">In attesa di un rider accetti il tuo ordine");
+                ConfermaRider confermaRider = ConfermaRider.getIstanza();
+                Rider rider = confermaRider.consumaRider();
 
-                    //Consuma il primo rider alla testa
-                    ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
-                    oosIdRider.writeUnshared(rider);
+                //Consuma il primo rider alla testa
+                ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
+                oosIdRider.writeUnshared(rider);
 
-                    System.out.println("Chiusura socket e' cliente servito con successo");
-                    //this.Thread.sleep(10000);
-                    //Si deve creare una notifica al ristorante
+                sleep(10000);
+                //Si deve creare una notifica al ristorante
+                ordiniDaEseguire.produceOrdineEseguiti(rider, ordine);
 
-                    socket.close();
-                    this.interrupt();
-                }*/
+                System.out.println(">Chiusura socket e' cliente servito con successo");
 
+                socket.close();
+                this.interrupt();
             }else{
                 //Manda l'oggetto cliente null
                 oosCliente.writeObject(null);

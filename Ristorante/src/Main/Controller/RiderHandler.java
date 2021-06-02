@@ -1,13 +1,11 @@
 package Controller;
 // connessione con i rider
 
-import Controller.ComunicazioneHandler.OrdineHandler;
 import Controller.ComunicazioneHandler.ComunicazioneRiderHandler;
-import Controller.ComunicazioneHandler.RiderConfermatiHandler;
 
 
-import Model.Ordine;
 import Model.Rider;
+import Queries.ControllaID;
 
 import java.io.*;
 import java.net.Socket;

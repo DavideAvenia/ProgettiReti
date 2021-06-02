@@ -1,14 +1,12 @@
 package Handlers;
 
-import Handlers.ComunicazioneHandler.OrdineHandler;
-import Handlers.ComunicazioneHandler.VisualizzaRistorantiAttiviHandler;
-import Handlers.ComunicazioneHandler.ConfermeRiderHandler;
-
 import Model.Ordine;
 import Model.Rider;
 import Model.Ristorante;
 
+import PatternPC.ConfermaRider;
 import PatternPC.OrdiniDaEseguire;
+import PatternPC.VisualizzaRistorantiAttivi;
 import Queries.ControllaIDRistorante;
 
 import java.io.*;
@@ -23,9 +21,6 @@ public class RistoHandler extends Thread{
     private ServerSocket ss = null;
 
     private Ristorante ristoranteAttuale;
-
-    //La lista deve essere sincronizata per evitare che si fotta con altri client
-    private List<Ordine> ordiniDaEseguire = Collections.synchronizedList(new ArrayList<>());
 
     public RistoHandler (Socket s) {
         socket = s;
@@ -45,23 +40,22 @@ public class RistoHandler extends Thread{
 
             if(ret != null){
                 ristoranteAttuale = ret;
-                System.out.println("è stato richiesto l'utente["+ret.getIdRistorante()+"]: "+ret.getNome());
+                System.out.println(">>è stato richiesto il ristorante ["+ret.getIdRistorante()+"]: "+ret.getNome());
 
-                System.out.println("Instanza ordineHandler");
-                VisualizzaRistorantiAttiviHandler ristorantiAttiviHandler = new VisualizzaRistorantiAttiviHandler();
-                ristorantiAttiviHandler.produceRistorante(ret);
+                System.out.println(">>Inserisco nei ristoranti attivi il ristorante attuale");
+                VisualizzaRistorantiAttivi visualizzaRistorantiAttivi = VisualizzaRistorantiAttivi.getIstanza();
+                visualizzaRistorantiAttivi.produceRistorante(ristoranteAttuale);
 
                 //Thread-Safe se chiamato in locale
-                System.out.println("Sto controllando gli ordini da eseguire NEL HANDLER");
+                System.out.println(">>Sto controllando gli ordini da eseguire NEL HANDLER");
 
                 OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
-                ordiniDaEseguire.consumaOrdine(ristoranteAttuale);
+                Ordine ordine = ordiniDaEseguire.consumaOrdine(ristoranteAttuale);
 
-                ordiniDaEseguire.visualizzaLista();
+                ordiniDaEseguire.visualizzaListaOrdiniDaEseguire();
 
                 //Manda l'ordine all'handler del ristorante
-
-                /*System.out.println("Sto scrivendo l'ordine da eseguire");
+                System.out.println(">>Sto scrivendo l'ordine da eseguire");
                 ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
                 oosOrdine.writeUnshared(ordine);
 
@@ -70,19 +64,20 @@ public class RistoHandler extends Thread{
                 Rider rider = (Rider) iosRider.readUnshared();
 
                 //Qui produrrà il rider
-                //ConfermaRiderHandler prende l'instanza
-                ComunicazioneHandler.ConfermeRiderHandler confermaRider = new ComunicazioneHandler.ConfermeRiderHandler();
+                ConfermaRider confermaRider = ConfermaRider.getIstanza();
                 confermaRider.produceRider(rider);
 
-                //Appena riceve conferma rider
-                //In qualche modo deve mandarlo al cliente
-                //Tramite il ConfermaRiderHandler che il cliente deve chiamare il consumaRider
+                System.out.println(">>Si controlla l'esistenza del rider all'interno di un ordine");
+                ordiniDaEseguire.controllaPresenzaOrdineEseguito(rider);
+
+                System.out.println(">>Ordine eseguito con successo");
 
                 //Quando ha completato l'ordine
-                //Chiama ordineHandler.consumaRistorante per rimuoverlo dai ristoranti online
-                
-                //ristorantiAttiviHandler.consumaRistorante(ret);*/
+                //Chiama consumaRistorante per rimuoverlo dai ristoranti online
+                visualizzaRistorantiAttivi.consumaRistorante(ret);
 
+                socket.close();
+                this.interrupt();
             }else{
                 //Manda l'oggetto Ristorante null
                 oosRistorante.writeUnshared(null);

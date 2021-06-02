@@ -47,8 +47,8 @@ public class ConnessioneController extends Thread {
             ordiniRicevuti.produceOrdine(o);
 
             //invio del primo rider che ha confermato al server
-            // il primo rider della lista dovrebbe essere quello
-            // che ha accettato il primo ordine del ristorante
+            //il primo rider della lista dovrebbe essere quello
+            //che ha accettato il primo ordine del ristorante
             RiderConfermatiHandler riderDaInviare = new RiderConfermatiHandler();
             riderDaInviare.consumaRider();
             oos.writeObject(riderDaInviare);
