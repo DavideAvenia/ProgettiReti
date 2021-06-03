@@ -4,6 +4,7 @@ import Controller.ConnessioneController;
 import Controller.RiderHandler;
 import Controller.ServerHandler;
 import Controller.VisualizzaRiderController;
+import Model.Messaggio;
 import Model.Ordine;
 import Model.Rider;
 import javafx.application.Application;
@@ -43,19 +44,19 @@ public class ConnessioneView extends Application {
     public void AccediPremuto(ActionEvent actionEvent) throws Exception {
 
         String idRistorante = TextFieldIdRistorante.getText();
-        new ConnessioneController(idRistorante);
+        ConnessioneController connessioneController = ConnessioneController.getInstanza();
+        if(!connessioneController.controllaIdRistorante(idRistorante)){
+            Messaggio m = new Messaggio("Errore", "Non c'è il tuo ID nel database");
+            m.start(new Stage());
+        }else{
+            //Chiude la finestra e ne crea una nuova
+            Node node = (Node) actionEvent.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.close();
 
-            //Chiamo il metodo per vedere se l'id è presente
-            //Il server andrà a dare o true o false in caso di presenza del'id
-            //Se non c'è, messaggio di errore, altrimenti va avanti
-
-        //Chiude la finestra
-        Node node = (Node) actionEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.close();
-
-        VisualizzaRiderController visualizzarider = VisualizzaRiderController.getInstanza();
-        visualizzarider.mostra();
+            VisualizzaRiderController visualizzarider = VisualizzaRiderController.getInstanza();
+            visualizzarider.mostra();
+        }
     }
 }
 

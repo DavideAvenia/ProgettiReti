@@ -74,7 +74,9 @@ public class OrdiniDaEseguire {
         while(!ordiniEseguiti.containsKey(r)){
             wait();
         }
+        boolean flag = ordiniEseguiti.containsKey(r);
+
         notifyAll();
-        return ordiniEseguiti.containsKey(r);
+        return flag;
     }
 }

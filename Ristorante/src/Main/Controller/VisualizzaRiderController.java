@@ -13,10 +13,8 @@ import java.util.Scanner;
 public class VisualizzaRiderController {
 
     private static VisualizzaRiderController visualizzaRiderControllerInstanza = null;
-    private static VisualizzaRiderView visualizzarider = null;
 
     private VisualizzaRiderController() throws IOException {
-        visualizzarider = new VisualizzaRiderView();
     }
 
     public static VisualizzaRiderController getInstanza() throws IOException {
@@ -27,13 +25,12 @@ public class VisualizzaRiderController {
     }
 
     public void mostra() throws Exception {
-        visualizzarider.start(new Stage());
-
+        VisualizzaRiderView visualizzaRiderView = new VisualizzaRiderView();
+        visualizzaRiderView.start(new Stage());
     }
 
-    public void refresh() throws Exception {
-        System.out.println("refresh controller");
-        visualizzarider.refresh();
+    public void procediOrdine(){
+
     }
 }
 

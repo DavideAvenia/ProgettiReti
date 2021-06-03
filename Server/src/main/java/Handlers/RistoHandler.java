@@ -41,6 +41,7 @@ public class RistoHandler extends Thread{
             if(ret != null){
                 ristoranteAttuale = ret;
                 System.out.println(">>è stato richiesto il ristorante ["+ret.getIdRistorante()+"]: "+ret.getNome());
+                oosRistorante.writeUnshared(ret);
 
                 System.out.println(">>Inserisco nei ristoranti attivi il ristorante attuale");
                 VisualizzaRistorantiAttivi visualizzaRistorantiAttivi = VisualizzaRistorantiAttivi.getIstanza();
@@ -74,7 +75,9 @@ public class RistoHandler extends Thread{
 
                 //Quando ha completato l'ordine
                 //Chiama consumaRistorante per rimuoverlo dai ristoranti online
-                visualizzaRistorantiAttivi.consumaRistorante(ret);
+
+                //Leva il commento quando finisco tutto
+                //visualizzaRistorantiAttivi.consumaRistorante(ret);
 
                 socket.close();
                 this.interrupt();

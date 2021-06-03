@@ -1,6 +1,7 @@
 package View;
 
 import Controller.MostraMenuController;
+import Controller.MostraRiderController;
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -47,9 +48,7 @@ public class MostraMenuView extends Application implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            System.out.println("Salto qua");
             MostraMenuController mostraMenuController = MostraMenuController.getInstanza();
-            System.out.println("Salto qua 2");
             List<String> listaMenu = mostraMenuController.caricaMenu();
 
             listaProdotti.setEditable(false);
@@ -78,12 +77,18 @@ public class MostraMenuView extends Application implements Initializable {
         }
     }
 
-    public void effettuaOrdine(ActionEvent actionEvent) throws IOException {
+    public void effettuaOrdine(ActionEvent actionEvent) throws Exception {
         //Manda la lista delle stringhe con il cliente
         if(listaProdottiDaInviare.isEmpty()){
             new Messaggio("Errore","La lista è vuota, non puoi effettuare un ordine");
         }else{
             System.out.println(MostraMenuController.getInstanza().inviaOrdine(listaProdottiDaInviare));
+            MostraMenuController mostraMenuController = MostraMenuController.getInstanza();
+            if(mostraMenuController.inviaOrdine(listaProdottiDaInviare)){
+                MostraRiderController mostraRiderController = MostraRiderController.getInstanza();
+                mostraRiderController.mostra();
+            }
+
         }
     }
 }

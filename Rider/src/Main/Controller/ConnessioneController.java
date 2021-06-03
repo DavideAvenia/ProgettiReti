@@ -46,9 +46,9 @@ public class ConnessioneController {
         oos.writeObject(invRider);
 
         ois = new ObjectInputStream(socket.getInputStream());
-
         Rider ret;
         ret = (Rider) ois.readObject();
+
         if (ret != null) {
             riderAttuale = ret;
             return true;

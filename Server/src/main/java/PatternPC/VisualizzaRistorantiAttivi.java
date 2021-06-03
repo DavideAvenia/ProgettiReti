@@ -49,11 +49,13 @@ public class VisualizzaRistorantiAttivi {
         System.out.println(ristorantiAttivi);
     }
 
-    public boolean controllaPresenzaRistorante(Ristorante r) throws InterruptedException {
-        while(!ristorantiAttivi.add(r))
+    public synchronized boolean controllaPresenzaRistorante(Ristorante r) throws InterruptedException {
+        while(!ristorantiAttivi.contains(r))
             wait();
+
+        boolean flag = ristorantiAttivi.contains(r);
         notifyAll();
-        return ristorantiAttivi.contains(r);
+        return flag;
     }
 
 }

@@ -1,13 +1,8 @@
 package View;
 
-import Controller.ComunicazioneHandler;
-import Controller.ConnessioneController;
-import Controller.RiderHandler;
-import Model.Ordine;
 import Model.Rider;
+import PatternPC.RiderDisponibili;
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,10 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.*;
 
 public class VisualizzaRiderView extends Application implements Initializable {
 
@@ -36,9 +28,8 @@ public class VisualizzaRiderView extends Application implements Initializable {
 
     private String nomeRiderSelezionato;
 
-
-    ArrayList<Rider> riderConnessi = new ArrayList<Rider>();
-    ObservableList<String> nomiRider = FXCollections.observableArrayList("attendi");
+    private LinkedList<Rider> riderConnessi = new LinkedList<>();
+    private ObservableList<String> nomiRider = FXCollections.observableArrayList("attendi");
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -52,12 +43,12 @@ public class VisualizzaRiderView extends Application implements Initializable {
 
     public void refresh(){
         System.out.println("refresh view");
-        ComunicazioneHandler.ComunicazioneRiderHandler rider = new ComunicazioneHandler.ComunicazioneRiderHandler();
-        riderConnessi = rider.getRiderDisponibili();
+        RiderDisponibili riderDisponibili = RiderDisponibili.getIstanza();
+        riderConnessi = riderDisponibili.getRiderDisponibili();
         nomiRider.clear();
-       for(Rider i:riderConnessi){
-           nomiRider.add(i.getNome());
-       }
+        for(Rider i:riderConnessi){
+            nomiRider.add(i.getNome());
+        }
         System.out.println("nomi rider: " + nomiRider);
         listaRider.setItems(nomiRider);
         System.out.println("lista rider: " + listaRider.getItems());
@@ -86,7 +77,7 @@ public class VisualizzaRiderView extends Application implements Initializable {
 
     }
 
-    public void RefreshPremuto(ActionEvent actionEvent) {
+    public void RefreshPremuto(ActionEvent actionEvent) throws IOException {
         refresh();
     }
 }
