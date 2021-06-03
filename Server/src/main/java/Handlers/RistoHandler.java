@@ -48,7 +48,7 @@ public class RistoHandler extends Thread{
                 visualizzaRistorantiAttivi.produceRistorante(ristoranteAttuale);
 
                 //Thread-Safe se chiamato in locale
-                System.out.println(">>Sto controllando gli ordini da eseguire NEL HANDLER");
+                System.out.println(">>Sto controllando gli ordini da eseguire FUORI");
 
                 OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
                 Ordine ordine = ordiniDaEseguire.consumaOrdine(ristoranteAttuale);
@@ -71,13 +71,14 @@ public class RistoHandler extends Thread{
                 System.out.println(">>Si controlla l'esistenza del rider all'interno di un ordine");
                 ordiniDaEseguire.controllaPresenzaOrdineEseguito(rider);
 
+                sleep(10000);
                 System.out.println(">>Ordine eseguito con successo");
 
                 //Quando ha completato l'ordine
                 //Chiama consumaRistorante per rimuoverlo dai ristoranti online
 
                 //Leva il commento quando finisco tutto
-                //visualizzaRistorantiAttivi.consumaRistorante(ret);
+                visualizzaRistorantiAttivi.consumaRistorante(ret);
 
                 socket.close();
                 this.interrupt();

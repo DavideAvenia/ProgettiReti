@@ -55,6 +55,10 @@ public class ConnessioneController {
         } else
             return false;
     }
+
+    public void chiudiSocket() throws IOException {
+        socket.close();
+    }
 }
 
 

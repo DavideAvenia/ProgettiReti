@@ -46,4 +46,8 @@ public class ConnessioneController{
         }
         return true;
     }
+
+    public Socket getSocket() {
+        return socket;
+    }
 }

@@ -1,12 +1,7 @@
 package View;
 
 import Controller.ConnessioneController;
-import Controller.RiderHandler;
-import Controller.ServerHandler;
 import Controller.VisualizzaRiderController;
-import Model.Messaggio;
-import Model.Ordine;
-import Model.Rider;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,10 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ConnessioneView extends Application {
 

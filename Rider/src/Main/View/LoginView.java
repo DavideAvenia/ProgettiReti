@@ -49,12 +49,9 @@ public class LoginView extends Application {
                 Node node = (Node) actionEvent.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.close();
-                System.out.println("accetti l'ordine?");
 
                 ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
-                if(confermaOrdine.checkRichieste()) {
-                    confermaOrdine.mostra();
-                }
+                confermaOrdine.mostra();
             }
 
         } catch (IOException e) {

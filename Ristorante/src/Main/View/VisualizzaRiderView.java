@@ -1,5 +1,6 @@
 package View;
 
+import Controller.VisualizzaRiderController;
 import Model.Rider;
 import PatternPC.RiderDisponibili;
 import javafx.application.Application;
@@ -26,8 +27,8 @@ public class VisualizzaRiderView extends Application implements Initializable {
     @FXML
     private Label labelRiderSelezionato;
 
+    private Rider riderDaInviare;
     private String nomeRiderSelezionato;
-
     private LinkedList<Rider> riderConnessi = new LinkedList<>();
     private ObservableList<String> nomiRider = FXCollections.observableArrayList("attendi");
 
@@ -59,9 +60,6 @@ public class VisualizzaRiderView extends Application implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         listaRider.setEditable(true);
-        System.out.println("rider presi");
-        //nomiRider = FXCollections.observableArrayList(riderConnessi);
-        //nomiRider.addAll(riderConnessi);
         listaRider.setItems(nomiRider);
 
         labelRiderSelezionato.setText("Nessun selezionato");
@@ -73,8 +71,10 @@ public class VisualizzaRiderView extends Application implements Initializable {
                 });
     }
 
-    public void procediOrdine(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-
+    public void procediOrdine(ActionEvent actionEvent) throws Exception {
+        int index = listaRider.getSelectionModel().getSelectedIndex();
+        riderDaInviare = riderConnessi.get(index);
+        VisualizzaRiderController.getInstanza().procediOrdine(riderDaInviare);
     }
 
     public void RefreshPremuto(ActionEvent actionEvent) throws IOException {

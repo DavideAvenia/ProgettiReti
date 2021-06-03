@@ -3,13 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ConfermaOrdine">
+<AnchorPane prefHeight="186.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ConfermaOrdineView">
    <children>
-      <Pane layoutX="6.0" prefHeight="299.0" prefWidth="305.0">
+      <Pane fx:id="testoOrdine" layoutX="3.0" prefHeight="185.0" prefWidth="305.0">
          <children>
-            <Button fx:id="BottoneConferma" layoutX="46.0" layoutY="188.0" mnemonicParsing="false" onAction="#ConfermaPremuto" text="Conferma" />
-            <Button fx:id="BottoneAnnulla" layoutX="185.0" layoutY="188.0" mnemonicParsing="false" onAction="#AnnullaPremuto" text="Annulla" />
-            <Label fx:id="Text" layoutX="105.0" layoutY="60.0" text="Confermi l'ordine?" />
+            <Button fx:id="BottoneConferma" layoutX="70.0" layoutY="127.0" mnemonicParsing="false" onAction="#ConfermaPremuto" text="Conferma" />
+            <Button fx:id="BottoneAnnulla" layoutX="173.0" layoutY="127.0" mnemonicParsing="false" onAction="#AnnullaPremuto" text="Annulla" />
+            <Label fx:id="Text" layoutX="104.0" layoutY="26.0" text="Confermi l'ordine?" />
          </children></Pane>
    </children>
 </AnchorPane>
