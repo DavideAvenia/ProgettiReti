@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/*
+Questa classe si occupa di gestire le richieste di connessione
+che arrivano dai rider.
+
+ */
 public class ServerHandler extends Thread
 {
     private int i = 0;
@@ -24,6 +29,11 @@ public class ServerHandler extends Thread
         }
     }
 
+    /*
+    Quando arriva una connessione viene accettata e passata nel costruttore
+    del nuovo oggetto 'RiderHandler'. Finchè non ci sono nuove connessioni, la
+    funzione accept è bloccante.
+     */
     @Override
     public void run(){
         while(true) {

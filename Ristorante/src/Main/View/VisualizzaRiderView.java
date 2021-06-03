@@ -19,7 +19,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
-
+/*
+La classe si occupa di gestire l'interfaccia grafica di visualizzazione
+dei rider connessi.
+L'utente può premere sul pulsante 'refresh' per aggiornare la lista.
+ */
 public class VisualizzaRiderView extends Application implements Initializable {
 
     @FXML
@@ -42,6 +46,12 @@ public class VisualizzaRiderView extends Application implements Initializable {
 
     }
 
+    /*
+    In una linkedList 'riderConnessi' vengono salvati i rider disponibili.
+    L'observable List 'nomiRider' viene svuotata e riempita con i nomi appena presi
+    con la funzione 'getRiderDisponibili' della classe 'RiderDisponibili'.
+    Infine viene settata la listView con i nomi inseriti nella obervableList.
+     */
     public void refresh(){
         System.out.println("refresh view");
         RiderDisponibili riderDisponibili = RiderDisponibili.getIstanza();

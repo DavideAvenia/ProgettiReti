@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07a1d843-8bc5-47c3-82fb-e8aef090db7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Main/Controller/ComunicazioneHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Model/Rider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Model/Rider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/ConnessioneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Controller/RiderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/RiderHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Model/Rider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Model/Rider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Controller/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/ServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Controller/VisualizzaRiderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/VisualizzaRiderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/ConnessioneView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/View/VisualizzaRiderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/VisualizzaRiderView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/RistoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/RistoHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +34,6 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Educational Edition 2020.2.2\plugins\maven\lib\maven3" />
         <option name="workOffline" value="true" />
       </MavenGeneralSettings>
     </option>

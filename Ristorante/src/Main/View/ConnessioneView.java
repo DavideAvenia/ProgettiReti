@@ -13,6 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/*
+Questa classe si occupa di gestire l'interfaccia grafica di login dell'utente.
+L'utente inserisce l'id e poi preme il pulsante 'Accedi'.
+ */
+
 public class ConnessioneView extends Application {
 
     @FXML
@@ -29,9 +34,16 @@ public class ConnessioneView extends Application {
         primaryStage.show();
     }
 
-    // come prima cosa viene creata la serversocket per accetta le connessioni dei rider
-    // il un loop infinito accetta le connessioni sulla porta specificata nella serversocket
-    // poi crea una nuova connessione per ogni rider accettato e mostra la finestra di attesa
+    /*
+    La funzione viene invocata quando l'utente preme sul bottone accedi.
+    Come prima cosa viene memorizzato l'id inserito dall'utente e viene stabilita la
+    connessione con il server richiamando il 'getInstanza' della classe 'ConnessioneController'.
+    Nel costrutto if viene chiama la funzione 'controllaIdristorante' della stessa classe,
+    che si occupa di controllare la presenza dell'id passato come parametro se sia presente
+    nella base di dati. Se non è presente viene visualizzato a schermo un messaggio di errore.
+    Altrimenti la finestra di login viene chiusa e viene aperta quella che fa visualizzare
+    i rider che sono connessi in quel momento.
+     */
     public void AccediPremuto(ActionEvent actionEvent) throws Exception {
 
         String idRistorante = TextFieldIdRistorante.getText();

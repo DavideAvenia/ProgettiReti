@@ -10,25 +10,46 @@ import Queries.ControllaID;
 import java.io.*;
 import java.net.Socket;
 
-// controller per la connessione del ristorante con il rider
+/*
+Questa classe si occupa di gestire la connessione tra il ristorante e il rider.
+Viene creato un thread per ogni rider che si collega, in modo da avere
+concorrenza tra i rider connessi.
+ */
 public class RiderHandler extends Thread {
     private int port = 32000;
     private Socket socket;
 
     private String idRistorante;
     private Rider rider;
-    // il costruttore prende la socket che è stata creata e la salva
-    // stanzia il canali di comunicazione di lettura e scrittura con il rider
-    // infine chiama run
+
+    /*
+    Il costruttore ha come parametri una variabile di tipo Socket che viene salvata
+    nella variabile 'socket'. Infine fa partire la funzione run().
+     */
     public RiderHandler(Socket s) throws Exception {
         socket = s;
         start();
     }
 
+    /*
+    Come prima cosa viene creato il canale stream di lettura con il rider,
+    viene letto l'id inviato dal Rider e viene controllato nella base di dati.
+    Se il controllo non va a buon fine viene scritto sul canale di scrittura un oggetto 'null',
+    altrimenti manda l'oggetto rider che è stato trovato nella base di dati.
+    Dato che il rider è stato confermato, viene aggiunto alla lista di rider disponibili
+    a prendere un ordine, viene utilizzata la funzione 'produce' del pattern
+    produttore-consumatore.
+    A questo punto viene letto il messaggio del primo rider che ha risposto,
+    se ha confermato allora si procede alla gestione dell'ordine: viene consumato dalla
+    lista attraverso la funzione 'consume' del pattern produttore-consumatore, e viene
+    inviato al rider attraverso il canale di scrittura. Infine il rider che ha confermato
+    viene inserito nella lista di rider che hanno confermato e dopo una pausa viene
+    eliminato.
+    se il ride non ha confermato, ...
+     */
     public void run () {
         try {
             ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
-            // controllo che l'id del rider è presente del DB
             rider = (Rider) ios.readObject();
             ControllaID check = new ControllaID();
             Model.Rider ret = check.controllaIDQuery(rider.getIdRider());
@@ -40,17 +61,12 @@ public class RiderHandler extends Thread {
             } else {
                 //Manda l'oggetto rider creato
                 System.out.println("rider connesso[" + ret.getIdRider() + "]: " + ret.getNome() + " " + ret.getCognome());
-                // viene inviato un ok al rider
-                // per confermare che l'id è nel DB, quindi viene aggiunto
-                // alla lista di rider connessi
                 oos.writeObject(ret);
 
                 System.out.println("Sto producendo un rider");
                 RiderDisponibili riderDisponibili = RiderDisponibili.getIstanza();
                 riderDisponibili.produceRider(ret);
 
-                // invio dell'ordine al rider
-                // consumo l'ordine e il rider dall'handler
                 System.out.println("Sto andando a prendere un ordine da dare al rider");
                 ObjectInputStream oisConferma = new ObjectInputStream(socket.getInputStream());
                 String letturaConferma = (String) oisConferma.readUnshared();
@@ -77,11 +93,6 @@ public class RiderHandler extends Thread {
                     //Altrimenti rimuovi il rider dalla lista dei rider
                 }
 
-
-                // se non è quello con cui ho aperto la socket allora
-                // lo rimetto dentro
-                // solo se il rider che prendo dalla lista e il rider con il quale
-                // sto comunicando mando l'ordine da accettare
             }
 
             socket.close();

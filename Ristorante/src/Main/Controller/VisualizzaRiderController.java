@@ -12,6 +12,10 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+Questa classe si occupa di gestire le funzionalità messe a disposizione alla View
+'VisualizzaRiderView'.
+ */
 public class VisualizzaRiderController {
 
     private Socket socket = ConnessioneController.getInstanza().getSocket();
@@ -32,8 +36,11 @@ public class VisualizzaRiderController {
         visualizzaRiderView.start(new Stage());
     }
 
+    /*
+    Una volta aperto il canale stream di scrittura 'oos' viene inviato il rider
+    al server, che si occuperà di inviarlo al client
+     */
     public void procediOrdine(Rider r) throws IOException {
-        //Invia il rider per poterlo far leggere al server e poi inviarlo al client
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         oos.writeUnshared(r);
 
