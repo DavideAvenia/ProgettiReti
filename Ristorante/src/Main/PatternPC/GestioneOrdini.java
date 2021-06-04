@@ -4,6 +4,14 @@ import Model.Ordine;
 
 import java.util.LinkedList;
 
+/*
+Questa classe si occupa della gestione della lista degli ordini,
+che vengono prodotti dai client e consumati dai ristoranti che li
+inviano ai Rider.
+Anche in questa classe è stato implementato il pattern singleton,
+quindi il costruttore è privato, e viene richiamato nella funzione
+'getIstanza'.
+ */
 public class GestioneOrdini {
 
     private LinkedList<Ordine> listaOrdini;
@@ -20,6 +28,13 @@ public class GestioneOrdini {
         return istanza;
     }
 
+    /*
+    La funzione ha il compito di inserire l'ordine specificato come parametro nella
+    lista degli Ordini. Se la lista è piena, cioè contiene 10 o più elementi allora
+    rimane in attesa, quando la lista non è piena, invece, l'ordine può essere
+    aggiunto alla lista degli ordini. infine vengono notificati tutti i thread.
+    La funzione ritorna un flag boolean.
+     */
     public synchronized boolean produceOrdine(Ordine o) throws InterruptedException {
         while(listaOrdini.size() >= 10){
             wait();
@@ -30,6 +45,13 @@ public class GestioneOrdini {
         return flag;
     }
 
+    /*
+    La funzione è il lato consumatore del pattern produttore-consumatore.
+    Attende finchè la lista è vuota, dopo di che prende l'ordine in testa
+    alla lista degli ordini ma senza rimuoverlo. Infine invia una notifica
+    a tutti gli altri thread.
+    La funzione ritorna l'ordine che è stato preso in testa alla lista.
+     */
     public synchronized Ordine consumaOrdine() throws InterruptedException {
         while(listaOrdini.isEmpty()){
             wait();

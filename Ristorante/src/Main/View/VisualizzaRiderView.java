@@ -47,9 +47,10 @@ public class VisualizzaRiderView extends Application implements Initializable {
     }
 
     /*
-    In una linkedList 'riderConnessi' vengono salvati i rider disponibili.
-    L'observable List 'nomiRider' viene svuotata e riempita con i nomi appena presi
-    con la funzione 'getRiderDisponibili' della classe 'RiderDisponibili'.
+    In una linkedList 'riderConnessi' vengono salvati i rider disponibili
+    memorizzati della lista 'riderDisponibili' della omonima classe.
+    L'observable List 'nomiRider' viene svuotata e riempita attraverso un for
+    con i nomi appena memorizzati in 'riderConnessi'.
     Infine viene settata la listView con i nomi inseriti nella obervableList.
      */
     public void refresh(){
@@ -81,12 +82,22 @@ public class VisualizzaRiderView extends Application implements Initializable {
                 });
     }
 
+    /*
+    La funzione viene attivata quando l'utente preme il bottone 'Procedi Ordine'.
+    Come prima cosa viene identificato il Rider selezionato dall'utente, e poi
+    viene richiamata la funzione 'procediOrdine' della classe 'VisualizzaRiderController'
+    che si occupa di inviare il Rider selezionato al server.
+     */
     public void procediOrdine(ActionEvent actionEvent) throws Exception {
         int index = listaRider.getSelectionModel().getSelectedIndex();
         riderDaInviare = riderConnessi.get(index);
         VisualizzaRiderController.getInstanza().procediOrdine(riderDaInviare);
     }
 
+    /*
+    La funzione viene chiamata nel momento in cui l'utente preme sul bottone
+    'Refresh'. Viene richiamata la funzione refresh specificata prima.
+     */
     public void RefreshPremuto(ActionEvent actionEvent) throws IOException {
         refresh();
     }

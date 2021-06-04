@@ -16,7 +16,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.Socket;
 
-
+/*
+Questa classe si occupa di gestire l'interfaccia grafica di login dell'utente.
+L'utente inserisce l'id e poi preme il pulsante 'Accedi'.
+ */
 public class LoginView extends Application {
 
     @FXML
@@ -30,6 +33,15 @@ public class LoginView extends Application {
         primaryStage.show();
     }
 
+    /*
+    La funzione viene invocata quando l'utente Rider preme sul bottone 'Accedi'.
+    Viene memorizzato l'id immesso dall'utente e passato alla funzione 'inviaRider'
+    della classe 'ConnessioneController' per il controllo nella base di dati.
+    Se non c'è una corrispondenza viene fatto visualizzare all'utente un messaggio
+    di errore e l'utente dovrà effetturare nuovamente l'accesso.
+    Se invece c'è corrispondenza nella base di dati viene chiusa la finestra di
+    login e viene aperta quella per confermare l'ordine.
+     */
     public void AccediPremuto(ActionEvent actionEvent) {
         try {
             ConnessioneController connessioneController = ConnessioneController.getInstanza();
