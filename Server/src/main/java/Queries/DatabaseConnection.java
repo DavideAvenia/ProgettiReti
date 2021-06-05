@@ -2,6 +2,11 @@ package Queries;
 
 import java.sql.*;
 
+/*
+Questa classe si occupa della connessione con la base di dati.
+L'indirizzo di connessione, username e password per effettuare il login
+sono memorizzati rispettivamente nelle variabili 'URL', 'USER', e 'PASS'.
+ */
 public class DatabaseConnection {
 
     private final String URL = "jdbc:mysql://localhost:3306/progettoreti";

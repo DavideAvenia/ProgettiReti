@@ -15,6 +15,16 @@ import java.net.Socket;
 import java.sql.SQLException;
 import java.util.*;
 
+/*
+Questa classe si occupa di gestire la comunicazione e la
+connessione con i ristoranti sulla porta memorizzata nella
+variabile 'port'. E' stata scelta la porta 31000.
+Nella variabile 'socket' viene memorizzata la socket passata nella
+firma del costruttore, mentre nella variabile 'ristoranteAttuale' viene
+memorizzato il ristorante con il quale sta comunicando il server.
+Viene creato un thread per ogni ristorante che si collega, in modo da avere
+concorrenza tra i ristoranti connessi.
+ */
 public class RistoHandler extends Thread{
     private int port = 31000;
     private Socket socket;
@@ -27,6 +37,24 @@ public class RistoHandler extends Thread{
         start();
     }
 
+/*
+La funzione viene attivata dal costruttore.
+Viene letto l'id inviato dal ristorante e viene salvato nella variabile 'r', e viene
+controllata se esiste nella base di dati.
+Se c'è corrispondenza, il ristorante trovato nella base di dati viene assegnato alla
+variabile 'ristoranteAttuale' e viene inviato al ristorante come conferma della corrispondenza.
+Il ristorante viene aggiunto alla lista dei ristoranti attivi tramite la procedura
+'produceRistornate' della classe 'VisualizzaRistorantiAttivi'. Poi viene atteso
+che tra gli ordini da eseguire ci sia un ordine per il ristorante con cui si sta
+comunicando, quando viene trovato viene inviato al ristorante tramite il canale stream
+di scrittura 'oosOrdine'. Viene ricevuto il rider nel canale di lettura 'iosRider'
+e viene inserito nella lista dei Rider disponibili.
+Per simulare il tempo di consegna dell'ordine, viene invocata la funzione
+'sleep' per 10 secondi, dopo di che il ristorante viene rimosso dalla lista dei
+ristoranti attivi con la funzione 'consumaRistorante'. Infine chiude la Socket.
+Se non c'è corrispondenza nella base di dati, viene inviato un oggetto ristorante
+null e viene chiusa la socket.
+ */
     public void run(){
         try {
             //Leggere l'id del ristorante e salvarlo
@@ -47,7 +75,6 @@ public class RistoHandler extends Thread{
                 VisualizzaRistorantiAttivi visualizzaRistorantiAttivi = VisualizzaRistorantiAttivi.getIstanza();
                 visualizzaRistorantiAttivi.produceRistorante(ristoranteAttuale);
 
-                //Thread-Safe se chiamato in locale
                 System.out.println(">>Sto controllando gli ordini da eseguire FUORI");
 
                 OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
@@ -55,16 +82,13 @@ public class RistoHandler extends Thread{
 
                 ordiniDaEseguire.visualizzaListaOrdiniDaEseguire();
 
-                //Manda l'ordine all'handler del ristorante
                 System.out.println(">>Sto scrivendo l'ordine da eseguire");
                 ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
                 oosOrdine.writeUnshared(ordine);
 
-                //Qua deve ricevere il rider
                 ObjectInputStream iosRider = new ObjectInputStream(socket.getInputStream());
                 Rider rider = (Rider) iosRider.readUnshared();
 
-                //Qui produrrà il rider
                 ConfermaRider confermaRider = ConfermaRider.getIstanza();
                 confermaRider.produceRider(rider);
 
@@ -83,7 +107,6 @@ public class RistoHandler extends Thread{
                 socket.close();
                 this.interrupt();
             }else{
-                //Manda l'oggetto Ristorante null
                 oosRistorante.writeUnshared(null);
                 System.out.println("Non ci sono ristoranti con questo ID");
                 socket.close();

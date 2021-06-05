@@ -5,18 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07a1d843-8bc5-47c3-82fb-e8aef090db7e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Main/Controller/ConnessioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/Main/Controller/MostraMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Main/Controller/MostraMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Main/View/ConnessioneView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdineView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdineView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/Messaggio.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/Messaggio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/PatternPC/GestioneOrdini.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/PatternPC/GestioneOrdini.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/PatternPC/GestioneRider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/PatternPC/GestioneRider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/PatternPC/RiderDisponibili.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/PatternPC/RiderDisponibili.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/View/Messaggio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/Messaggio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/View/VisualizzaRiderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/VisualizzaRiderView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/RistoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/RistoHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/ConfermaRider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/ConfermaRider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/OrdiniDaEseguire.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/OrdiniDaEseguire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/VisualizzaRistorantiAttivi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/VisualizzaRistorantiAttivi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDRistorante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/MostraMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/MostraMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/VisualizzaRistoranti.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/VisualizzaRistoranti.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

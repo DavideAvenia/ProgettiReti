@@ -34,10 +34,6 @@ public class ConnessioneView extends Application {
 
     public void apriConnessione(javafx.event.ActionEvent actionEvent) {
         try {
-            //Chiamo il metodo per vedere se l'id è presente
-            //Il server andrà a dare o true o false in caso di presenza del'id
-            //Se non c'è, messaggio di errore al lato del server, altrimenti va avanti
-
             String id = textFieldIdCliente.getText();
             ConnessioneController connessioneController = ConnessioneController.getInstanza();
 

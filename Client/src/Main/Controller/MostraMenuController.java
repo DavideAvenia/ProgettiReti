@@ -13,6 +13,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Questa classe si occupa di gestire la comunicazione
+ */
 public class MostraMenuController {
 
     private Ristorante ristoranteUtile;

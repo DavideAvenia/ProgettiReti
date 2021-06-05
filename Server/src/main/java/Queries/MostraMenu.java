@@ -6,6 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/*
+Questa classe si occupa di effettuare la query relativa al menu del ristorante
+specificato nella firma della funzione.
+La funzione ritorna un ArrayList contenente gli elementi del menu del
+ristorante richiesto.
+ */
 public class MostraMenu {
     public ArrayList<String> MostraMenuQuery(Ristorante r) throws SQLException {
         DatabaseConnection dbconn = new DatabaseConnection();

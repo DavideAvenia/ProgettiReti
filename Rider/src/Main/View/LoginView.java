@@ -47,9 +47,6 @@ public class LoginView extends Application {
             ConnessioneController connessioneController = ConnessioneController.getInstanza();
             String idRider = TextfieldAccessoRider.getText();
 
-            //Chiamo il metodo per vedere se l'id è presente
-            //Il server andrà a dare o true o false in caso di presenza del'id
-            //Se non c'è, messaggio di errore, altrimenti va avanti
 
             if(!connessioneController.inviaIdRider(idRider)){
                 //Finestra di errore

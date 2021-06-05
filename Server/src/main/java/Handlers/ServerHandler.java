@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/*
+Questa classe serve a smistare le connessioni con i ristoranti
+e le connessioni con i client in base alla porta che viene passata
+nella firma del costruttore.
+ */
 public class ServerHandler extends Thread
 {
     private int i = 0;
@@ -14,6 +19,9 @@ public class ServerHandler extends Thread
         this.port = port;
     }
 
+    /*
+    Viene avviata una serversocket sulla porta specificata nella firma.
+     */
     public void startServer(){
         try {
             serverSocket = new ServerSocket(port);
@@ -24,6 +32,16 @@ public class ServerHandler extends Thread
         }
     }
 
+    /*
+    La funzione è chiusa in un loop infinito.
+    Come prima cosa accetta una connessione e la salva nella variabile 'socket'.
+    In base alla porta viene invocata la creazione di un oggetto diverso.
+    Se la porta è 30000 allora è un client che si vuole collegare al server, quindi
+    viene creato un oggetto di tipo 'ClientHandler'.
+    Se la porta è 31000 allora è un ristorante che si vuole collegare al server,
+    quindi viene creato un oggetto di tipo 'RistoHandler'.
+    Se la porta non corrisponde ad una di queste due viene chiusa la socket.
+     */
     @Override
     public void run(){
         while(true) {
