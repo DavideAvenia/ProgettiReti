@@ -77,13 +77,17 @@ public class VisualizzaRistorantiAttivi {
     ristorante specificato nella firma.
      */
     public synchronized boolean controllaPresenzaRistorante(Ristorante r) throws InterruptedException {
-        while(!ristorantiAttivi.contains(r))
+        while(ristorantiAttivi.isEmpty())
             wait();
 
-        boolean flag = ristorantiAttivi.contains(r);
-        System.out.println("Il ristorante è presente " + r.getNome());
+        boolean ret = false;
+        for (Ristorante check: ristorantiAttivi) {
+            if(check.getIdRistorante().equals(r.getIdRistorante()))
+                ret = true;
+        }
         notifyAll();
-        return flag;
+        return ret;
+
     }
 
 }

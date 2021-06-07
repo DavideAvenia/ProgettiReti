@@ -131,4 +131,22 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="WindowStateProjectService">
+    <state width="637" height="179" key="GridCell.Tab.0.bottom" timestamp="1623063780960">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="637" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1623063780960" />
+    <state width="637" height="179" key="GridCell.Tab.0.center" timestamp="1623063780960">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="637" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1623063780960" />
+    <state width="637" height="179" key="GridCell.Tab.0.left" timestamp="1623063780960">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="637" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1623063780960" />
+    <state width="637" height="179" key="GridCell.Tab.0.right" timestamp="1623063780960">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="637" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1623063780960" />
+  </component>
 </project>
