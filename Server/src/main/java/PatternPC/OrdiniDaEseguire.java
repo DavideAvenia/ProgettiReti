@@ -5,6 +5,7 @@ import Model.Rider;
 import Model.Ristorante;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 
 /*
 Questa classe si occupa della gestione degli ordini da eseguire con
@@ -18,6 +19,7 @@ una sola istanza della classe.
 public class OrdiniDaEseguire {
     private HashMap<Ristorante,Ordine> ordiniDaEseguire;
     private HashMap<Rider, Ordine> ordiniEseguiti;
+    private LinkedList<Ordine> ordiniPerId = (LinkedList<Ordine>) ordiniDaEseguire.values();
     private static OrdiniDaEseguire istanza = null;
 
     private OrdiniDaEseguire(){
@@ -42,8 +44,8 @@ public class OrdiniDaEseguire {
             wait();
         }
 
-        System.out.println("Ho prodotto un ordine: Al "+ o.getRistorante() + " di " + o.getCliente());
         ordiniDaEseguire.put(o.getRistorante(), o);
+        System.out.println("HO PRODOTTO UN ORDINE AL "+ o.getRistorante() + " di " + o.getCliente());
         notifyAll();
         return true;
     }
@@ -56,12 +58,20 @@ public class OrdiniDaEseguire {
     La funzione ritorna l'ordine trovato.
      */
     public synchronized Ordine consumaOrdine (Ristorante ristorante) throws InterruptedException {
-        while (ordiniDaEseguire.isEmpty() || ordiniDaEseguire.containsKey(ristorante)) {
+        while (ordiniDaEseguire.isEmpty()) {
             wait();
         }
 
+        boolean flag = false;
+        Ordine ordineDaImportare = new Ordine();
         System.out.println("Sto consumando l'ordine al " + ristorante.getNome());
-        Ordine ordineDaImportare = ordiniDaEseguire.get(ristorante);
+        for (Ordine o: ordiniPerId) {
+            if(ristorante.getIdRistorante().equals(o.getRistorante().getIdRistorante())){
+                ordineDaImportare = o;
+                flag = true;
+            }
+        }
+        System.out.println(flag);
         notifyAll();
         return ordineDaImportare;
     }

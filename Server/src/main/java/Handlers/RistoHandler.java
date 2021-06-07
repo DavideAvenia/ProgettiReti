@@ -82,6 +82,8 @@ null e viene chiusa la socket.
                 OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
                 Ordine ordine = ordiniDaEseguire.consumaOrdine(ristoranteAttuale);
 
+                System.out.println("---------->>>> ORDINE DA ESEGUIRE");
+                System.out.println(ordine.getCliente() + " DI " + ordine.getRistorante());
                 ordiniDaEseguire.visualizzaListaOrdiniDaEseguire();
 
                 System.out.println(">>Sto scrivendo l'ordine da eseguire");
