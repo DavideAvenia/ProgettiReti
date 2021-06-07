@@ -43,6 +43,7 @@ public class ConfermaOrdineController {
      */
     public Ordine checkRichieste() throws IOException, ClassNotFoundException {
         ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
+        System.out.println("ricevo dal ristorante l'ordine da eseguire");
         Ordine ordine = (Ordine) ios.readObject();
         return ordine;
     }
@@ -50,6 +51,7 @@ public class ConfermaOrdineController {
     public void mostra() throws Exception {
         ConfermaOrdineView confermaordine = new ConfermaOrdineView();
         confermaordine.start(new Stage());
+        System.out.println("finestra di conferma ordine mostrata, premi accetta o conferma");
     }
 
     /*
@@ -61,10 +63,12 @@ public class ConfermaOrdineController {
      */
     public String conferma() throws Exception {
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+        System.out.println("invio la stringa 'conferma' al ristorante");
         oos.writeObject("conferma");
         System.out.println("ordine confermato");
         String clienteDaServire = c.getIdCliente() + c.getNome() + c.getCognome();
         socket.close();
+        System.out.println("chiusura socket");
         return clienteDaServire;
     }
 
@@ -75,9 +79,11 @@ public class ConfermaOrdineController {
      */
     public void annulla() throws Exception {
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+        System.out.println("invio della stringa 'annulla' al ristorante");
         oos.writeObject("annulla");
         System.out.println("ordine annullato");
         socket.close();
+        System.out.println("chiusura socket");
     }
 
 }

@@ -104,6 +104,7 @@ public class ConfermaOrdineView extends Application implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             ConfermaOrdineController confermaOrdineController = ConfermaOrdineController.getInstanza();
+            System.out.println("vado a prendere l'ordine da poter confermare");
             ordineDaConfermare = confermaOrdineController.checkRichieste();
 
             Messaggio m = new Messaggio("Ordine da effettuare", ordineDaConfermare.getProdotti() + "\n" +

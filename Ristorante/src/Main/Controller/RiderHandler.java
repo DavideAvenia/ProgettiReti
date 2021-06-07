@@ -45,52 +45,61 @@ public class RiderHandler extends Thread {
     inviato al rider attraverso il canale di scrittura. Infine il rider che ha confermato
     viene inserito nella lista di rider che hanno confermato e dopo una pausa viene
     eliminato.
-    se il ride non ha confermato, ...
+    se il rider non ha confermato, viene interrotta la connessione con la chiusura della
+    socket e interrotto il thread. Il Rider dovrà effettuare nuovamente l'accesso per
+    ottenere un nuovo ordine.
      */
     public void run () {
         try {
             ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
+            System.out.println("leggo il rider");
             rider = (Rider) ios.readObject();
+            System.out.println("faccio la query con l'id del rider ricevuto");
             ControllaID check = new ControllaID();
             Model.Rider ret = check.controllaIDQuery(rider.getIdRider());
+
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             if (ret == null) {
-                //Manda l'oggetto rider null
                 oos.writeObject(null);
                 System.out.println("Non ci sono rider con questo ID");
             } else {
-                //Manda l'oggetto rider creato
                 System.out.println("rider connesso[" + ret.getIdRider() + "]: " + ret.getNome() + " " + ret.getCognome());
+                System.out.println("Invio del rider ottenuto dalla base di dati");
                 oos.writeObject(ret);
 
-                System.out.println("Sto producendo un rider");
+                System.out.println("Sto producendo il rider disponibile");
                 RiderDisponibili riderDisponibili = RiderDisponibili.getIstanza();
                 riderDisponibili.produceRider(ret);
 
                 System.out.println("Sto andando a prendere un ordine da dare al rider");
                 ObjectInputStream oisConferma = new ObjectInputStream(socket.getInputStream());
+                System.out.println("leggo la conferma dal rider");
                 String letturaConferma = (String) oisConferma.readUnshared();
 
                 if(letturaConferma.equals("conferma")){
-                    //Gestisco l'ordine solo dopo la conferma
                     GestioneOrdini gestioneOrdini = GestioneOrdini.getIstanza();
+                    System.out.println("consumo un ordine ");
                     Ordine o = gestioneOrdini.consumaOrdine();
 
                     ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
+                    System.out.println("scrivo l'ordine al rider");
                     oosOrdine.writeUnshared(o);
 
                     Rider r;
                     ObjectInputStream oosRiderConfermato = new ObjectInputStream(socket.getInputStream());
+                    System.out.println("ricevo il rider confermato");
                     r = (Rider) oosRiderConfermato.readUnshared();
 
                     GestioneRider gestioneRiderConfermati = GestioneRider.getIstanza();
+                    System.out.println("Produzione rider inviati");
                     gestioneRiderConfermati.produceRiderInviati(r);
 
                     System.out.println("Rider inviato e mi preparo a rimuoverlo");
                     sleep(10000);
                     gestioneRiderConfermati.consumaRiderInviati(r);
                 }else{
-                    //Altrimenti rimuovi il rider dalla lista dei rider
+                    System.out.println("Ordine rifiutato, chiusura socket e chiusura thread");
+                    socket.close();
                 }
 
             }

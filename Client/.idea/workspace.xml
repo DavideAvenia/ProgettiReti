@@ -20,25 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../Rider/.idea/libraries/lib2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ristorante/.idea/libraries/lib2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/ConnessioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Controller/MostraMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/MostraMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/ConnessioneView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/Rider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/Rider.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdineView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdineView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/LoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/RistoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/RistoHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/ConfermaRider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/ConfermaRider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/OrdiniDaEseguire.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/OrdiniDaEseguire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/VisualizzaRistorantiAttivi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/VisualizzaRistorantiAttivi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDRistorante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/MostraMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/MostraMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/VisualizzaRistoranti.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/VisualizzaRistoranti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/RiderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/RiderHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/VisualizzaRiderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/VisualizzaRiderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Queries/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Queries/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRiderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/VisualizzaRiderView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +127,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ristorante" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
@@ -262,77 +259,5 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="435" y="188" key="#Notifications" timestamp="1622010181399">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="435" y="188" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1622010181399" />
-    <state x="440" y="94" key="#Project_Structure" timestamp="1620837326882">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1620837326882" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1622714492305">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1622714492305" />
-    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1621538154333">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1621538154333" />
-    <state x="1227" y="278" key="FileChooserDialogImpl" timestamp="1622622427332">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="778" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1622010275607" />
-    <state x="1227" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622622427332" />
-    <state width="1877" height="218" key="GridCell.Tab.0.bottom" timestamp="1622720479404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1320" height="181" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1622017334987" />
-    <state width="1877" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622720479404" />
-    <state width="1877" height="218" key="GridCell.Tab.0.center" timestamp="1622720479404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1320" height="181" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1622017334987" />
-    <state width="1877" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622720479404" />
-    <state width="1877" height="218" key="GridCell.Tab.0.left" timestamp="1622720479404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1320" height="181" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1622017334987" />
-    <state width="1877" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622720479404" />
-    <state width="1877" height="218" key="GridCell.Tab.0.right" timestamp="1622720479404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1320" height="181" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1622017334987" />
-    <state width="1877" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622720479404" />
-    <state width="1877" height="286" key="GridCell.Tab.1.bottom" timestamp="1620751720155">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="286" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620751720155" />
-    <state width="1877" height="286" key="GridCell.Tab.1.center" timestamp="1620751720155">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="286" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620751720155" />
-    <state width="1877" height="286" key="GridCell.Tab.1.left" timestamp="1620751720155">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="286" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620751720155" />
-    <state width="1877" height="286" key="GridCell.Tab.1.right" timestamp="1620751720155">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="286" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620751720155" />
-    <state x="313" y="0" key="SettingsEditor" timestamp="1622010250160">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="313" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1622010250160" />
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1621262901388" />
-    <state x="473" y="212" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1620837579853">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="473" y="212" key="com.intellij.javaee.MapExternalResourceDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620837579853" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1620746762871">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620746762871" />
   </component>
 </project>

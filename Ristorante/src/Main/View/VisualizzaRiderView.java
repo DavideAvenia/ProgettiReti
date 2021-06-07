@@ -54,8 +54,8 @@ public class VisualizzaRiderView extends Application implements Initializable {
     Infine viene settata la listView con i nomi inseriti nella obervableList.
      */
     public void refresh(){
-        System.out.println("refresh view");
         RiderDisponibili riderDisponibili = RiderDisponibili.getIstanza();
+        System.out.println("prendo il rider disponibili");
         riderConnessi = riderDisponibili.getRiderDisponibili();
         nomiRider.clear();
         for(Rider i:riderConnessi){
@@ -89,9 +89,11 @@ public class VisualizzaRiderView extends Application implements Initializable {
     che si occupa di inviare il Rider selezionato al server.
      */
     public void procediOrdine(ActionEvent actionEvent) throws Exception {
+        System.out.println("Bottone procedi ordine premuto");
         int index = listaRider.getSelectionModel().getSelectedIndex();
         riderDaInviare = riderConnessi.get(index);
         VisualizzaRiderController.getInstanza().procediOrdine(riderDaInviare);
+        System.out.println("procedi ordine completato");
     }
 
     /*
@@ -99,6 +101,7 @@ public class VisualizzaRiderView extends Application implements Initializable {
     'Refresh'. Viene richiamata la funzione refresh specificata prima.
      */
     public void RefreshPremuto(ActionEvent actionEvent) throws IOException {
+        System.out.println("bottone refresh premuto");
         refresh();
     }
 }

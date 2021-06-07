@@ -76,10 +76,12 @@ public class ConnessioneController {
 
         Rider invRider = new Rider(idRider, null, null);
         oos = new ObjectOutputStream(socket.getOutputStream());
+        System.out.println("invio del rider al ristorante per la verifica");
         oos.writeObject(invRider);
 
         ois = new ObjectInputStream(socket.getInputStream());
         Rider ret;
+        System.out.println("leggo la risposta della verifica da parte del ristorante");
         ret = (Rider) ois.readObject();
 
         if (ret != null) {
@@ -93,6 +95,7 @@ public class ConnessioneController {
     La funzione ha il compito di chiudere la socket.
      */
     public void chiudiSocket() throws IOException {
+        System.out.println("chiusura della socket del rider");
         socket.close();
     }
 }

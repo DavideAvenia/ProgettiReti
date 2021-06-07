@@ -45,19 +45,22 @@ public class ConnessioneView extends Application {
     i rider che sono connessi in quel momento.
      */
     public void AccediPremuto(ActionEvent actionEvent) throws Exception {
-
+        System.out.println("botto Accedi premuto");
         String idRistorante = TextFieldIdRistorante.getText();
+        System.out.println("Id inserito salvato");
         ConnessioneController connessioneController = ConnessioneController.getInstanza();
         if(!connessioneController.controllaIdRistorante(idRistorante)){
             Messaggio m = new Messaggio("Errore", "Non c'è il tuo ID nel database");
             m.start(new Stage());
         }else{
             //Chiude la finestra e ne crea una nuova
+            System.out.println("chiusura finestra di login");
             Node node = (Node) actionEvent.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();
 
             VisualizzaRiderController visualizzarider = VisualizzaRiderController.getInstanza();
+            System.out.println("Procedo a mostrare la finestra di visualizzazione rider");
             visualizzarider.mostra();
         }
     }

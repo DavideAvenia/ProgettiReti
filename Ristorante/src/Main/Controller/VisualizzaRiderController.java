@@ -42,6 +42,7 @@ public class VisualizzaRiderController {
      */
     public void procediOrdine(Rider r) throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+        System.out.println("Invio il rider al server");
         oos.writeUnshared(r);
 
     }

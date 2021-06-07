@@ -52,9 +52,11 @@ public class ConnessioneController{
         Ristorante invRistorante = new Ristorante(id, null, null);
 
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+        System.out.println("Invio del ristorante");
         oos.writeUnshared(invRistorante);
 
         ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+        System.out.println("Ricevo il ristorante di conferma");
         Ristorante ret = (Ristorante) ois.readUnshared();
         ristoranteAttuale = ret;
         if(ret == null){

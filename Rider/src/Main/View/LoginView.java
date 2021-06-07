@@ -43,23 +43,24 @@ public class LoginView extends Application {
     login e viene aperta quella per confermare l'ordine.
      */
     public void AccediPremuto(ActionEvent actionEvent) {
+        System.out.println("bottone Accedi premuto");
         try {
             ConnessioneController connessioneController = ConnessioneController.getInstanza();
             String idRider = TextfieldAccessoRider.getText();
 
-
+            System.out.println("vado a controllare se l'id del rider esiste nella base di dati");
             if(!connessioneController.inviaIdRider(idRider)){
-                //Finestra di errore
                 Messaggio m = new Messaggio("Errore","Non c'è il tuo ID nel database");
                 m.start(new Stage());
             }else {
-                //Chiude la finestra
                 System.out.println("id controllato");
+                System.out.println("chiusura della finestra di login");
                 Node node = (Node) actionEvent.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.close();
 
                 ConfermaOrdineController confermaOrdine = ConfermaOrdineController.getInstanza();
+                System.out.println("vado a mostrare la finestra di conferma ordine");
                 confermaOrdine.mostra();
             }
 
