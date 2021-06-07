@@ -93,7 +93,6 @@ public class VisualizzaRiderView extends Application implements Initializable {
         int index = listaRider.getSelectionModel().getSelectedIndex();
         riderDaInviare = riderConnessi.get(index);
         VisualizzaRiderController.getInstanza().procediOrdine(riderDaInviare);
-        System.out.println("procedi ordine completato");
     }
 
     /*

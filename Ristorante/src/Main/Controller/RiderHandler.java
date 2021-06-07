@@ -9,6 +9,7 @@ import Queries.ControllaID;
 
 import java.io.*;
 import java.net.Socket;
+import java.sql.SQLException;
 
 /*
 Questa classe si occupa di gestire la connessione tra il ristorante e il rider.
@@ -67,49 +68,46 @@ public class RiderHandler extends Thread {
                 System.out.println("Invio del rider ottenuto dalla base di dati");
                 oos.writeObject(ret);
 
-                System.out.println("Sto producendo il rider disponibile");
+                System.out.println(">>>Sto producendo il rider disponibile");
                 RiderDisponibili riderDisponibili = RiderDisponibili.getIstanza();
                 riderDisponibili.produceRider(ret);
 
-                System.out.println("Sto andando a prendere un ordine da dare al rider");
-                ObjectInputStream oisConferma = new ObjectInputStream(socket.getInputStream());
-                System.out.println("leggo la conferma dal rider");
-                String letturaConferma = (String) oisConferma.readUnshared();
+                GestioneOrdini gestioneOrdini = GestioneOrdini.getIstanza();
+                System.out.println(">>>consumo un ordine");
+                Ordine ordineConsumato = gestioneOrdini.consumaOrdine();
 
-                if(letturaConferma.equals("conferma")){
-                    GestioneOrdini gestioneOrdini = GestioneOrdini.getIstanza();
-                    System.out.println("consumo un ordine ");
-                    Ordine o = gestioneOrdini.consumaOrdine();
+                System.out.println(ordineConsumato.getCliente().getIdCliente());
+                System.out.println(ordineConsumato.getProdotti());
+                System.out.println(ordineConsumato.getRistorante().getIdRistorante());
 
-                    ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
-                    System.out.println("scrivo l'ordine al rider");
-                    oosOrdine.writeUnshared(o);
+                ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
+                System.out.println(">>>scrivo l'ordine al rider");
+                oosOrdine.writeUnshared(ordineConsumato);
 
-                    Rider r;
-                    ObjectInputStream oosRiderConfermato = new ObjectInputStream(socket.getInputStream());
-                    System.out.println("ricevo il rider confermato");
-                    r = (Rider) oosRiderConfermato.readUnshared();
+                /*ObjectInputStream oosRiderConfermato = new ObjectInputStream(socket.getInputStream());
+                System.out.println("ricevo il rider confermato");
+                Rider r = (Rider) oosRiderConfermato.readUnshared();
 
-                    GestioneRider gestioneRiderConfermati = GestioneRider.getIstanza();
-                    System.out.println("Produzione rider inviati");
-                    gestioneRiderConfermati.produceRiderInviati(r);
+                GestioneRider gestioneRiderConfermati = GestioneRider.getIstanza();
+                System.out.println("Produzione rider inviati");
+                gestioneRiderConfermati.produceRiderInviati(r);*/
 
-                    System.out.println("Rider inviato e mi preparo a rimuoverlo");
-                    sleep(10000);
-                    gestioneRiderConfermati.consumaRiderInviati(r);
-                }else{
-                    System.out.println("Ordine rifiutato, chiusura socket e chiusura thread");
-                    socket.close();
-                }
+                System.out.println("Rider inviato e mi preparo a rimuoverlo");
+                sleep(10000);
 
+                socket.close();
             }
 
-            socket.close();
-            System.out.println("socket chiusa");
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (InterruptedException interruptedException) {
+            interruptedException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
         }
+
     }
 
 };

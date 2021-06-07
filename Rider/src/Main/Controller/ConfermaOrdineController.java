@@ -41,12 +41,6 @@ public class ConfermaOrdineController {
     viene salvato nella variabile 'ordine'.
     La funzione ritorna l'ordine che è stato ricevuto.
      */
-    public Ordine checkRichieste() throws IOException, ClassNotFoundException {
-        ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
-        System.out.println("ricevo dal ristorante l'ordine da eseguire");
-        Ordine ordine = (Ordine) ios.readObject();
-        return ordine;
-    }
 
     public void mostra() throws Exception {
         ConfermaOrdineView confermaordine = new ConfermaOrdineView();
@@ -62,14 +56,9 @@ public class ConfermaOrdineController {
     La funzione ritorna il cliente da servire.
      */
     public String conferma() throws Exception {
-        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-        System.out.println("invio la stringa 'conferma' al ristorante");
-        oos.writeObject("conferma");
-        System.out.println("ordine confermato");
-        String clienteDaServire = c.getIdCliente() + c.getNome() + c.getCognome();
-        socket.close();
-        System.out.println("chiusura socket");
-        return clienteDaServire;
+        ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+        Ordine o = (Ordine) ois.readUnshared();
+        return o.getCliente().getIdCliente();
     }
 
     /*
@@ -78,9 +67,6 @@ public class ConfermaOrdineController {
     "annulla". Infine viene chiusa la socket.
      */
     public void annulla() throws Exception {
-        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-        System.out.println("invio della stringa 'annulla' al ristorante");
-        oos.writeObject("annulla");
         System.out.println("ordine annullato");
         socket.close();
         System.out.println("chiusura socket");

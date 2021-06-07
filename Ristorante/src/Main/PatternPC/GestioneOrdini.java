@@ -41,6 +41,7 @@ public class GestioneOrdini {
         }
 
         boolean flag = listaOrdini.add(o);
+        System.out.println("HO PRODOTTO UN ORDINE AL "+ o.getRistorante() + " " + o.getCliente());
         notifyAll();
         return flag;
     }
