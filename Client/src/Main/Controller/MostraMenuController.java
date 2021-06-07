@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-Questa classe si occupa di gestire la comunicazione
+Questa classe si occupa di gestire
  */
 public class MostraMenuController {
 

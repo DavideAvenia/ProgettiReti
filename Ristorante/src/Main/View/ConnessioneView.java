@@ -45,7 +45,7 @@ public class ConnessioneView extends Application {
     i rider che sono connessi in quel momento.
      */
     public void AccediPremuto(ActionEvent actionEvent) throws Exception {
-        System.out.println("botto Accedi premuto");
+        System.out.println("bottone Accedi premuto");
         String idRistorante = TextFieldIdRistorante.getText();
         System.out.println("Id inserito salvato");
         ConnessioneController connessioneController = ConnessioneController.getInstanza();

@@ -18,7 +18,7 @@ public class ConnessioneController{
 
     private int port = 31000;
     private Socket socket;
-    private InetAddress addr = InetAddress.getByName("localhost");
+    private InetAddress addr = InetAddress.getByName("10.113.103.251");
 
     private static ConnessioneController instanza = null;
     private Ristorante ristoranteAttuale;
