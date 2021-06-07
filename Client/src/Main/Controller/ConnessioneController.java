@@ -20,8 +20,6 @@ public class ConnessioneController{
 
     private ObjectOutputStream oos = null;
     private ObjectInputStream ois = null;
-    private BufferedReader in;
-    private PrintWriter out;
 
     private InetAddress addr = InetAddress.getByName("localhost");
     private Cliente cliente;
@@ -35,9 +33,6 @@ public class ConnessioneController{
         try{
             socket = new Socket(this.addr, port);
             System.out.println("Client Socket: " + socket);
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
-            out = new PrintWriter(new BufferedWriter(osw), true);
         } catch(IOException e) {
             ois.close();
             oos.close();
