@@ -36,6 +36,7 @@ public class VisualizzaRistorantiAttivi {
             wait();
         }
 
+        System.out.println("Ho prodotto un ristorante" + ristorante.getNome());
         ristorantiAttivi.add(ristorante);
         notifyAll();
         return true;
@@ -53,7 +54,7 @@ public class VisualizzaRistorantiAttivi {
             wait();
         }
 
-        System.out.println("Sto controllando se il ristorante è presente DENTRO PC");
+        System.out.println("Sto controllando se il ristorante è presente dentro consumaRistorante");
         if(ristorantiAttivi.contains(ristorante)) {
             System.out.println("Il ristorante è presente, lo sto rimuovendo");
             ristorantiAttivi.remove(ristorante);
@@ -80,6 +81,7 @@ public class VisualizzaRistorantiAttivi {
             wait();
 
         boolean flag = ristorantiAttivi.contains(r);
+        System.out.println("Il ristorante è presente " + r.getNome());
         notifyAll();
         return flag;
     }

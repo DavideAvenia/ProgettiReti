@@ -66,35 +66,46 @@ public class ClientHandler extends Thread{
      */
     public void run(){
         try {
+            System.out.println(">Sto leggendo un cliente da Client");
             ObjectInputStream iosCliente = new ObjectInputStream(socket.getInputStream());
             Cliente c = (Cliente) iosCliente.readUnshared();
+
+            System.out.println(">Sto controllando l'id del cliente che mi è stato mandato da Client");
             ControllaIDCliente check = new ControllaIDCliente();
             Cliente ret = check.controllaIDQuery(c.getIdCliente());
 
             ObjectOutputStream oosCliente = new ObjectOutputStream(socket.getOutputStream());
 
-            if(ret != null) {
-                System.out.println("è stato richiesto l'utente["+ret.getIdCliente()+"]: "+ret.getNome()+" "+ret.getCognome());
+            if(ret != null){
+                System.out.println(">È stato richiesto l'utente["+ret.getIdCliente()+"]: "+ret.getNome()+" "+ret.getCognome());
                 oosCliente.writeUnshared(ret);
 
+                System.out.println(">Prendo la lista dei ristoranti dal database e la mando al Client");
                 VisualizzaRistoranti visualizzaRistoranti = new VisualizzaRistoranti();
                 ArrayList<Ristorante> nuovaLista = visualizzaRistoranti.VisualizzaRistorantiQuery();
+
+                System.out.println(">Scrivo la lista dei ristoranti nel Client");
                 ObjectOutputStream oosListRistoranti = new ObjectOutputStream(socket.getOutputStream());
                 oosListRistoranti.writeUnshared(nuovaLista);
-                System.out.println("Inviato");
 
+                System.out.println(">Aspetto la lettura di un ristorante scelto dal Cliente");
                 ObjectInputStream iosRistorante = new ObjectInputStream(socket.getInputStream());
                 Ristorante ristorante = (Ristorante) iosRistorante.readUnshared();
-                System.out.println(ristorante.getNome());
+
+                System.out.println(">Preso il ristorante " + ristorante.getNome());
                 MostraMenu mm = new MostraMenu();
+
+                System.out.println(">Invio il menu del ristorante al Client");
                 ArrayList<String> listaMenu = mm.MostraMenuQuery(ristorante);
                 ObjectOutputStream oosListaMenu = new ObjectOutputStream(socket.getOutputStream());
                 oosListaMenu.writeUnshared(listaMenu);
 
+                System.out.println(">Aspetto la lettura di un ordine da parte del Client");
                 ObjectInputStream iosOrdine = new ObjectInputStream(socket.getInputStream());
                 Ordine ordine = (Ordine) iosOrdine.readUnshared();
 
                 //Scenario produttore consumatore, il client è il produttore e il ristorante è il consumatore
+                System.out.println(">Sto per produrre un ordine da eseguire");
                 OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
                 ordiniDaEseguire.produceOrdine(ordine);
                 ordiniDaEseguire.visualizzaListaOrdiniDaEseguire();
@@ -107,11 +118,13 @@ public class ClientHandler extends Thread{
                 ConfermaRider confermaRider = ConfermaRider.getIstanza();
                 Rider rider = confermaRider.consumaRider();
 
+                System.out.println(">Sto scrivendo un rider al Client per la lettura dell'ID");
                 ObjectOutputStream oosIdRider = new ObjectOutputStream(socket.getOutputStream());
                 oosIdRider.writeUnshared(rider);
 
                 sleep(10000);
 
+                System.out.println(">Produco l'ordine eseguito");
                 ordiniDaEseguire.produceOrdineEseguiti(rider, ordine);
 
                 System.out.println(">Chiusura socket e' cliente servito con successo");
@@ -120,7 +133,7 @@ public class ClientHandler extends Thread{
                 this.interrupt();
             }else{
                 oosCliente.writeObject(null);
-                System.out.println("Non ci sono clienti con questo ID");
+                System.out.println(">Non ci sono clienti con questo ID");
                 socket.close();
             }
         } catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) {

@@ -47,19 +47,19 @@ public class ServerHandler extends Thread
         while(true) {
             try {
                 i++;
-                System.out.println( ">In attesa di una connesione: " + i);
+                System.out.println( "In attesa di una connesione: " + i);
                 Socket socket = serverSocket.accept();
                 switch (port){
                     case 30000:
-                        System.out.println(">Connessione accettata da "+ socket);
+                        System.out.println("Connessione accettata da "+ socket);
                         new ClientHandler(socket);
                     break;
                     case 31000:
-                        System.out.println(">Connessione accettata da "+ socket);
+                        System.out.println("Connessione accettata da "+ socket);
                         new RistoHandler(socket);
                     break;
                     default:
-                        System.out.println(">Non ci sono porte utili");
+                        System.out.println("Non ci sono porte utili");
                         socket.close();
                     break;
                 }

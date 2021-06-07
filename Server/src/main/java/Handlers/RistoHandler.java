@@ -58,25 +58,27 @@ null e viene chiusa la socket.
     public void run(){
         try {
             //Leggere l'id del ristorante e salvarlo
+            System.out.println(">>Sto aspettando la lettura di un ristorante da un Ristorante");
             ObjectInputStream iosRistorante = new ObjectInputStream(socket.getInputStream());
             Ristorante r = (Ristorante) iosRistorante.readUnshared();
 
+            System.out.println(">>Sto eseguendo la query per il controlloID di un Ristorante");
             ControllaIDRistorante check = new ControllaIDRistorante();
             Ristorante ret = check.controllaIDQuery(r.getIdRistorante());
 
             ObjectOutputStream oosRistorante = new ObjectOutputStream(socket.getOutputStream());
 
             if(ret != null){
-                ristoranteAttuale = ret;
                 System.out.println(">>è stato richiesto il ristorante ["+ret.getIdRistorante()+"]: "+ret.getNome());
+                ristoranteAttuale = ret;
+                System.out.println(">>Ho inviato il model.ristorante al Ristorante");
                 oosRistorante.writeUnshared(ret);
 
                 System.out.println(">>Inserisco nei ristoranti attivi il ristorante attuale");
                 VisualizzaRistorantiAttivi visualizzaRistorantiAttivi = VisualizzaRistorantiAttivi.getIstanza();
                 visualizzaRistorantiAttivi.produceRistorante(ristoranteAttuale);
 
-                System.out.println(">>Sto controllando gli ordini da eseguire FUORI");
-
+                System.out.println(">>Sto controllando gli ordini da eseguire dentro l'handler del ristorante");
                 OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
                 Ordine ordine = ordiniDaEseguire.consumaOrdine(ristoranteAttuale);
 
@@ -86,20 +88,25 @@ null e viene chiusa la socket.
                 ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
                 oosOrdine.writeUnshared(ordine);
 
+                System.out.println(">>Sto leggendo il rider da produrre");
                 ObjectInputStream iosRider = new ObjectInputStream(socket.getInputStream());
                 Rider rider = (Rider) iosRider.readUnshared();
 
+                System.out.println(">>Produco un rider che dovrà essere consumato da un cliente per la lettura dell'id");
                 ConfermaRider confermaRider = ConfermaRider.getIstanza();
                 confermaRider.produceRider(rider);
-
-                System.out.println(">>Si controlla l'esistenza del rider all'interno di un ordine");
-                ordiniDaEseguire.controllaPresenzaOrdineEseguito(rider);
 
                 sleep(10000);
                 System.out.println(">>Ordine eseguito con successo");
 
                 //Quando ha completato l'ordine
                 //Chiama consumaRistorante per rimuoverlo dai ristoranti online
+
+                System.out.println(">>Si controlla l'esistenza del rider all'interno di un ordine");
+                if(ordiniDaEseguire.controllaPresenzaOrdineEseguito(rider))
+                    System.out.println(">>Andato a buon fine");
+                else
+                    System.out.println(">>Non è presente");
 
                 //Leva il commento quando finisco tutto
                 visualizzaRistorantiAttivi.consumaRistorante(ret);

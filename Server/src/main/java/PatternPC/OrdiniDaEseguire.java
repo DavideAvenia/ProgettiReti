@@ -42,9 +42,9 @@ public class OrdiniDaEseguire {
             wait();
         }
 
+        System.out.println("Ho prodotto un ordine: Al "+ o.getRistorante() + " di " + o.getCliente());
         ordiniDaEseguire.put(o.getRistorante(), o);
         notifyAll();
-
         return true;
     }
 
@@ -60,7 +60,7 @@ public class OrdiniDaEseguire {
             wait();
         }
 
-        System.out.println("Sto controllando gli ordini da eseguire CONSUMA ORDINE");
+        System.out.println("Sto consumando l'ordine al " + ristorante.getNome());
         Ordine ordineDaImportare = ordiniDaEseguire.get(ristorante);
         notifyAll();
         return ordineDaImportare;
@@ -70,6 +70,7 @@ public class OrdiniDaEseguire {
     Funzione per la stampa degli elementi della lista 'ordiniDaEseguire'
      */
     public void visualizzaListaOrdiniDaEseguire(){
+        System.out.println("Stampa degli ordini da eseguire");
         System.out.println(ordiniDaEseguire);
     }
 
@@ -84,9 +85,9 @@ public class OrdiniDaEseguire {
             wait();
         }
 
+        System.out.println("Ho prodotto un ordine eseguito: "+ key.getCognome() + " -> " + value.getCliente().getCognome());
         ordiniEseguiti.put(key,value);
         notifyAll();
-
         return true;
     }
 
@@ -97,13 +98,13 @@ public class OrdiniDaEseguire {
     viene inviata una notifica agli altri thread.
      */
     public synchronized boolean consumaOrdineEseguiti(Rider r) throws InterruptedException {
-        while(ordiniEseguiti.isEmpty()){
+        while(ordiniEseguiti.isEmpty() || !ordiniEseguiti.containsValue(r)){
             wait();
         }
 
-        if(ordiniEseguiti.containsValue(r))
+        System.out.println("Sto rimuovendo il rider:" + r.getCognome());
+        ordiniEseguiti.remove(r);
         notifyAll();
-
         return true;
     }
 
@@ -117,7 +118,6 @@ public class OrdiniDaEseguire {
             wait();
         }
         boolean flag = ordiniEseguiti.containsKey(r);
-
         notifyAll();
         return flag;
     }
