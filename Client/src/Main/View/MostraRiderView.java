@@ -21,13 +21,14 @@ public class MostraRiderView extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MostraRider.fxml"));
         primaryStage.setTitle("Mostra Menu del ristorante");
-        primaryStage.setScene(new Scene(root, 300, 600));
+        primaryStage.setScene(new Scene(root, 255, 137));
         primaryStage.show();
     }
 
-    public void ControllaOrdine(ActionEvent actionEvent) throws IOException {
+    public void ControllaOrdine(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         MostraRiderController mostraRiderController = MostraRiderController.getInstanza();
 
         String idRider = mostraRiderController.ottieniRider();
+        testoRider.setText(idRider);
     }
 }
