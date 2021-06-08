@@ -19,9 +19,6 @@ Nella variabile 'riderAttuale' viene memorizzato il rider che
 accede tramite l'id.
 In questa classe viene implementato il pattern singleton, il costruttore
 infatti è privato e viene chiamato dalla funzione 'getInstanza'.
-Se non è stata già assegnata, assegna alla variabile 'instanza' un nuovo
-oggetto di tipo 'ConnessioneController', in ogni caso la funzione
-ritorna la variabile 'instanza'.
  */
 public class ConnessioneController {
     private String ip = "localhost";

@@ -16,8 +16,7 @@ Nella variabile 'socket' viene memorizzata la socket di connessione
 con il ristorante.
 Anche in questa classe viene implementato il pattern singleton
 impostando il costruttore privato e richiamandolo esclusivamente nella
-funzione 'getInstanza' che se non lo è già istanzia la variabile 'instanza',
-e poi la ritorna.
+funzione 'getInstanza'.
  */
 public class ConfermaOrdineController {
 

@@ -15,6 +15,12 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/*
+Questa classe si occupa di supportare e gestire l'interfaccia grafica
+di una finestra di messaggio.
+Attraverso il costruttore è possibile impostare il messaggio da far
+visualizzare all'utente.
+ */
 public class Messaggio extends Application implements Initializable {
 
     private static String title;
@@ -46,7 +52,10 @@ public class Messaggio extends Application implements Initializable {
         messaggioLabel.setText(messaggio);
     }
 
-
+    /*
+    La funzione viene attivata quando l'utente preme sul bottone.
+    Quando questo avviene la finestra viene chiusa.
+    */
     public void bottoneChiudiPremuto(ActionEvent actionEvent) {
         Node node = (Node) actionEvent.getSource();
         Stage stage = (Stage) node.getScene().getWindow();

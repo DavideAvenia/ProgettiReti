@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/*
+Questa classe si occupa di gestire l'interfaccia grafica della visualizzazione
+della finestra dove il rider può confermare o annullare la consegna di un ordine.
+ */
 public class ConfermaOrdineView extends Application {
 
     @FXML

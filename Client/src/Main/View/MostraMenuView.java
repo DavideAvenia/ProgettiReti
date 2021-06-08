@@ -24,6 +24,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/*
+Questa classe si occupa di gestire l'interfaccia grafica di visualizzazione del
+menu del ristorante scelto dal cliente.
+ */
 public class MostraMenuView extends Application implements Initializable {
 
     @FXML
@@ -77,6 +81,12 @@ public class MostraMenuView extends Application implements Initializable {
         }
     }
 
+    /*
+    La funzione viene chiamata quando il cliente preme sul bottone 'effettua ordine'.
+    Se la lista di prodotti è vuota viene fatto visualizzare un messaggio di errore,
+    altrimenti viene inviato l'ordine al server. Se l'invio va a buon fine viene
+    mostrata una finestra in cui viene visualizzato il rider che sta consegnando l'ordine.
+     */
     public void effettuaOrdine(ActionEvent actionEvent) throws Exception {
         //Manda la lista delle stringhe con il cliente
         if(listaProdottiDaInviare.isEmpty()){

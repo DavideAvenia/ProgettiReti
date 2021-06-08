@@ -14,7 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-Questa classe si occupa di gestire
+Questa classe si occupa di gestire le funzionalità messe a disposizione
+della view 'MostraMenuView' per la visualizzazione del menu in una listView.
+Nella variabile 'ristoranteUtile' viene salvato il ristorante di cui
+il cliente vuole visualizzare il menu.
+In questa classe è stato implementato il pattern singleton.
  */
 public class MostraMenuController {
 
@@ -33,6 +37,13 @@ public class MostraMenuController {
         return mostraMenuController;
     }
 
+    /*
+    la funzione ha lo scopo di caricare il menu del ristorante richiesto
+    nel campo 'menu' della variabile 'ristoranteUtile'.
+    Viene scritto sul canale stream di scrittura 'oos' il ristorante di cui si richiede
+    il menu. Viene letto il menu sul canale di lettura 'ios', e viene salvato nella
+    variabile 'listaMenu'. Infine viene settato e ritornato il menu del ristorante.
+     */
     public List<String> caricaMenu() throws IOException, ClassNotFoundException {
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         oos.writeUnshared(ristoranteUtile);
@@ -45,6 +56,13 @@ public class MostraMenuController {
         return listaMenu;
     }
 
+    /*
+    La funzione ha lo scopo di inviare l'ordine al server.
+    Viene creato un nuovo oggetto di tipo 'ordine' a cui vengono settati i campi relativi
+    al cliente, la lista di prodotti scelti, e il nome del ristorante.
+    La lista di prodotti scelti viene passata nella firma. Infine l'ordine viene
+    inviato al server tramite il canale di scrittura 'oos'.
+     */
     public boolean inviaOrdine(List<String> listaProdotti){
         try{
             Cliente cliente = ConnessioneController.getInstanza().getCliente();
@@ -58,6 +76,11 @@ public class MostraMenuController {
         }
     }
 
+    /*
+    la funzione ha il compito di settare il ristorante a partire dal suo nome.
+    Viene scorsa tutta la lista dei ristoranti finchè non si trova il ristorante il cui nome
+    combacia con la stringa passata nella firma.
+     */
     public void setRistoranteUtile(String nomeRistorante) throws IOException {
         List<Ristorante> listaRistoranti = VisualizzaRistoranteController.getInstanza().getListaRistoranti();
 

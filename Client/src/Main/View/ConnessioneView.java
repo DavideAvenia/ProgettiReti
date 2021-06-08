@@ -16,6 +16,10 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.IOException;
 
+/*
+Questa classe si occupa di gestire l'interfaccia grafica di login dell'utente.
+L'utente inserisce l'id e poi preme il pulsante 'Accedi'.
+ */
 public class ConnessioneView extends Application {
 
     @FXML
@@ -32,6 +36,14 @@ public class ConnessioneView extends Application {
         primaryStage.show();
     }
 
+    /*
+    La funzione viene chiamata quando l'utente preme sul pulsante 'accedi'.
+    Viene preso l'id inserito e salvato nella variabile 'id', per poterlo controllare
+    all'interno della base di dati una volta inviato al server.
+    Se non c'è corrispondenza viene fatto visualizzare all'utente un messaggio di errore,
+    altrimenti viene chiusa la finestra di login e viene fatta visualizzare la finestra
+    di visualizzazione dei ristoranti.
+     */
     public void apriConnessione(javafx.event.ActionEvent actionEvent) {
         try {
             String id = textFieldIdCliente.getText();
