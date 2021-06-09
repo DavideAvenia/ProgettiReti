@@ -14,7 +14,8 @@ per quando si vuole passare da un linguaggio ad un altro
  */
 public class DatabaseConnection {
 
-    private final String URL = "jdbc:mysql://8.tcp.ngrok.io:14466/progettoreti";
+    //private final String URL = "jdbc:mysql://8.tcp.ngrok.io:14466/progettoreti";
+    private final String URL = "jdbc:mysql://localhost:3306/progettoreti";
     private final String USER = "root";
     private final String PASS = "";
     private Statement stmt;

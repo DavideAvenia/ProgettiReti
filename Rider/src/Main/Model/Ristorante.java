@@ -9,7 +9,7 @@ public class Ristorante implements Serializable {
     private String nome;
     private ArrayList<String> menu;
 
-    public Ristorante(){
+    public Ristorante (){
 
     }
 
@@ -17,6 +17,20 @@ public class Ristorante implements Serializable {
         this.idRistorante = idRistorante;
         this.nome = nome;
         this.menu = menu;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if(!(other instanceof Ristorante))
+            return false;
+
+        Ristorante r = (Ristorante) other;
+        return this.idRistorante.equals(r.getIdRistorante());
+    }
+
+    @Override
+    public int hashCode() {
+        return idRistorante.hashCode();
     }
 
     public void setNome(String nome){
@@ -27,9 +41,7 @@ public class Ristorante implements Serializable {
         this.menu = menu;
     }
 
-    public String getIdRistorante(){
-        return idRistorante;
-    }
+    public String getIdRistorante(){return idRistorante;}
 
     public String getNome() {
         return nome;

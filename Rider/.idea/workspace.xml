@@ -134,7 +134,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ristorante" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
@@ -262,6 +262,28 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1623227639418">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623227639418" />
+    <state width="915" height="599" key="GridCell.Tab.0.bottom" timestamp="1623230739757">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="915" height="599" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1623230739757" />
+    <state width="915" height="599" key="GridCell.Tab.0.center" timestamp="1623230739757">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="915" height="599" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1623230739757" />
+    <state width="915" height="599" key="GridCell.Tab.0.left" timestamp="1623230739757">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="915" height="599" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1623230739757" />
+    <state width="915" height="599" key="GridCell.Tab.0.right" timestamp="1623230739757">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="915" height="599" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1623230739757" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Rider$Main.ic" NAME="Main Coverage Results" MODIFIED="1623069460228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -19,7 +19,6 @@ una sola istanza della classe.
 public class OrdiniDaEseguire {
     private HashMap<Ristorante,Ordine> ordiniDaEseguire;
     private HashMap<Rider, Ordine> ordiniEseguiti;
-    private LinkedList<Ordine> ordiniPerId = (LinkedList<Ordine>) ordiniDaEseguire.values();
     private static OrdiniDaEseguire istanza = null;
 
     private OrdiniDaEseguire(){
@@ -62,16 +61,9 @@ public class OrdiniDaEseguire {
             wait();
         }
 
-        boolean flag = false;
-        Ordine ordineDaImportare = new Ordine();
-        System.out.println("Sto consumando l'ordine al " + ristorante.getNome());
-        for (Ordine o: ordiniPerId) {
-            if(ristorante.getIdRistorante().equals(o.getRistorante().getIdRistorante())){
-                ordineDaImportare = o;
-                flag = true;
-            }
-        }
-        System.out.println(flag);
+        //boolean flag = false;
+        Ordine ordineDaImportare = ordiniDaEseguire.get(ristorante);
+        System.out.println("Sto consumando l'ordine al " + ordineDaImportare.getRistorante().getNome());
         notifyAll();
         return ordineDaImportare;
     }
