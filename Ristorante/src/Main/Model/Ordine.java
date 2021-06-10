@@ -19,6 +19,21 @@ public class Ordine implements Serializable {
         this.ristorante = ristorante;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if(!(other instanceof Ordine))
+            return false;
+
+        Ordine o = (Ordine) other;
+        return this.getCliente().getIdCliente().equals(o.getCliente().getIdCliente()) &&
+                this.getRistorante().getIdRistorante().equals(o.getRistorante().getIdRistorante());
+    }
+
+    @Override
+    public int hashCode() {
+        return cliente.getIdCliente().hashCode() ^ ristorante.getIdRistorante().hashCode();
+    }
+
     public Cliente getCliente(){
         return this.cliente;
     }

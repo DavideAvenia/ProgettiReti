@@ -37,26 +37,27 @@ public class RiderDisponibili {
         }
 
         riderDisponibili.add(r);
+        System.out.println("Ho aggiunto il rider: " + r.getCognome() + " alla lista dei rider disponibili");
         notifyAll();
-
         return true;
     }
 
     /*
-    La funzione ha il fine di prendere il primo elemento della lista di rider disponibili.
-    Se la lista è vuota attende, altrimenti viene preso l'elemento. Infine vengono
-    notificati gli altri thread. La funzione ritorna il rider che è stato preso dalla
+    La funzione ha il fine di prendere un rider della lista di rider disponibili.
+    Se la lista è vuota oppure non contiene il rider atteso attende, altrimenti viene preso l'elemento.
+    Infine vengono notificati gli altri thread. La funzione ritorna il rider che è stato preso dalla
     lista 'riderDisponibili'.
      */
-    public synchronized Rider consumaRider () throws InterruptedException {
-        while (riderDisponibili.isEmpty()) {
+    public synchronized Rider consumaRider (Rider r) throws InterruptedException {
+        while (riderDisponibili.isEmpty() || !riderDisponibili.contains(r)) {
             wait();
         }
 
         System.out.println("Sto controllando gli ordini da eseguire CONSUMA RIDER");
-        Rider r = riderDisponibili.peek();
+        int i = riderDisponibili.indexOf(r);
+        Rider ret = riderDisponibili.remove(i);
         notifyAll();
-        return r;
+        return ret;
     }
 
     /*

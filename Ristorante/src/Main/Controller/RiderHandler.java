@@ -3,7 +3,6 @@ package Controller;
 import Model.Ordine;
 import Model.Rider;
 import PatternPC.GestioneOrdini;
-import PatternPC.GestioneRider;
 import PatternPC.RiderDisponibili;
 import Queries.ControllaID;
 
@@ -84,16 +83,13 @@ public class RiderHandler extends Thread {
                 System.out.println(">>>scrivo l'ordine al rider");
                 oosOrdine.writeUnshared(ordineConsumato);
 
-                /*ObjectInputStream oosRiderConfermato = new ObjectInputStream(socket.getInputStream());
-                System.out.println("ricevo il rider confermato");
-                Rider r = (Rider) oosRiderConfermato.readUnshared();
+                System.out.println(">>>Rider inviato");
+                System.out.println(">>>Rider rimosso dalla pool dei rider disponibili");
+                riderDisponibili.consumaRider(rider);
 
-                GestioneRider gestioneRiderConfermati = GestioneRider.getIstanza();
-                System.out.println("Produzione rider inviati");
-                gestioneRiderConfermati.produceRiderInviati(r);*/
-
-                System.out.println("Rider inviato e mi preparo a rimuoverlo");
                 sleep(10000);
+
+
 
                 socket.close();
             }

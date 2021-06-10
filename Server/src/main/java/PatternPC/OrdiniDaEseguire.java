@@ -61,7 +61,6 @@ public class OrdiniDaEseguire {
             wait();
         }
 
-        //boolean flag = false;
         Ordine ordineDaImportare = ordiniDaEseguire.get(ristorante);
         System.out.println("Sto consumando l'ordine al " + ordineDaImportare.getRistorante().getNome());
         notifyAll();
@@ -99,15 +98,15 @@ public class OrdiniDaEseguire {
     è vuota. Se esiste un elemento all'interno che ha come chiave il rider specificato,
     viene inviata una notifica agli altri thread.
      */
-    public synchronized boolean consumaOrdineEseguiti(Rider r) throws InterruptedException {
+    public synchronized Ordine consumaOrdineEseguiti(Rider r) throws InterruptedException {
         while(ordiniEseguiti.isEmpty() || !ordiniEseguiti.containsValue(r)){
             wait();
         }
 
         System.out.println("Sto rimuovendo il rider:" + r.getCognome());
-        ordiniEseguiti.remove(r);
+        Ordine ordiniEseguito = ordiniEseguiti.remove(r);
         notifyAll();
-        return true;
+        return ordiniEseguito;
     }
 
     /*

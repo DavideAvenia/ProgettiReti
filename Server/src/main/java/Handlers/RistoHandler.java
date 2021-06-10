@@ -105,9 +105,11 @@ null e viene chiusa la socket.
                 //Chiama consumaRistorante per rimuoverlo dai ristoranti online
 
                 System.out.println(">>Si controlla l'esistenza del rider all'interno di un ordine");
-                if(ordiniDaEseguire.controllaPresenzaOrdineEseguito(rider))
+                if(ordiniDaEseguire.controllaPresenzaOrdineEseguito(rider)){
                     System.out.println(">>Andato a buon fine");
-                else
+                    Ordine ordineNotifica = ordiniDaEseguire.consumaOrdineEseguiti(rider);
+                    System.out.println(">>Ordine notificato:" + ordineNotifica.getRistorante().getNome() + " -> " + ordineNotifica.getCliente().getCognome());
+                }else
                     System.out.println(">>Non è presente");
 
                 //Leva il commento quando finisco tutto
