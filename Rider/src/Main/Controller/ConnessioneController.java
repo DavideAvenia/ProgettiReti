@@ -7,7 +7,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 /*
-Questa classe si occupa di gestire la gestire la connessione
+Questa classe si occupa di gestire la connessione
 con il ristorante.
 Nella variabile 'addr' viene memorizzato l'indirizzo a cui il rider
 deve connettersi, mentre nella variabile 'port' la porta dedicata
@@ -62,9 +62,9 @@ public class ConnessioneController {
     /*
     La funzione ha il compito di inviare l'id del Rider al ristorante, per
     controllarne la presenza nella base di dati.
-    Viene una nuova variabile di tipo Rider con l'id specificato negli attributi
-    della funzione. Dopo di che viene creato il canale stram di scrittura dove viene
-    inviato il Rider appena creato. Viene creato anche il canale stream di lettura
+    Viene aperto il canale stream di scrittura 'oos' dove viene
+    inviato il Rider il cui ID viene specificato nella firma.
+    Viene creato, poi, anche il canale stream di lettura
     dove se viene letto un Rider allora viene assegnato alla variabile 'RiderAttuale' e
     la funzione ritorna 'true', altrimenti la funzione ritorna false, cioè non è
     stato trovato il rider nella base di dati.

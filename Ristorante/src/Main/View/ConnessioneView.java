@@ -39,9 +39,9 @@ public class ConnessioneView extends Application {
     Come prima cosa viene memorizzato l'id inserito dall'utente e viene stabilita la
     connessione con il server richiamando il 'getInstanza' della classe 'ConnessioneController'.
     Nel costrutto if viene chiama la funzione 'controllaIdristorante' della stessa classe,
-    che si occupa di controllare la presenza dell'id passato come parametro se sia presente
-    nella base di dati. Se non è presente viene visualizzato a schermo un messaggio di errore.
-    Altrimenti la finestra di login viene chiusa e viene aperta quella che fa visualizzare
+    che si occupa di controllare la presenza dell'id, passato nella firma, all'interno
+    della base di dati. Se non è presente viene visualizzato un messaggio di errore,
+    altrimenti la finestra di login viene chiusa e viene aperta quella che fa visualizzare
     i rider che sono connessi in quel momento.
      */
     public void AccediPremuto(ActionEvent actionEvent) throws Exception {

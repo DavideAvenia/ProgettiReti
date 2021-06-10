@@ -20,20 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../#Diagrammi/Effettua Ordine.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/../#Diagrammi/Effettua Ordine.mdj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/ConnessioneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Controller/MostraMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/MostraMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Controller/MostraRiderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/MostraRiderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Controller/VisualizzaRistoranteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller/VisualizzaRistoranteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/ConnessioneView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/View/Messaggio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/Messaggio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/View/MostraMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/MostraMenuView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/View/MostraRiderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/MostraRiderView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/View/VisualizzaRistoranteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/View/VisualizzaRistoranteView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConfermaOrdineController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/Controller/ConnessioneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdineView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rider/src/Main/View/ConfermaOrdineView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ConnessioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/RiderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/RiderHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/ServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/VisualizzaRiderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/Controller/VisualizzaRiderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/PatternPC/GestioneOrdini.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/PatternPC/GestioneOrdini.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ristorante/src/Main/View/ConnessioneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/RistoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/RistoHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Handlers/ServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/OrdiniDaEseguire.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/PatternPC/OrdiniDaEseguire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/Queries/ControllaIDRistorante.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +134,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ristorante" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3689655" />
@@ -257,31 +266,5 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1623229920507">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1623229920507" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1623343904007">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623343904007" />
-    <state width="1877" height="219" key="GridCell.Tab.0.bottom" timestamp="1623230769231">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="219" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1623230769231" />
-    <state width="1877" height="219" key="GridCell.Tab.0.center" timestamp="1623230769231">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="219" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1623230769231" />
-    <state width="1877" height="219" key="GridCell.Tab.0.left" timestamp="1623230769231">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="219" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1623230769231" />
-    <state width="1877" height="219" key="GridCell.Tab.0.right" timestamp="1623230769231">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="219" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1623230769231" />
   </component>
 </project>

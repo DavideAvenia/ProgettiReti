@@ -42,7 +42,7 @@ public class VisualizzaRistoranteController {
 
     /*
     La funzione ha lo scopo di riempire l'ArrayList dei ristoranti.
-    Viene letta una lista di nome dal canale stream di lettura 'ois', viene scorsa questa
+    Viene letta una lista di nomi dal canale stream di lettura 'ois', viene scorsa questa
     lista e per ogni elemento il nome viene salvato in un'altra lista: 'listaNomi'.
     Infine viene fatta ritornare la lista dei nomi.
      */

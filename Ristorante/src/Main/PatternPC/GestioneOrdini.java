@@ -10,7 +10,7 @@ che vengono prodotti dai client e consumati dai ristoranti che li
 inviano ai Rider.
 Anche in questa classe è stato implementato il pattern singleton,
 quindi il costruttore è privato, e viene richiamato nella funzione
-'getIstanza'.
+'getIstanza'. La lista degli ordini è costruita come LinkedList.
  */
 public class GestioneOrdini {
 
@@ -29,7 +29,7 @@ public class GestioneOrdini {
     }
 
     /*
-    La funzione ha il compito di inserire l'ordine specificato come parametro nella
+    La funzione ha il compito di inserire l'ordine, specificato nella firma, nella
     lista degli Ordini. Se la lista è piena, cioè contiene 10 o più elementi allora
     rimane in attesa, quando la lista non è piena, invece, l'ordine può essere
     aggiunto alla lista degli ordini. infine vengono notificati tutti i thread.

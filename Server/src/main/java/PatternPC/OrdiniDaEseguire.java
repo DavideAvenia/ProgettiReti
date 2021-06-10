@@ -50,10 +50,9 @@ public class OrdiniDaEseguire {
     }
 
     /*
-    La funzione ha lo scopo di prendere dalla lista 'ordiniDaEseguire' l'ordine effettuato al
+    La funzione ha lo scopo di prendere dall'hashMap 'ordiniDaEseguire' l'ordine effettuato al
     ristorante passato nella firma. Questo può avvenire solo se la lista non
-    è vuota e se esiste un elemento all'interno che ha come chiave il ristorante specificato.
-    Quando viene trovato viene inviata una notifica agli altri thread.
+    è vuota.
     La funzione ritorna l'ordine trovato.
      */
     public synchronized Ordine consumaOrdine (Ristorante ristorante) throws InterruptedException {
@@ -76,7 +75,7 @@ public class OrdiniDaEseguire {
     }
 
     /*
-    La funzione ha lo scopo di inserire nella lista 'ordiniEseguiti' l'elemento
+    La funzione ha lo scopo di inserire nell'hashMap 'ordiniEseguiti' l'elemento
     passato nella firma. Questo può avvenire solo se solo presenti un numero
     di elementi minori di 10, altrimenti la lista è considerata piena e si attende.
     Infine vengono notificati gli altri thread.

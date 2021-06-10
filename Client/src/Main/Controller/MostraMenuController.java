@@ -38,11 +38,12 @@ public class MostraMenuController {
     }
 
     /*
-    la funzione ha lo scopo di caricare il menu del ristorante richiesto
+    la funzione ha lo scopo di caricare il menu del ristorante richiesto,
     nel campo 'menu' della variabile 'ristoranteUtile'.
     Viene scritto sul canale stream di scrittura 'oos' il ristorante di cui si richiede
     il menu. Viene letto il menu sul canale di lettura 'ios', e viene salvato nella
-    variabile 'listaMenu'. Infine viene settato e ritornato il menu del ristorante.
+    variabile 'listaMenu'. Infine viene settato nella variabile 'ristoranteUtile',
+    e ritornato il menu del ristorante.
      */
     public List<String> caricaMenu() throws IOException, ClassNotFoundException {
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
@@ -77,7 +78,8 @@ public class MostraMenuController {
     }
 
     /*
-    la funzione ha il compito di settare il ristorante a partire dal suo nome.
+    la funzione ha il compito di settare la variabile 'ristoranteUtile' a partire dal nome
+    passato nella firma.
     Viene scorsa tutta la lista dei ristoranti finchè non si trova il ristorante il cui nome
     combacia con la stringa passata nella firma.
      */

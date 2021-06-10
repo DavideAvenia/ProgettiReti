@@ -7,7 +7,6 @@ import java.net.Socket;
 /*
 Questa classe si occupa di gestire le richieste di connessione
 che arrivano dai rider.
-
  */
 public class ServerHandler extends Thread
 {

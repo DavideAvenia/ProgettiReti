@@ -40,11 +40,8 @@ public class ConfermaOrdineView extends Application {
 
     /*
     La funzione viene attivata quando il Rider preme sul bottone 'conferma'.
-    Viene creato un nuovo oggetto di tipo 'ConfermaOrdineController' attraverso
-    la funzione 'getInstanza'. Poi viene creato un nuovo oggetto di tipo 'Messaggio'
-    dove negli attributi viene chiamata la funzione 'conferma' della classe
-    'confermaOrdine'. Viene fatto visualizzare il messaggio e infine viene chiusa la
-    socket.
+    Viene aperta una finestra dove viene visualizzato l'ordine da conseggnare
+    e viene chiusa la socket.
      */
     public void ConfermaPremuto(ActionEvent actionEvent) {
         try {
@@ -63,9 +60,7 @@ public class ConfermaOrdineView extends Application {
 
     /*
     la funzione viene attivata quando l'utente Rider preme sul bottone 'annulla'.
-    Viene creato un nuovo oggetto di tipo 'ConfermaOrdineController' attraverso la
-    funzione 'getInstanza' e viene chiamata la funzione 'annulla' della stessa
-    classe. Viene fatto visualizzare e il messaggio di consegna rifiutata e infine
+    Viene fatto visualizzare il messaggio di consegna rifiutata e infine
     viene chiusa la socket.
      */
     public void AnnullaPremuto(ActionEvent actionEvent) {

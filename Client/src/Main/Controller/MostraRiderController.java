@@ -12,8 +12,7 @@ import java.net.Socket;
 /*
 Questa classe si occupa di gestire le funzionalità messe a disposizione
 della view 'MostraRiderView' per la visualizzazione dell'id del rider al cliente.
-Nella variabile 'riderUtile' viene salvato il rider che effettua l'ordine
-che è stato inviato.
+Nella variabile 'riderUtile' viene salvato il rider che effettua l'ordine inviato.
 In questa classe è stato implementato il pattern singleton.
  */
 public class MostraRiderController {
@@ -39,7 +38,7 @@ public class MostraRiderController {
     }
 
     /*
-    La funzione legge dal canale di lettura il rider inviato dal server e
+    La funzione legge dal canale di lettura 'ois' il rider inviato dal server e
     lo assegna alla variabile 'riderUtile'. Viene fatto ritornare l'id del rider
     appena assegnato.
      */
