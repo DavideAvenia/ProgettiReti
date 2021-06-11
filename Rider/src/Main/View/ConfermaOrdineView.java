@@ -34,7 +34,7 @@ public class ConfermaOrdineView extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ConfermaOrdine.fxml"));
         stage.setTitle("Conferma ordine");
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root, 305, 185));
         stage.show();
     }
 

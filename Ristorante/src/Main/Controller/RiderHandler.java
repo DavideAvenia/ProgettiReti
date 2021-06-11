@@ -52,19 +52,19 @@ public class RiderHandler extends Thread {
     public void run () {
         try {
             ObjectInputStream ios = new ObjectInputStream(socket.getInputStream());
-            System.out.println("leggo il rider");
+            System.out.println(">>>leggo il rider");
             rider = (Rider) ios.readObject();
-            System.out.println("faccio la query con l'id del rider ricevuto");
+            System.out.println(">>>faccio la query con l'id del rider ricevuto");
             ControllaID check = new ControllaID();
             Model.Rider ret = check.controllaIDQuery(rider.getIdRider());
 
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             if (ret == null) {
                 oos.writeObject(null);
-                System.out.println("Non ci sono rider con questo ID");
+                System.out.println(">>>Non ci sono rider con questo ID");
             } else {
-                System.out.println("rider connesso[" + ret.getIdRider() + "]: " + ret.getNome() + " " + ret.getCognome());
-                System.out.println("Invio del rider ottenuto dalla base di dati");
+                System.out.println(">>>rider connesso[" + ret.getIdRider() + "]: " + ret.getNome() + " " + ret.getCognome());
+                System.out.println(">>>Invio del rider ottenuto dalla base di dati");
                 oos.writeObject(ret);
 
                 System.out.println(">>>Sto producendo il rider disponibile");
@@ -72,7 +72,7 @@ public class RiderHandler extends Thread {
                 riderDisponibili.produceRider(ret);
 
                 GestioneOrdini gestioneOrdini = GestioneOrdini.getIstanza();
-                System.out.println(">>>consumo un ordine");
+                System.out.println(">>>Consumo un ordine");
                 Ordine ordineConsumato = gestioneOrdini.consumaOrdine();
 
                 System.out.println(ordineConsumato.getCliente().getIdCliente());
@@ -80,7 +80,7 @@ public class RiderHandler extends Thread {
                 System.out.println(ordineConsumato.getRistorante().getIdRistorante());
 
                 ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
-                System.out.println(">>>scrivo l'ordine al rider");
+                System.out.println(">>>Scrivo l'ordine al rider");
                 oosOrdine.writeUnshared(ordineConsumato);
 
                 System.out.println(">>>Rider inviato");
@@ -88,8 +88,6 @@ public class RiderHandler extends Thread {
                 riderDisponibili.consumaRider(rider);
 
                 sleep(10000);
-
-
 
                 socket.close();
             }

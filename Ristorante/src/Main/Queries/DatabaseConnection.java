@@ -14,7 +14,6 @@ per quando si vuole passare da un linguaggio ad un altro
  */
 public class DatabaseConnection {
 
-    //private final String URL = "jdbc:mysql://8.tcp.ngrok.io:14466/progettoreti";
     private final String URL = "jdbc:mysql://localhost:3306/progettoreti";
     private final String USER = "root";
     private final String PASS = "";
@@ -33,7 +32,7 @@ public class DatabaseConnection {
     }
 
     /*
-    RusultSet è un insieme che contiene il risultato della query
+    RusultSet è una struttura dati che contiene il risultato della query
      */
     public ResultSet eseguiQuery(String query) throws SQLException{
         ResultSet resultSet = null;
