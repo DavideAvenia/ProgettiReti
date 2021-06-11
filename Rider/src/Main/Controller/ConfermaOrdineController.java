@@ -34,13 +34,6 @@ public class ConfermaOrdineController {
         return instanza;
     }
 
-    /*
-    La funzione serve a ricevere l'ordine dal ristorante. Come prima cosa
-    viene aperto il canale stream di lettura e poi viene letto l'ordine che
-    viene salvato nella variabile 'ordine'.
-    La funzione ritorna l'ordine che è stato ricevuto.
-     */
-
     public void mostra() throws Exception {
         ConfermaOrdineView confermaordine = new ConfermaOrdineView();
         confermaordine.start(new Stage());
@@ -48,11 +41,7 @@ public class ConfermaOrdineController {
     }
 
     /*
-    La funzione ha il compito di inviare il messaggio di avvenuta conferma al ristorante.
-    Come prima cosa viene aperto il canale stream di scrittura su cui viene scritto
-    il messaggio "conferma". Poi viene preso il cliente dalla variabile 'c' e
-    memorizzata nella variabile 'clienteDaServire' infine viene chiusa la socket.
-    La funzione ritorna il cliente da servire.
+    Viene aperto il canale di lettura 'ois' su cui viene ricevuto l'ordine.
      */
     public String conferma() throws Exception {
         ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
@@ -61,9 +50,7 @@ public class ConfermaOrdineController {
     }
 
     /*
-    La funzione ha il compito di inviare il messaggio di annulla.
-    Dopo aver aperto il canale stream di scrittura viene inviato il messaggio
-    "annulla". Infine viene chiusa la socket.
+    Il rider ha rifiutato l'ordine, quindi viene chiusa la socket.
      */
     public void annulla() throws Exception {
         System.out.println("ordine annullato");

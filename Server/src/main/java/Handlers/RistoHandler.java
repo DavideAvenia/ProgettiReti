@@ -37,27 +37,13 @@ public class RistoHandler extends Thread{
         start();
     }
 
-/*
-La funzione viene attivata dal costruttore.
-Viene letto l'id inviato dal ristorante e viene salvato nella variabile 'r', e viene
-controllata se esiste nella base di dati.
-Se c'è corrispondenza, il ristorante trovato nella base di dati viene assegnato alla
-variabile 'ristoranteAttuale' e viene inviato al ristorante come conferma della corrispondenza.
-Il ristorante viene aggiunto alla lista dei ristoranti attivi tramite la procedura
-'produceRistornate' della classe 'VisualizzaRistorantiAttivi'. Poi viene atteso
-che tra gli ordini da eseguire ci sia un ordine per il ristorante con cui si sta
-comunicando, quando viene trovato viene inviato al ristorante tramite il canale stream
-di scrittura 'oosOrdine'. Viene ricevuto il rider nel canale di lettura 'iosRider'
-e viene inserito nella lista dei Rider disponibili.
-Per simulare il tempo di consegna dell'ordine, viene invocata la funzione
-'sleep' per 10 secondi, dopo di che il ristorante viene rimosso dalla lista dei
-ristoranti attivi con la funzione 'consumaRistorante'. Infine chiude la Socket.
-Se non c'è corrispondenza nella base di dati, viene inviato un oggetto ristorante
-null e viene chiusa la socket.
- */
+
     public void run(){
         try {
             //Leggere l'id del ristorante e salvarlo
+            //Viene letto l'id inviato dal ristorante e viene salvato nella variabile 'r', e viene
+            //controllata se esiste nella base di dati.
+
             System.out.println(">>Sto aspettando la lettura di un ristorante da un Ristorante");
             ObjectInputStream iosRistorante = new ObjectInputStream(socket.getInputStream());
             Ristorante r = (Ristorante) iosRistorante.readUnshared();
@@ -67,17 +53,24 @@ null e viene chiusa la socket.
             Ristorante ret = check.controllaIDQuery(r.getIdRistorante());
 
             ObjectOutputStream oosRistorante = new ObjectOutputStream(socket.getOutputStream());
-
+            /*
+            Se c'è corrispondenza, il ristorante trovato nella base di dati viene assegnato alla
+            variabile 'ristoranteAttuale' e viene inviato al ristorante come conferma della corrispondenza.
+             */
             if(ret != null){
                 System.out.println(">>è stato richiesto il ristorante ["+ret.getIdRistorante()+"]: "+ret.getNome());
                 ristoranteAttuale = ret;
                 System.out.println(">>Ho inviato il model.ristorante al Ristorante");
                 oosRistorante.writeUnshared(ret);
 
+                //Il ristorante viene aggiunto alla lista dei ristoranti attivi tramite la procedura
+                //'produceRistornate' della classe 'VisualizzaRistorantiAttivi'.
                 System.out.println(">>Inserisco nei ristoranti attivi il ristorante attuale");
                 VisualizzaRistorantiAttivi visualizzaRistorantiAttivi = VisualizzaRistorantiAttivi.getIstanza();
                 visualizzaRistorantiAttivi.produceRistorante(ristoranteAttuale);
 
+                //Poi viene atteso che tra gli ordini da eseguire ci sia un ordine per
+                //il ristorante con cui si sta comunicando,
                 System.out.println(">>Sto controllando gli ordini da eseguire dentro l'handler del ristorante");
                 OrdiniDaEseguire ordiniDaEseguire = OrdiniDaEseguire.getIstanza();
                 Ordine ordine = ordiniDaEseguire.consumaOrdine(ristoranteAttuale);
@@ -86,18 +79,24 @@ null e viene chiusa la socket.
                 System.out.println(ordine.getCliente() + " DI " + ordine.getRistorante());
                 ordiniDaEseguire.visualizzaListaOrdiniDaEseguire();
 
+                //quando viene trovato viene inviato al ristorante tramite il canale stream
+                //di scrittura 'oosOrdine'.
                 System.out.println(">>Sto scrivendo l'ordine da eseguire");
                 ObjectOutputStream oosOrdine = new ObjectOutputStream(socket.getOutputStream());
                 oosOrdine.writeUnshared(ordine);
 
+                //Viene ricevuto il rider nel canale di lettura 'iosRider'...
                 System.out.println(">>Sto leggendo il rider da produrre");
                 ObjectInputStream iosRider = new ObjectInputStream(socket.getInputStream());
                 Rider rider = (Rider) iosRider.readUnshared();
-
+                //...e viene inserito nella lista dei Rider disponibili.
                 System.out.println(">>Produco un rider che dovrà essere consumato da un cliente per la lettura dell'id");
                 ConfermaRider confermaRider = ConfermaRider.getIstanza();
                 confermaRider.produceRider(rider);
 
+                //Per simulare il tempo di consegna dell'ordine, viene invocata la funzione
+                //'sleep' per 10 secondi, dopo di che il ristorante viene rimosso dalla lista dei
+                //ristoranti attivi con la funzione 'consumaRistorante'. Infine chiude la Socket.
                 sleep(10000);
                 System.out.println(">>Ordine eseguito con successo");
 
@@ -112,12 +111,13 @@ null e viene chiusa la socket.
                 }else
                     System.out.println(">>Non è presente");
 
-                //Leva il commento quando finisco tutto
                 visualizzaRistorantiAttivi.consumaRistorante(ret);
 
                 socket.close();
                 this.interrupt();
             }else{
+                //Se non c'è corrispondenza nella base di dati, viene inviato un oggetto ristorante
+                //null e viene chiusa la socket.
                 oosRistorante.writeUnshared(null);
                 System.out.println("Non ci sono ristoranti con questo ID");
                 socket.close();

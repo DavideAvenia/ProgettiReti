@@ -88,7 +88,6 @@ public class MostraMenuView extends Application implements Initializable {
     mostrata una finestra in cui viene visualizzato il rider che sta consegnando l'ordine.
      */
     public void effettuaOrdine(ActionEvent actionEvent) throws Exception {
-        //Manda la lista delle stringhe con il cliente
         if(listaProdottiDaInviare.isEmpty()){
             new Messaggio("Errore","La lista è vuota, non puoi effettuare un ordine");
         }else{

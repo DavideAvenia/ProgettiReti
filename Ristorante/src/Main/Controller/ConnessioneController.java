@@ -8,7 +8,7 @@ import java.net.Socket;
 
 /*
 Questa classe si occupa di gestire la connessione tra il ristorante e il server.
-E' stato scelto di gestire la comunicazione sulla porta 3100, salvata nella
+E' stato scelto di gestire la comunicazione sulla porta 31000, salvata nella
 variabile 'port'.
 Nella variabile 'socket' verrà salvata la socket di una specifica comunicazione tra
 il server ed uno specifico ristorante, che viene salvato nella variabile 'ristorante attuale'.

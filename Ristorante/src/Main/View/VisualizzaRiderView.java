@@ -34,7 +34,7 @@ public class VisualizzaRiderView extends Application implements Initializable {
     private Rider riderDaInviare;
     private String nomeRiderSelezionato;
     private LinkedList<Rider> riderConnessi = new LinkedList<>();
-    private ObservableList<String> nomiRider = FXCollections.observableArrayList("attendi");
+    private ObservableList<String> nomiRider = FXCollections.observableArrayList("clicca su aggiorna");
 
     @Override
     public void start(Stage primaryStage) throws Exception{

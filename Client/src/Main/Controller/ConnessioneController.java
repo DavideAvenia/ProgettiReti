@@ -48,10 +48,10 @@ public class ConnessioneController{
     }
 
     /*
-    La funzione ha lo scopo di inviare l'id passato come attributo al server, per
+    La funzione ha lo scopo di inviare l'id, specificato nella firma, al server, per
     verificarne la presenza all'interno della base di dati.
-    Viene aperto il canale di scrittura 'oos' dove viene inviaro il cliente, e viene
-    ricevuta la risposta della sul canale di lettura 'ois' e salvata nella variabile 'ret'.
+    Viene aperto il canale di scrittura 'oos' dove viene inviato il cliente, e viene
+    ricevuta la risposta sul canale di lettura 'ois' e salvata nella variabile 'ret'.
     Se non c'è corrispondenza allora il server risponde con un oggetto null e la funzione
     ritorna 'false', altrimenti la funzione ritorna 'true.
      */

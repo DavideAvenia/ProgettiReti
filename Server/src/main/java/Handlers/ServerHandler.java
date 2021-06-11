@@ -34,7 +34,6 @@ public class ServerHandler extends Thread
 
     /*
     La funzione è chiusa in un loop infinito.
-    Come prima cosa accetta una connessione e la salva nella variabile 'socket'.
     In base alla porta viene invocata la creazione di un oggetto diverso.
     Se la porta è 30000 allora è un client che si vuole collegare al server, quindi
     viene creato un oggetto di tipo 'ClientHandler'.
@@ -48,7 +47,8 @@ public class ServerHandler extends Thread
             try {
                 i++;
                 System.out.println( "In attesa di una connesione: " + i);
-                Socket socket = serverSocket.accept();
+//                Come prima cosa accetta una connessione e la salva nella variabile 'socket'.
+                        Socket socket = serverSocket.accept();
                 switch (port){
                     case 30000:
                         System.out.println("Connessione accettata da "+ socket);

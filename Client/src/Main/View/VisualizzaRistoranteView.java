@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /*
-Questa classe ha il compito di gestire l'interfaccia grafica di
+Questa classe si occupa di gestire l'interfaccia grafica di
 visualizzazione della lista dei ristoranti da cui è possibile ordinare.
  */
 public class VisualizzaRistoranteView extends Application implements Initializable {
